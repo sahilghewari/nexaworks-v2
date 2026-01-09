@@ -5,7 +5,11 @@ const phoneRegex = /^\+?[0-9\s().-]{7,20}$/;
 export const contactSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters."),
   email: z.string().trim().email("Please provide a valid email address."),
-  company: z.string().trim().min(2, "Company is required."),
+  company: z
+    .string()
+    .trim()
+    .optional()
+    .refine((value) => !value || value.length >= 2, "Company must be at least 2 characters."),
   phone: z
     .string()
     .trim()

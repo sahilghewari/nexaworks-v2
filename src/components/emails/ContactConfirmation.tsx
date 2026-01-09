@@ -14,14 +14,14 @@ import type { CSSProperties } from "react";
 
 interface ContactConfirmationProps {
   name: string;
-  company: string;
+  company?: string;
   message: string;
   siteUrl?: string;
 }
 
 export const ContactConfirmation = ({
   name,
-  company,
+  company = "N/A",
   message,
   siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.com",
 }: ContactConfirmationProps) => (

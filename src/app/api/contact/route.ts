@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { ContactConfirmation } from "@/components/emails/ContactConfirmation";
+import { InternalNotification } from "@/components/emails/InternalNotification";
 import { CONTACT_EMAIL, SUPPORT_EMAIL } from "@/lib/constants";
 import { jsonResponse, emptyResponse } from "@/lib/http";
 import { sendEmail, type SendEmailResult } from "@/lib/resend";
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
     const summaryLines = [
       `Name: ${data.name}`,
       `Email: ${data.email}`,
-      `Company: ${data.company}`,
+      `Company: ${data.company ?? "N/A"}`,
       `Phone: ${data.phone ?? "N/A"}`,
       "",
       "Message:",
@@ -51,6 +52,16 @@ export async function POST(request: NextRequest) {
       ? sendEmail({
           to: adminRecipients,
           subject: `New contact form submission from ${data.name}`,
+          react: InternalNotification({
+            title: "New contact form submission",
+            items: [
+              { label: "Name", value: data.name },
+              { label: "Email", value: data.email },
+              { label: "Company", value: data.company ?? "N/A" },
+              { label: "Phone", value: data.phone ?? "N/A" },
+              { label: "Message", value: data.message },
+            ],
+          }),
           text: summaryLines.join("\n"),
         })
       : Promise.resolve<SendEmailResult>({ id: null, skipped: true });

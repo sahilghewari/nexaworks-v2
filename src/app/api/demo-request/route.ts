@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { DemoRequestAck } from "@/components/emails/DemoRequestAck";
+import { InternalNotification } from "@/components/emails/InternalNotification";
 import { CONTACT_EMAIL, SUPPORT_EMAIL } from "@/lib/constants";
 import { jsonResponse, emptyResponse } from "@/lib/http";
 import { sendEmail, type SendEmailResult } from "@/lib/resend";
@@ -52,6 +53,18 @@ export async function POST(request: NextRequest) {
       ? sendEmail({
           to: adminRecipients,
           subject: `New demo request from ${data.name}`,
+          react: InternalNotification({
+            title: "New demo request",
+            items: [
+              { label: "Name", value: data.name },
+              { label: "Email", value: data.email },
+              { label: "Company", value: data.company },
+              { label: "Industry", value: data.industry },
+              { label: "Timeline", value: data.timeline },
+              { label: "Challenge", value: data.challenge },
+            ],
+            footerNote: "Respond within 24 hours to confirm the session.",
+          }),
           text: summaryLines.join("\n"),
         })
       : Promise.resolve<SendEmailResult>({ id: null, skipped: true });

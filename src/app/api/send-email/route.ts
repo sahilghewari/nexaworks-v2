@@ -4,6 +4,7 @@ import { z } from "zod";
 import { ContactConfirmation } from "@/components/emails/ContactConfirmation";
 import { DemoRequestAck } from "@/components/emails/DemoRequestAck";
 import { NewsletterWelcome } from "@/components/emails/NewsletterWelcome";
+import { InternalNotification } from "@/components/emails/InternalNotification";
 import { jsonResponse, emptyResponse } from "@/lib/http";
 import { sendEmail, type SendEmailResult } from "@/lib/resend";
 
@@ -11,8 +12,10 @@ const sendEmailSchema = z
   .object({
     to: z.union([z.string().email(), z.array(z.string().email())]),
     subject: z.string().trim().min(1, "Subject is required."),
-    template: z.enum(["contactConfirmation", "demoRequestAck", "newsletterWelcome"]).optional(),
-    data: z.record(z.any()).optional(),
+    template: z
+      .enum(["contactConfirmation", "demoRequestAck", "newsletterWelcome", "internalNotification"])
+      .optional(),
+    data: z.record(z.string(), z.any()).optional(),
     html: z.string().optional(),
     text: z.string().optional(),
     from: z.string().optional(),
@@ -43,6 +46,7 @@ const templateMap = {
   contactConfirmation: ContactConfirmation,
   demoRequestAck: DemoRequestAck,
   newsletterWelcome: NewsletterWelcome,
+  internalNotification: InternalNotification,
 } as const;
 
 type TemplateKey = keyof typeof templateMap;
@@ -89,10 +93,10 @@ export async function POST(request: NextRequest) {
           { status: 400 }
         );
       }
-      reactEmail = createElement(Template, data.data ?? {});
+      reactEmail = createElement(Template as React.ComponentType<any>, data.data ?? {});
     }
 
-    const result: SendEmailResult = await sendEmail({
+    const sendResult: SendEmailResult = await sendEmail({
       to: data.to,
       subject: data.subject,
       react: reactEmail,
@@ -103,7 +107,7 @@ export async function POST(request: NextRequest) {
       tags: data.tags,
     });
 
-    if (result.skipped) {
+    if (sendResult.skipped) {
       return jsonResponse(
         request,
         {
@@ -114,13 +118,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (result.error) {
-      console.error("Send-email dispatch failure", result.error);
+    if (sendResult.error) {
+      console.error("Send-email dispatch failure", sendResult.error);
       return jsonResponse(
         request,
         {
           error: "Email delivery failed.",
-          details: result.errorMessage,
+          details: sendResult.errorMessage,
         },
         { status: 502 }
       );
@@ -128,7 +132,7 @@ export async function POST(request: NextRequest) {
 
     return jsonResponse(request, {
       message: "Email sent successfully",
-      id: result.id,
+      id: sendResult.id,
     });
   } catch (error) {
     console.error("Send-email route error", error);

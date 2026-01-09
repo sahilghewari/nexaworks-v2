@@ -18,7 +18,16 @@ function getClientKey(request: NextRequest) {
     return forwardedFor.split(",")[0]?.trim() ?? "unknown";
   }
 
-  return request.ip ?? request.headers.get("x-real-ip") ?? "unknown";
+  const realIp = request.headers.get("x-real-ip");
+  if (realIp) return realIp;
+
+  const cfConnectingIp = request.headers.get("cf-connecting-ip");
+  if (cfConnectingIp) return cfConnectingIp;
+
+  const clientIp = request.headers.get("x-client-ip");
+  if (clientIp) return clientIp;
+
+  return "unknown";
 }
 
 export function middleware(request: NextRequest) {

@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import { useModal } from "@/context/ModalContext";
 import { ctaButtonVariants } from "@/ui/CTAButton";
 
 export function FinalCTASection() {
+  const { openContactModal } = useModal();
+
   return (
     <section className="relative isolate overflow-hidden bg-[#0D1015] py-24 sm:py-32">
       <div className="absolute inset-x-0 top-0 z-0 h-56 bg-gradient-to-b from-[#FF2003]/20 via-transparent to-transparent blur-3xl" aria-hidden="true" />
@@ -25,24 +28,26 @@ export function FinalCTASection() {
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
-            <Link
-              href="/contact"
+            <button
+              type="button"
+              onClick={() => openContactModal({ message: "I want to schedule a demo." })}
               className={ctaButtonVariants({ variant: "primary", size: "lg" })}
             >
               Schedule Demo
-            </Link>
+            </button>
             <Link
               href="/projects"
               className={ctaButtonVariants({ variant: "secondary", size: "lg" })}
             >
               See Our Work
             </Link>
-            <Link
-              href="/contact#proposal"
+            <button
+              type="button"
+              onClick={() => openContactModal({ message: "I would like a proposal for my project." })}
               className={ctaButtonVariants({ variant: "tertiary", size: "lg" })}
             >
               Get a Proposal
-            </Link>
+            </button>
           </div>
         </motion.div>
       </div>

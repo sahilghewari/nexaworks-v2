@@ -30,14 +30,14 @@ const demos: DemoItem[] = [
     tagline: "Automated report generation at scale",
     stat: "98.5% success rate, 2.4s per report",
     ctaLabel: "See Reports Demo",
-    ctaHref: "/case-studies/reports-platform",
+    ctaHref: "/projects/reports",
   },
   {
     title: "Analytics Dashboard",
     tagline: "Real-time operational visibility",
     stat: "Deployed in 8 weeks (vs. industry 16 weeks)",
     ctaLabel: "View Dashboard",
-    ctaHref: "/case-studies/analytics-dashboard",
+    ctaHref: "/projects/analytics",
   },
 ];
 

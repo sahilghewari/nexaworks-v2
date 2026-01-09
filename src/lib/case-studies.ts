@@ -38,6 +38,7 @@ export interface CaseStudy {
   coverImage: string;
   thumbnail: string;
   timelineSummary?: string;
+  ctaLabel?: string;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -89,6 +90,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       role: "Director of Global Recruiting",
     },
     demoLink: { label: "View Live Demo", href: "https://resumind.nexaworks.tech" },
+    ctaLabel: "View Full Case Study",
     related: [
       { label: "Reports Platform", href: "/projects/reports" },
       { label: "Analytics Dashboard", href: "/projects/analytics" },
@@ -144,6 +146,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       role: "Global Retail Brand",
     },
     demoLink: { label: "See Platform Walkthrough", href: "https://reports.demo.nexaworks.tech" },
+    ctaLabel: "View Full Case Study",
     related: [
       { label: "ResuMind AI-Analyzer", href: "/projects/resumind" },
       { label: "Analytics Dashboard", href: "/projects/analytics" },
@@ -198,6 +201,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       role: "Marketplace Platform",
     },
     demoLink: { label: "View Dashboard Demo", href: "https://analytics.demo.nexaworks.tech" },
+    ctaLabel: "View Full Case Study",
     related: [
       { label: "Reports Platform", href: "/projects/reports" },
       { label: "ResuMind AI-Analyzer", href: "/projects/resumind" },
@@ -245,6 +249,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       author: "Co-founder",
       role: "NyayMind",
     },
+    demoLink: { label: "Learn About Our Legal AI Research", href: "/projects/legal-ai" },
+    ctaLabel: "Learn About Our Legal AI Research",
     related: [
       { label: "ResuMind AI-Analyzer", href: "/projects/resumind" },
       { label: "Analytics Dashboard", href: "/projects/analytics" },

@@ -20,7 +20,7 @@ const highlights: CaseStudyHighlight[] = [
     metrics: ["95% accuracy", "85% manual effort reduction", "4.2s per resume"],
     impact:
       "NexaWorks delivered an AI analyzer that auto-classifies talent pipelines, shortening recruiter response times from days to hours while improving candidate quality.",
-    href: "/case-studies/resumind",
+    href: "/projects/resumind",
   },
   {
     name: "Reports Platform",
@@ -28,7 +28,7 @@ const highlights: CaseStudyHighlight[] = [
     metrics: ["98.5% success rate", "90% automation", "2.4s per report"],
     impact:
       "We orchestrated full-stack automations that generate hundreds of exec-ready reports daily, unlocking faster decision cycles without expanding headcount.",
-    href: "/case-studies/reports-platform",
+    href: "/projects/reports",
   },
   {
     name: "Analytics Dashboard",
@@ -36,7 +36,7 @@ const highlights: CaseStudyHighlight[] = [
     metrics: ["8 weeks deployment", "90% satisfaction", "Real-time visibility"],
     impact:
       "Our team shipped a unified dashboard in half the industry timeline, giving stakeholders instant alerts and scenario forecasting from a single control center.",
-    href: "/case-studies/analytics-dashboard",
+    href: "/projects/analytics",
   },
 ];
 

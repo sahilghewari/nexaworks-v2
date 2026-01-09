@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
 import { navItems } from "@/lib/constants";
 import { Button } from "@/ui/button";
 
@@ -25,6 +26,7 @@ const panelVariants = {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
+  const { openContactModal } = useModal();
 
   useEffect(() => {
     if (!isOpen) {
@@ -99,10 +101,14 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </nav>
 
             <div className="mt-8 space-y-3">
-              <Button asChild className="w-full">
-                <Link href="/contact" onClick={onClose}>
-                  Schedule Demo
-                </Link>
+              <Button
+                className="w-full"
+                onClick={() => {
+                  openContactModal();
+                  onClose();
+                }}
+              >
+                Schedule Demo
               </Button>
               <p className="text-xs text-[#9CA3AF]">
                 Ready to build something remarkable? Let us craft a custom strategy for your team.

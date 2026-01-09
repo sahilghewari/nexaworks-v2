@@ -1,0 +1,49 @@
+---
+title: "Automated Reporting at Scale"
+slug: "automated-reporting-at-scale"
+date: "2025-12-18"
+author: "Pavan Baber"
+excerpt: "Architecture patterns from building a reporting platform that generates hundreds of executive-ready documents nightly with 98.5% success."
+tags: ["data", "automation", "architecture", "observability"]
+image: "/images/blog/automated-reporting.png"
+---
+
+## Why reporting pipelines fail
+
+Most teams bolt reporting onto existing data jobs. When volume spikes, retries flood downstream systems. Without idempotency and observability, you get duplicate sends, missing PDFs, and late nights.
+
+## Our architecture in four layers
+
+1. **Ingestion**: event triggers fan out jobs to a queue with strict dedupe keys.
+2. **Processing**: stateless workers generate report payloads and call a template service.
+3. **Validation**: a QA gate checks schema, totals, and formatting before distribution.
+4. **Delivery**: files are stored, links signed, and notifications sent with trace IDs.
+
+```typescript
+const jobId = createJobId(event);
+if (await hasProcessed(jobId)) return;
+
+await queue.add("report", { jobId, event }, { attempts: 3, backoff: 5000 });
+```
+
+## Guardrails that mattered
+
+- Idempotency keys on every job
+- Structured logs with correlation IDs across services
+- Synthetic canary reports every hour
+- Budget-based concurrency to avoid hammering data sources
+
+## Outcomes
+
+- 156 reports generated in a demo run under 10 minutes
+- 98.5% success rate with automated QA rejecting the rest
+- 2.4s average generation time per report
+- 90% reduction in manual analyst effort
+
+## What to adopt in your stack
+
+- Start with observability: tracing + logs + dashboards before feature work
+- Keep templates versioned and testable without prod data
+- Make failures loud and actionable; stale dashboards are worse than no dashboards
+
+If you want to see the playbook or run a canary on your data, we are happy to share the scripts.

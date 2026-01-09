@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import {
   contactSchema,
   demoRequestSchema,
@@ -9,10 +10,20 @@ import {
   type NewsletterSchema,
 } from "@/lib/validations";
 
-export function useContactForm(defaultValues?: Partial<ContactSchema>) {
-  return useForm<ContactSchema>({
+type ContactFormInput = z.input<typeof contactSchema>;
+type ContactFormOutput = z.output<typeof contactSchema>;
+
+export function useContactForm(defaultValues?: Partial<ContactFormInput>) {
+  return useForm<ContactFormInput, any, ContactFormOutput>({
     resolver: zodResolver(contactSchema),
-    defaultValues,
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      message: "",
+      ...defaultValues,
+    },
     mode: "onBlur",
   });
 }

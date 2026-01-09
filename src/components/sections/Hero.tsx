@@ -9,21 +9,33 @@ import { ctaButtonVariants } from "@/ui/CTAButton";
 import { Badge } from "@/ui/Badge";
 import { MetricCard } from "@/ui/MetricCard";
 
-const metrics = [
+const metrics: Array<{ value: number; decimals: number; label: string; prefix?: string; suffix?: string }> = [
   { value: 30, decimals: 0, label: "PROJECTS SHIPPED" },
   { value: 99.7, decimals: 1, suffix: "%", label: "PLATFORM UPTIME" },
 ];
 
-const floatingParticles = Array.from({ length: 20 }).map((_, index) => ({
-  id: index,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  delay: Math.random() * 4,
-  duration: 6 + Math.random() * 6,
-}));
+function mulberry32(seed: number) {
+  return function random() {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function createParticles(count = 20, seed = 42) {
+  const rng = mulberry32(seed);
+  return Array.from({ length: count }).map((_, index) => ({
+    id: index,
+    x: rng() * 100,
+    y: rng() * 100,
+    delay: rng() * 4,
+    duration: 6 + rng() * 6,
+  }));
+}
 
 export function Hero() {
-  const particles = useMemo(() => floatingParticles, []);
+  const particles = useMemo(() => createParticles(), []);
 
   return (
     <section className="relative isolate overflow-hidden bg-[#0D1015]">

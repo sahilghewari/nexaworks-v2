@@ -94,7 +94,7 @@ export function CaseStudiesGrid() {
                     href={`/projects/${caseStudy.slug}`}
                     className={ctaButtonVariants({ variant: "secondary", size: "sm" })}
                   >
-                    View Case Study
+                    {caseStudy.ctaLabel ?? "View Case Study"}
                   </Link>
                 </div>
               </div>

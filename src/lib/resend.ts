@@ -35,7 +35,7 @@ export async function sendEmail(options: SendEmailOptions): Promise<SendEmailRes
   try {
     const response = await client.emails.send({
       from: options.from ?? defaultFrom,
-      reply_to: options.replyTo ?? fallbackReplyTo,
+      replyTo: options.replyTo ?? fallbackReplyTo,
       to: options.to,
       subject: options.subject,
       react: options.react,
@@ -44,8 +44,17 @@ export async function sendEmail(options: SendEmailOptions): Promise<SendEmailRes
       tags: options.tags,
     });
 
+    if (response.error) {
+      return {
+        id: null,
+        skipped: false,
+        error: response.error,
+        errorMessage: response.error.message,
+      };
+    }
+
     return {
-      id: response?.id ?? null,
+      id: response.data?.id ?? null,
       skipped: false,
     };
   } catch (error) {

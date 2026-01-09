@@ -4,6 +4,8 @@ import { Inter, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/common/header";
 import { Footer } from "@/components/common/footer";
+import { ContactModal } from "@/components/modals/ContactModal";
+import { ModalProvider } from "@/context/ModalContext";
 import { siteConfig } from "@/lib/constants";
 
 const inter = Inter({
@@ -104,11 +106,14 @@ export default function RootLayout({
             strategy="afterInteractive"
           />
         ) : null}
-        <Header />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <ModalProvider>
+          <Header />
+          <main id="main-content" className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <ContactModal />
+        </ModalProvider>
       </body>
     </html>
   );

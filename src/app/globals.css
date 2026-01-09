@@ -336,6 +336,172 @@ blockquote {
 }
 
 /* ============================================
+   MDX / Blog Typography
+   ============================================ */
+.prose {
+  max-width: 800px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #CBC8BA;
+}
+
+.prose.prose-invert {
+  color: #CBC8BA;
+}
+
+.prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #CBC8BA;
+}
+
+.prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #CBC8BA;
+}
+
+.prose p {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: #9CA3AF;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  color: #9CA3AF;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose a {
+  color: #FF2003;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 32, 3, 0.6);
+  text-underline-offset: 4px;
+}
+
+.prose blockquote {
+  border-left: 4px solid #FF2003;
+  background: #111827;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  color: #CBC8BA;
+  margin-top: 1.5rem;
+}
+
+.prose pre {
+  background: #0A0D12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+.prose code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.35rem;
+  color: #E5E7EB;
+}
+
+/* ============================================
+   Prism Syntax Highlighting
+   ============================================ */
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: var(--font-jetbrains);
+  font-size: 0.95rem;
+  color: #E5E7EB;
+  background: transparent;
+}
+
+pre[class*="language-"] {
+  padding: 1rem;
+  margin: 0;
+  overflow: auto;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6B7280;
+}
+
+.token.punctuation {
+  color: #E5E7EB;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #F87171;
+}
+
+.token.boolean,
+.token.number {
+  color: #FBBF24;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #34D399;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #A78BFA;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #60A5FA;
+}
+
+.token.function,
+.token.class-name {
+  color: #F472B6;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #F59E0B;
+}
+
+.token.important,
+.token.bold {
+  font-weight: 700;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* ============================================
    Utility Classes
    ============================================ */
 .container {

@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import { useModal } from "@/context/ModalContext";
 import { ctaButtonVariants } from "@/ui/CTAButton";
 
 export function ServiceCTASection() {
+  const { openContactModal } = useModal();
+
   return (
     <section className="relative isolate overflow-hidden bg-[#0A0D12] py-24 sm:py-28">
       <div className="absolute inset-x-0 top-0 z-0 h-56 bg-gradient-to-b from-[#FF2003]/20 via-transparent to-transparent blur-3xl" aria-hidden="true" />
@@ -24,12 +27,13 @@ export function ServiceCTASection() {
             Schedule a free 30-minute consultation. We&apos;ll map the opportunity, outline the quickest automation win, and show you the exact milestones to production.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
-            <Link
-              href="/contact"
+            <button
+              type="button"
+              onClick={() => openContactModal({ message: "I want to schedule an automation demo." })}
               className={ctaButtonVariants({ variant: "primary", size: "lg" })}
             >
               Schedule Demo
-            </Link>
+            </button>
             <Link
               href="/projects"
               className={ctaButtonVariants({ variant: "secondary", size: "lg" })}

@@ -1,0 +1,45 @@
+---
+title: "Zero Day Hackathon - Building in Public"
+slug: "zero-day-hackathon"
+date: "2025-11-20"
+author: "Sahil Ghewari"
+excerpt: "What we built in a one-day public hackathon, how we handled constraints, and the playbook we use when the clock is brutal."
+tags: ["hackathon", "delivery", "culture", "ai"]
+image: "/images/blog/zero-day-hackathon.png"
+---
+
+## Why a zero-day sprint
+
+Constraints sharpen judgment. We wanted to pressure-test our delivery rituals and show exactly how we work when time is scarce. So we streamed a one-day build.
+
+## The challenge we picked
+
+Automate a noisy internal workflow: take messy CSVs, normalize them, generate insights, and present a live dashboard by end of day. No prework, no hidden prep.
+
+## How we ran the day
+
+- 9:00: Kickoff, define the success metric, set a single KPI (time-to-first-insight)
+- 10:00: Data profiling, schema sketch, and risk list
+- 11:00: Set up ingestion and a thin API with trace IDs
+- 13:00: First visualization with live data
+- 16:00: Polish, edge-case tests, and a short demo
+
+## What went right
+
+- Small scope with a visible demo goal
+- Instrumentation from the first commit
+- Pairing between frontend and backend to avoid handoffs
+
+## What we would improve
+
+- Add more synthetic data earlier to avoid waiting on real feeds
+- Pre-bake a few chart templates to save an hour
+- Reserve 30 minutes for retrospective with viewers
+
+## Takeaways you can reuse
+
+1. Pick one KPI and make it visible to everyone.
+2. Log every request from the start; observability is not optional.
+3. Deliver a vertical slice early, even if rough.
+
+We will run more public sprints. If there is a challenge you want us to tackle, send it our way.

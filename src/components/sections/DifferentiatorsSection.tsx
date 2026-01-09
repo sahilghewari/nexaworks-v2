@@ -29,7 +29,7 @@ const differentiators = [
     headline: "Direct Access, Direct Results",
     body: "You work with founders who own outcomes. No sales layers, just senior engineers guiding every sprint and unblocking decisions with you.",
     example: "“They shipped in 8 weeks what our last vendor couldn’t in 6 months.” — Fortune 100 Talent Lead",
-    cta: { label: "Read Client Stories", href: "/case-studies" },
+    cta: { label: "Read Client Stories", href: "/projects" },
   },
 ] as const;
 

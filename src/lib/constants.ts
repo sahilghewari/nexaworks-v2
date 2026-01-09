@@ -1,10 +1,12 @@
 import type { NavItem, SiteConfig } from "./types";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.tech";
+
 export const siteConfig: SiteConfig = {
   name: "NexaWorks",
   description: "Building the future, one innovation at a time.",
-  url: "https://nexaworks.com",
-  ogImage: "https://nexaworks.com/og.png",
+  url: siteUrl,
+  ogImage: `${siteUrl.replace(/\/$/, "")}/og.png`,
   links: {
     twitter: "https://twitter.com/nexaworks",
     github: "https://github.com/nexaworks",
@@ -15,7 +17,7 @@ export const siteConfig: SiteConfig = {
 export const navItems: NavItem[] = [
   { title: "Home", href: "/" },
   { title: "What We Do", href: "/services" },
-  { title: "Projects", href: "/case-studies" },
+  { title: "Projects", href: "/projects" },
   { title: "How We Work", href: "/process" },
   { title: "About Us", href: "/about" },
   { title: "Blog", href: "/blog" },
@@ -72,7 +74,7 @@ export const FOOTER_LINK_GROUPS = [
     title: "Product",
     links: [
       { label: "What We Do", href: "/services" },
-      { label: "Projects", href: "/case-studies" },
+      { label: "Projects", href: "/projects" },
       { label: "How We Work", href: "/process" },
     ],
   },
@@ -90,6 +92,7 @@ export const FOOTER_LINK_GROUPS = [
     links: [
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
+      { label: "Accessibility", href: "/accessibility" },
     ],
   },
 ] as const;

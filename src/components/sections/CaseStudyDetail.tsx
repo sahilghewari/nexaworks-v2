@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Quote } from "lucide-react";
 
 import type { CaseStudy } from "@/lib/case-studies";
+import { useModal } from "@/context/ModalContext";
 import { ctaButtonVariants } from "@/ui/CTAButton";
 import { Badge } from "@/ui/Badge";
 
@@ -14,6 +15,8 @@ interface CaseStudyDetailProps {
 }
 
 export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
+  const { openContactModal } = useModal();
+
   return (
     <article className="flex flex-col">
       <section className="relative isolate overflow-hidden bg-[#0D1015] py-20 sm:py-24">
@@ -34,12 +37,13 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
             ) : null}
             <p className="text-base text-[#9CA3AF] sm:text-lg">{caseStudy.heroDescription}</p>
             <div className="flex flex-wrap gap-3">
-              <Link
-                href="/contact"
+              <button
+                type="button"
+                onClick={() => openContactModal({ message: `Interested in ${caseStudy.title}. Let's schedule a demo.` })}
                 className={ctaButtonVariants({ variant: "primary", size: "lg" })}
               >
                 Schedule Demo
-              </Link>
+              </button>
               {caseStudy.demoLink ? (
                 <Link
                   href={caseStudy.demoLink.href}
@@ -175,12 +179,13 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
               <p>
                 Ready to explore a similar build? Grab time with us and we&apos;ll map the fastest path to your automation or AI win.
               </p>
-              <Link
-                href="/contact"
+              <button
+                type="button"
+                onClick={() => openContactModal({ message: `Interested in ${caseStudy.title}. Schedule a demo.` })}
                 className={ctaButtonVariants({ variant: "primary", size: "md", className: "w-fit" })}
               >
                 Schedule Demo
-              </Link>
+              </button>
             </div>
             <div className="space-y-3">
               <p className="text-xs uppercase tracking-[0.3em] text-[#9CA3AF]">Related Case Studies</p>

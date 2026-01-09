@@ -13,8 +13,11 @@ import { cn } from "@/lib/utils";
 import { Label } from "@/ui/label";
 import { FormError } from "@/ui/form-error";
 
-interface FormFieldProps<TFieldValues extends FieldValues> {
-  control: Control<TFieldValues>;
+interface FormFieldProps<
+  TFieldValues extends FieldValues,
+  TTransformedValues extends FieldValues = TFieldValues
+> {
+  control: Control<TFieldValues, any, TTransformedValues>;
   name: FieldPath<TFieldValues>;
   label: ReactNode;
   description?: ReactNode;
@@ -23,7 +26,10 @@ interface FormFieldProps<TFieldValues extends FieldValues> {
   render: (params: UseControllerReturn<TFieldValues>) => ReactNode;
 }
 
-export function FormField<TFieldValues extends FieldValues>({
+export function FormField<
+  TFieldValues extends FieldValues,
+  TTransformedValues extends FieldValues = TFieldValues
+>({
   control,
   name,
   label,
@@ -31,7 +37,7 @@ export function FormField<TFieldValues extends FieldValues>({
   className,
   required = false,
   render,
-}: FormFieldProps<TFieldValues>) {
+}: FormFieldProps<TFieldValues, TTransformedValues>) {
   const controller = useController({ control, name });
   const {
     field,

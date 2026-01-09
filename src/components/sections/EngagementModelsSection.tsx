@@ -6,7 +6,15 @@ import { CalendarClock, Handshake, Repeat } from "lucide-react";
 
 import { ctaButtonVariants } from "@/ui/CTAButton";
 
-const models = [
+const models: Array<{
+  icon: typeof CalendarClock;
+  title: string;
+  scope: string;
+  timeline: string;
+  price: string;
+  bestFor: string;
+  example?: string;
+}> = [
   {
     icon: CalendarClock,
     title: "Fixed-Price Project",
@@ -32,7 +40,7 @@ const models = [
     price: "Pricing: Monthly retainer or per-release",
     bestFor: "Best For: Long-term partnerships that need velocity",
   },
-] as const;
+];
 
 export function EngagementModelsSection() {
   return (

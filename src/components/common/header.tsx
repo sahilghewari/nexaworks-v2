@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
 import { navItems } from "@/lib/constants";
 import { Button } from "@/ui/button";
 import { MobileMenu } from "@/common/MobileMenu";
@@ -18,6 +19,7 @@ export function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openContactModal } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +87,9 @@ export function Header() {
             </ul>
 
             <Button asChild size="sm" className="ml-4">
-              <Link href="/contact">Schedule Demo</Link>
+              <button type="button" onClick={() => openContactModal()}>
+                Schedule Demo
+              </button>
             </Button>
           </div>
 

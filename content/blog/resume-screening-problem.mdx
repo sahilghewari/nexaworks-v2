@@ -1,0 +1,52 @@
+---
+title: "The Resume Screening Problem"
+slug: "resume-screening-problem"
+date: "2026-01-05"
+author: "Sahil Ghewari"
+excerpt: "Why manual resume review breaks at scale and what we learned building ResuMind, an AI analyzer that processes thousands of files in minutes."
+tags: ["ai", "automation", "talent", "nlp"]
+image: "/images/blog/resume-screening.png"
+---
+
+## Manual review does not scale
+
+Recruiters drown in unstructured PDFs. Copy-paste into ATS fields wastes hours. Scoring criteria change between roles. Human reviewers get inconsistent after 50 resumes. By week two of hiring, everyone is behind.
+
+## The edge cases that matter
+
+- Mixed languages and odd file formats (DOC, image-only PDF, ZIP uploads)
+- Domain-specific jargon that generic models miss
+- Custom rubrics per team that evolve weekly
+
+We mapped 200+ edge cases before we wrote a line of code. The list guided every test.
+
+## What we built with ResuMind
+
+- spaCy + BERT ensemble for entity extraction and role-specific scoring
+- A concurrency-safe ingestion pipeline that normalizes files to text
+- Rule layers on top of ML to keep outcomes predictable
+- ATS/CRM writers with full audit trails
+
+```typescript
+async function scoreCandidate(doc: ParsedResume, rubric: Rubric) {
+  const mlScore = await model.predict(doc.tokens);
+  const ruleScore = applyBusinessRules(doc, rubric.rules);
+  return weightedAverage({ mlScore, ruleScore }, rubric.weights);
+}
+```
+
+## Results in production
+
+- 4.2s average processing time per resume
+- 95% parsing accuracy across the top three role families
+- 150 concurrent uploads sustained during peak campus hiring
+- 85% reduction in manual effort
+
+## Lessons for teams facing the same problem
+
+1. Define precision/recall targets per role, not globally.
+2. Run adversarial tests with the worst PDFs you can find.
+3. Build human-in-the-loop review for the first month; harden after.
+4. Log everything. Every parsing failure teaches you something.
+
+If you want a blueprint or a live demo of the analyzer, reach out. We will show the telemetry and the exact playbook we used.
