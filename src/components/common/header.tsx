@@ -28,7 +28,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, resolvedTheme, setTheme } = useTheme();
-  const { openContactModal } = useModal();
+  const { openContactModal, isContactOpen } = useModal();
 
   useEffect(() => {
     setMounted(true);
@@ -136,11 +136,13 @@ export function Header() {
 
       <div className="pointer-events-none fixed inset-x-0 bottom-5 z-[9999] flex justify-center px-4 md:bottom-6">
         <div className="pointer-events-auto">
-          <FloatingDock
-            items={dockItems}
-            desktopClassName="bg-[#0D1015]/90 text-white border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-lg"
-            mobileClassName="translate-y-0"
-          />
+          {!isContactOpen && (
+            <FloatingDock
+              items={dockItems}
+              desktopClassName="bg-[#0D1015]/90 text-white border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-lg"
+              mobileClassName="translate-y-0"
+            />
+          )}
         </div>
       </div>
     </>
