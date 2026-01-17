@@ -7,6 +7,7 @@ import { Footer } from "@/components/common/footer";
 import { ContactModal } from "@/components/modals/ContactModal";
 import { ModalProvider } from "@/context/ModalContext";
 import { siteConfig } from "@/lib/constants";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -74,44 +75,46 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} ${inkTrap.variable} antialiased`}>
-        <a href="#main-content" className="skip-to-main">
-          Skip to main content
-        </a>
-        {GA_MEASUREMENT_ID ? (
-          <>
-            <Script
-              id="ga-loader"
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga-config" strategy="afterInteractive">
-              {`
+        <ThemeProvider>
+          <a href="#main-content" className="skip-to-main">
+            Skip to main content
+          </a>
+          {GA_MEASUREMENT_ID ? (
+            <>
+              <Script
+                id="ga-loader"
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+                strategy="afterInteractive"
+              />
+              <Script id="ga-config" strategy="afterInteractive">
+                {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${GA_MEASUREMENT_ID}');
               `}
-            </Script>
-          </>
-        ) : null}
-        {VERCEL_ANALYTICS_TOKEN ? (
-          <Script
-            id="vercel-analytics"
-            src="https://vitals.vercel-insights.com/v1/script.js"
-            data-token={VERCEL_ANALYTICS_TOKEN}
-            strategy="afterInteractive"
-          />
-        ) : null}
-        <ModalProvider>
-          <Header />
-          <main id="main-content" className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <ContactModal />
-        </ModalProvider>
+              </Script>
+            </>
+          ) : null}
+          {VERCEL_ANALYTICS_TOKEN ? (
+            <Script
+              id="vercel-analytics"
+              src="https://vitals.vercel-insights.com/v1/script.js"
+              data-token={VERCEL_ANALYTICS_TOKEN}
+              strategy="afterInteractive"
+            />
+          ) : null}
+          <ModalProvider>
+            <Header />
+            <main id="main-content" className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <ContactModal />
+          </ModalProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

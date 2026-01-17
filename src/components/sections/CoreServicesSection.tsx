@@ -89,9 +89,9 @@ export function CoreServicesSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">What we deliver</p>
+          <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">Pain → outcome</p>
           <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            Three ways we unlock operational leverage
+            Three ways we fix broken ops
           </h2>
         </motion.div>
 
@@ -116,7 +116,7 @@ export function CoreServicesSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">What's Included</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Failure modes we eliminate</p>
                   <ul className="space-y-2 text-sm text-[#3F3A32]">
                     {service.highlights.map((item) => (
                       <li key={item} className="flex items-start gap-2">
@@ -128,12 +128,12 @@ export function CoreServicesSection() {
                 </div>
 
                 <div className="space-y-1 text-xs uppercase tracking-[0.25em] text-[#3F3A32]">
-                  <p className="text-[#0D1015]">Timeline</p>
+                  <p className="text-[#0D1015]">Outcome / timeline</p>
                   <p className="text-sm normal-case tracking-normal text-[#3F3A32]">{service.timeline}</p>
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Typical Problems We Solve</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">If this is you</p>
                   <div className="flex flex-wrap gap-2">
                     {service.problems.map((problem) => (
                       <span

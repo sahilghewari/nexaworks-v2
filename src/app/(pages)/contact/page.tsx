@@ -55,14 +55,14 @@ export default function ContactPage() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Address</p>
-              <p>Kalyan, Maharashtra, India</p>
+              <p>Sion East, Mumbai, Maharashtra, India - 400022</p>
             </div>
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-[#0D1015]/10">
             <iframe
               title="NexaWorks location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.995690792808!2d73.1350!3d19.2170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be795e5b85e2c97%3A0xe76a39076905f384!2sKalyan%2C%20Maharashtra%20421601!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.161607868874!2d72.8649894!3d19.0458217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf4007b0b36b%3A0x1a87cbf8665e0e5f!2sSion%20East%2C%20Mumbai%2C%20Maharashtra%20400022!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               className="h-80 w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

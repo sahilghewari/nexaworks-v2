@@ -58,7 +58,7 @@ export default function AccessibilityPage() {
           <div className="space-y-4 rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_24px_50px_-24px_rgba(13,16,21,0.65)]">
             <h3 className="text-xl font-semibold text-[#0D1015]">Contact for accessibility</h3>
             <p className="text-sm text-[#3F3A32]">
-              Email: <Link className="text-[#A3542B] underline" href="mailto:accessibility@nexaworks.com">accessibility@nexaworks.com</Link>
+              Email: <Link className="text-[#A3542B] underline" href="mailto:pavan@nexaworks.tech">pavan@nexaworks.tech</Link>
               <br />
               Please include the page URL, a description of the issue, and your browser/device. We aim to respond within 3 business days.
             </p>

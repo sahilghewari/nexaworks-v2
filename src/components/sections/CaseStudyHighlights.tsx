@@ -7,94 +7,82 @@ import { Badge } from "@/ui/Badge";
 
 interface CaseStudyHighlight {
   name: string;
-  problem: string;
-  metrics: string[];
-  impact: string;
+  broken: string;
+  whyOthersFailed: string;
+  whatWeDid: string;
+  killerResult: string;
   href: string;
 }
 
 const highlights: CaseStudyHighlight[] = [
   {
-    name: "ResuMind",
-    problem: "Manual resume screening couldn’t keep up with surge in enterprise hiring requests.",
-    metrics: ["95% accuracy", "85% manual effort reduction", "4.2s per resume"],
-    impact:
-      "NexaWorks delivered an AI analyzer that auto-classifies talent pipelines, shortening recruiter response times from days to hours while improving candidate quality.",
+    name: "ResuMind AI-Analyzer",
+    broken: "Recruiters drowning in 10k+ resumes/week; manual triage took days and eroded candidate quality.",
+    whyOthersFailed: "Off-the-shelf parsers broke on real-world formats; vendors shipped decks, not live scoring; accuracy plateaued sub-80%.",
+    whatWeDid: "Built ingestion + NLP scoring pipeline with audit trails, wired into ATS/CRM, and demoed live in week 2.",
+    killerResult: "95% parsing accuracy, responses in hours not days.",
     href: "/projects/resumind",
-  },
-  {
-    name: "Reports Platform",
-    problem: "Leadership teams lacked timely analytics due to hand-built spreadsheets and manual QA.",
-    metrics: ["98.5% success rate", "90% automation", "2.4s per report"],
-    impact:
-      "We orchestrated full-stack automations that generate hundreds of exec-ready reports daily, unlocking faster decision cycles without expanding headcount.",
-    href: "/projects/reports",
-  },
-  {
-    name: "Analytics Dashboard",
-    problem: "Operations leadership could not see real-time performance across distributed facilities.",
-    metrics: ["8 weeks deployment", "90% satisfaction", "Real-time visibility"],
-    impact:
-      "Our team shipped a unified dashboard in half the industry timeline, giving stakeholders instant alerts and scenario forecasting from a single control center.",
-    href: "/projects/analytics",
   },
 ];
 
 export function CaseStudyHighlights() {
   return (
-    <section className="bg-[#E7E2D6] py-24 sm:py-28">
-      <div className="container space-y-12">
+    <section className="bg-[#E7E2D6] py-18 sm:py-22">
+      <div className="container space-y-8">
         <motion.div
-          className="flex flex-col gap-6 text-center sm:text-left"
-          initial={{ opacity: 0, y: 24 }}
+          className="flex flex-col gap-4 text-center sm:text-left"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <Badge variant="warning" className="mx-auto w-fit sm:mx-0">
-            Case Study Highlights
+            Flagship case
           </Badge>
-          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl md:text-[2.75rem]">
-            Results That Compound
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
+            One undeniable result
           </h2>
-          <p className="max-w-3xl text-base text-[#3F3A32] sm:text-lg">
-            Three real-world builds where NexaWorks shipped measurable business outcomes.
+          <p className="max-w-2xl text-sm text-[#3F3A32] sm:text-base">
+            The same structure we apply to every build: what was broken, why others failed, what we did differently, and the single metric that matters.
           </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {highlights.map((highlight, index) => (
+        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
+          {highlights.map((highlight) => (
             <motion.article
               key={highlight.name}
-              className="flex h-full flex-col gap-6 rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/90 to-[#A79F90]/80 p-8 shadow-[0_26px_60px_-30px_rgba(13,16,21,0.75)]"
-              initial={{ opacity: 0, x: 40 }}
+              className="flex h-full flex-col gap-6 rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/90 to-[#A79F90]/80 p-8 shadow-[0_24px_55px_-28px_rgba(13,16,21,0.7)]"
+              initial={{ opacity: 0, x: 28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.08 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             >
               <div className="space-y-2">
                 <h3 className="text-sm uppercase tracking-[0.3em] text-[#3F3A32]">{highlight.name}</h3>
-                <p className="text-base text-[#3F3A32]">{highlight.problem}</p>
+                <p className="text-base text-[#3F3A32]">{highlight.broken}</p>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                {highlight.metrics.map((metric) => (
-                  <span
-                    key={metric}
-                    className="rounded-full border border-[#A3542B]/40 bg-[#A3542B]/10 px-4 py-1 text-sm font-semibold text-[#A3542B]"
-                  >
-                    {metric}
-                  </span>
-                ))}
+              <div className="grid gap-3 text-sm text-[#3F3A32] sm:grid-cols-2">
+                <div className="rounded-2xl border border-[#0D1015]/10 bg-[#CBC8BA]/70 p-4">
+                  <p className="text-[0.72rem] uppercase tracking-[0.28em] text-[#3F3A32]">Why others failed</p>
+                  <p className="mt-2 leading-relaxed">{highlight.whyOthersFailed}</p>
+                </div>
+                <div className="rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-4">
+                  <p className="text-[0.72rem] uppercase tracking-[0.28em] text-[#3F3A32]">What we did differently</p>
+                  <p className="mt-2 leading-relaxed">{highlight.whatWeDid}</p>
+                </div>
               </div>
 
-              <p className="flex-1 text-sm leading-relaxed text-[#3F3A32]">{highlight.impact}</p>
+              <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-[#A3542B]">
+                <span className="inline-flex h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
+                <span>{highlight.killerResult}</span>
+              </div>
 
               <Link
                 href={highlight.href}
                 className="inline-flex items-center text-sm font-semibold text-[#A3542B] transition hover:text-[#A3542B]/80"
               >
-                Read Full Case Study →
+                View full breakdown →
               </Link>
             </motion.article>
           ))}

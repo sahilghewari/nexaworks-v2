@@ -21,10 +21,10 @@ export function CaseStudiesGrid() {
         >
           <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">Case Studies &amp; Live Demos</p>
           <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            Live Proof. Not Promises.
+            What was broken → how we fixed it
           </h2>
           <p className="text-base text-[#3F3A32] sm:text-lg">
-            Ship-ready demos, measurable outcomes, and founders who show their work. Explore how NexaWorks delivers production results in weeks.
+            Each card leads with the tension: what failed, what we did differently, and one killer metric. Deep metrics stay behind the breakdown.
           </p>
         </motion.div>
 
@@ -60,41 +60,40 @@ export function CaseStudiesGrid() {
                   <p className="text-sm leading-relaxed text-[#3F3A32]">{caseStudy.problem}</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 text-sm text-[#3F3A32] sm:grid-cols-3">
-                  {caseStudy.metrics.slice(0, 4).map((metric) => (
-                    <div
-                      key={`${caseStudy.id}-${metric.label}`}
-                      className="rounded-2xl border border-[#0D1015]/10 bg-[#CBC8BA]/90 p-4"
-                    >
-                      <p className="text-[0.7rem] uppercase tracking-[0.3em] text-[#3F3A32]">{metric.label}</p>
-                      <p className="mt-2 text-xl font-semibold text-[#A3542B]">{metric.value}</p>
-                      {metric.description ? (
-                        <p className="mt-1 text-xs text-[#3F3A32]">{metric.description}</p>
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-[#3F3A32]/80">
-                  <span className="text-[#0D1015]">Timeline</span>
-                  <span>{caseStudy.timelineSummary ?? "On demand"}</span>
+                <div className="space-y-3">
+                  <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#3F3A32]">
+                    <span className="text-[#0D1015]">Killer result</span>
+                    <span className="rounded-full border border-[#A3542B]/40 bg-[#A3542B]/10 px-3 py-1 text-xs font-semibold text-[#A3542B]">
+                      {caseStudy.metrics[0]?.value ?? "Live"} · {caseStudy.metrics[0]?.label ?? "Result"}
+                    </span>
+                  </div>
+                  <div className="space-y-2 text-sm text-[#3F3A32]">
+                    <p className="font-semibold text-[#0D1015]">What was broken</p>
+                    <p className="leading-relaxed">{caseStudy.problem}</p>
+                    <p className="font-semibold text-[#0D1015]">What we did differently</p>
+                    <p className="leading-relaxed line-clamp-3">{caseStudy.solution}</p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-[#3F3A32]/80">
+                    <span className="text-[#0D1015]">Timeline</span>
+                    <span>{caseStudy.timelineSummary ?? "On demand"}</span>
+                  </div>
                 </div>
 
                 <div className="mt-auto flex items-center justify-between">
+                  <Link
+                    href={`/projects/${caseStudy.slug}`}
+                    className={ctaButtonVariants({ variant: "secondary", size: "sm" })}
+                  >
+                    View full breakdown
+                  </Link>
                   <Link
                     href={caseStudy.demoLink?.href ?? caseStudy.related[0]?.href ?? "/contact"}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[#A3542B] transition hover:text-[#A3542B]/80"
                     target={caseStudy.demoLink?.href?.startsWith("http") ? "_blank" : undefined}
                     rel={caseStudy.demoLink?.href?.startsWith("http") ? "noreferrer" : undefined}
                   >
-                    {caseStudy.demoLink?.label ?? "View Demo"}
+                    {caseStudy.demoLink?.label ?? "See live demo"}
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                  <Link
-                    href={`/projects/${caseStudy.slug}`}
-                    className={ctaButtonVariants({ variant: "secondary", size: "sm" })}
-                  >
-                    {caseStudy.ctaLabel ?? "View Case Study"}
                   </Link>
                 </div>
               </div>

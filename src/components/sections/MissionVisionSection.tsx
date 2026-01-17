@@ -44,14 +44,14 @@ export function MissionVisionSection() {
             <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">Mission</p>
             <h3 className="text-2xl font-semibold text-[#0D1015]">Ship reliable automation and AI faster than anyone else.</h3>
             <p className="text-sm leading-relaxed text-[#3F3A32]">
-              We exist to turn ambitious ideas into production software with transparent ownership, measurable KPIs, and the craft to keep systems running smoothly after launch.
+              We exist to turn ambitious ideas into production software with transparent ownership, measurable KPIs, and the craft to keep systems running smoothly after launch. If we can&apos;t demo it fast, we don&apos;t take it on.
             </p>
           </div>
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">Vision</p>
             <h3 className="text-2xl font-semibold text-[#0D1015]">Be the most trusted builder for founders who need working software yesterday.</h3>
             <p className="text-sm leading-relaxed text-[#3F3A32]">
-              A studio where every engagement is led by founders who code, every deliverable is demoable, and every client feels confident in the path from idea to impact.
+              A studio where founders who code lead every build, every deliverable is demoable, and refusal to ship slideware keeps trust high.
             </p>
           </div>
         </motion.div>

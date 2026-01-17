@@ -21,10 +21,10 @@ export function ServiceCTASection() {
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            Ready to Automate Your Workflows?
+            See it running in your stack.
           </h2>
           <p className="text-base text-[#3F3A32] sm:text-lg">
-            Schedule a free 30-minute consultation. We&apos;ll map the opportunity, outline the quickest automation win, and show you the exact milestones to production.
+            Bring one workflow and the metric that hurts. We&apos;ll demo a live slice, share the cutover plan, and set the stop-rule. No slides, just software.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
             <button
@@ -32,7 +32,7 @@ export function ServiceCTASection() {
               onClick={() => openContactModal({ message: "I want to schedule an automation demo." })}
               className={ctaButtonVariants({ variant: "primary", size: "lg" })}
             >
-              Schedule Demo
+              See a live slice
             </button>
             <Link
               href="/projects"

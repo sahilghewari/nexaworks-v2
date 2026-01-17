@@ -13,15 +13,17 @@ const models: Array<{
   timeline: string;
   price: string;
   bestFor: string;
+  stopRule?: string;
   example?: string;
 }> = [
   {
     icon: CalendarClock,
     title: "Fixed-Price Project",
-    scope: "Defined problem, clear deliverables",
-    timeline: "Timeline: 5-10 weeks",
+    scope: "Defined problem, clear deliverables, KPI locked before kickoff",
+    timeline: "Timeline: 5-10 weeks with weekly demos",
     price: "Pricing: Fixed, shared risk",
     bestFor: "Best For: Enterprises with a specific automation challenge",
+    stopRule: "Stop rule: if week-2 demo misses agreed slice, we pause and fix before proceeding.",
   },
   {
     icon: Handshake,
@@ -30,6 +32,7 @@ const models: Array<{
     timeline: "Timeline: MVP 2-4 weeks, Full Solution 5-10 weeks",
     price: "Pricing: Pay when the value is proven",
     bestFor: "Best For: Startups or teams exploring uncertain requirements",
+    stopRule: "Stop rule: if the pilot KPI isn&apos;t hit, you don&apos;t scale or pay for full build.",
     example: "Example: We'll build a prototype in 2 weeks, on us. If it works, let's build the full solution.",
   },
   {
@@ -39,6 +42,7 @@ const models: Array<{
     timeline: "Timeline: Monthly or per-deployment cadence",
     price: "Pricing: Monthly retainer or per-release",
     bestFor: "Best For: Long-term partnerships that need velocity",
+    stopRule: "Stop rule: if agreed uptime/latency targets slip twice, we switch to fix-only until back on budget.",
   },
 ];
 
@@ -55,10 +59,10 @@ export function EngagementModelsSection() {
         >
           <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">How we work together</p>
           <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            Flexible Engagement Models. Transparent Outcomes.
+            Engagements with stop-rules built in
           </h2>
           <p className="text-base text-[#3F3A32] sm:text-lg">
-            Choose the collaboration style that matches your risk tolerance and internal bandwidth. We stay accountable across every model.
+            Pick the model that fits your risk tolerance. Every model ships weekly demos and has a clear pause/stop trigger if we don&apos;t hit the agreed slice.
           </p>
         </motion.div>
 
@@ -85,6 +89,7 @@ export function EngagementModelsSection() {
                   <li>{model.timeline}</li>
                   <li>{model.price}</li>
                   <li>{model.bestFor}</li>
+                  {model.stopRule ? <li className="text-[#0D1015]">{model.stopRule}</li> : null}
                   {model.example ? <li className="text-[#0D1015]">{model.example}</li> : null}
                 </ul>
               </motion.article>
@@ -97,7 +102,7 @@ export function EngagementModelsSection() {
             href="/contact"
             className={ctaButtonVariants({ variant: "primary", size: "lg" })}
           >
-            Get a Custom Proposal
+            See a live slice
           </Link>
         </div>
       </div>

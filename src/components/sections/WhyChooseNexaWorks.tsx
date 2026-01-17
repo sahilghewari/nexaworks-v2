@@ -5,20 +5,20 @@ import { Badge } from "@/ui/Badge";
 
 const reasons = [
   {
-    title: "We're Three Founders Who Code",
-    description: "You work directly with the people writing code and making architectural calls, not an account team.",
+    title: "Three founders, no hand-offs",
+    description: "You work with the founders writing code. No account managers, no sales relay races.",
   },
   {
-    title: "We've Shipped 10 Products in 8 Months",
-    description: "Battle-tested delivery rituals that move from brief to production with repeatable speed.",
+    title: "Proven velocity",
+    description: "10 production builds in 8 months. Week-2 live slices, weekly demos, and rollback rehearsals by default.",
   },
   {
-    title: "We Take on the Risk",
-    description: "Weekly demos, clear acceptance criteria, and founders who stay accountable for outcomes.",
+    title: "Risk on us, not you",
+    description: "Stop-rules in every engagement. If we miss the gate, we pause, fix, or you don’t pay to proceed.",
   },
   {
-    title: "We Understand Your Problem",
-    description: "We translate messy requirements into precise scopes, then prove it with live software before scaling.",
+    title: "We say no often",
+    description: "We reject staff-aug asks, endless discovery, and “just a deck.” We only engage with a KPI and an owner.",
   },
 ];
 
@@ -34,8 +34,8 @@ export function WhyChooseNexaWorks() {
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <Badge variant="warning" className="mx-auto w-fit sm:mx-0">Why Choose NexaWorks?</Badge>
-          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">Partners, not vendors</h2>
-          <p className="text-base text-[#3F3A32] sm:text-lg">Four reasons teams trust us with their most important launches.</p>
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">Partners who stay on the hook</h2>
+          <p className="text-base text-[#3F3A32] sm:text-lg">How we differ from vendors who sell decks and staff headcount.</p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">

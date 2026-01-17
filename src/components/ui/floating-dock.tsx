@@ -30,7 +30,7 @@ const FloatingDockMobile = ({ items, className }: { items: FloatingDockItem[]; c
 
   return (
     <div className={cn("relative block w-full md:hidden", className)}>
-      <div className="mx-auto w-full max-w-[360px] overflow-hidden rounded-full border border-white/10 bg-[#0D1015]/95 px-2 py-2 shadow-[0_10px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+      <div className="mx-auto w-full max-w-[360px] overflow-hidden rounded-full border border-black/10 bg-white/92 px-2 py-2 shadow-[0_10px_28px_rgba(0,0,0,0.14)] ring-1 ring-black/5 backdrop-blur-xl dark:border-white/10 dark:bg-[#0B0F1A]/95 dark:shadow-[0_10px_28px_rgba(0,0,0,0.35)] dark:ring-white/10">
         <motion.div
           className="flex min-w-max items-center gap-1"
           animate={{ x: ["0%", "-50%"] }}
@@ -41,10 +41,10 @@ const FloatingDockMobile = ({ items, className }: { items: FloatingDockItem[]; c
               key={`${item.title}-${idx}`}
               href={item.href}
               whileTap={{ scale: 0.97 }}
-              className="flex min-w-[80px] flex-col items-center gap-0.5 rounded-xl px-2 py-1.5 text-white transition hover:bg-white/5"
+              className="flex min-w-[80px] flex-col items-center gap-0.5 rounded-xl border border-black/10 bg-neutral-900/4 px-2 py-1.5 text-neutral-900 shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition hover:border-black/20 hover:bg-neutral-900/8 dark:border-white/5 dark:bg-white/8 dark:text-white dark:shadow-[0_6px_18px_rgba(0,0,0,0.25)] dark:hover:border-white/15 dark:hover:bg-white/12"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10">
-                <span className="h-4 w-4 text-white/90">{item.icon}</span>
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-neutral-900/8 text-neutral-900 dark:bg-white/10 dark:text-white">
+                <span className="h-4 w-4">{item.icon}</span>
               </span>
               <span className="text-[11px] font-semibold leading-tight tracking-wide">{item.title}</span>
             </motion.a>

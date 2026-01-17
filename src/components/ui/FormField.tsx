@@ -65,7 +65,7 @@ export function FormField<
           {required ? <span className="ml-1 text-[#A3542B]">*</span> : null}
         </Label>
         {description ? (
-          <span className="text-xs text-[#3F3A32]">{description}</span>
+          <span className="text-xs text-[#3F3A32] dark:text-white/60">{description}</span>
         ) : null}
       </div>
       {render(controllerWithProps)}

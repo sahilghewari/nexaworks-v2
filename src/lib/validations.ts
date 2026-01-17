@@ -17,6 +17,24 @@ export const contactSchema = z.object({
     .refine((value) => !value || phoneRegex.test(value), "Please provide a valid phone number.")
     .transform((value) => (value ? value : undefined)),
   message: z.string().trim().min(10, "Message should be at least 10 characters."),
+  kpi: z
+    .string()
+    .trim()
+    .optional()
+    .refine((value) => !value || value.length >= 6, "Please add a bit more detail.")
+    .transform((value) => (value ? value : undefined)),
+  stack: z
+    .string()
+    .trim()
+    .optional()
+    .refine((value) => !value || value.length >= 3, "Stack must be at least 3 characters.")
+    .transform((value) => (value ? value : undefined)),
+  role: z
+    .string()
+    .trim()
+    .optional()
+    .refine((value) => !value || value.length >= 2, "Role must be at least 2 characters.")
+    .transform((value) => (value ? value : undefined)),
 });
 
 export const demoRequestSchema = z.object({

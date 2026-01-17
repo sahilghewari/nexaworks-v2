@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 const founders = [
   {
@@ -14,9 +14,8 @@ const founders = [
     superpower: "Translate business ambiguity into a technical plan the team can ship in weeks.",
     proudOf: "Keeping founders in the loop with real demos instead of slideware.",
     links: {
-      linkedin: "https://www.linkedin.com/in/sahilghewari",
+      linkedin: "https://www.linkedin.com/in/sahil-ghewari/",
       github: "https://github.com/sahilghewari",
-      twitter: "https://twitter.com/sahilghewari",
     },
   },
   {
@@ -28,9 +27,8 @@ const founders = [
     superpower: "Builds resilient systems with clear SLAs, tracing, and rollback paths baked in.",
     proudOf: "Standing up infra that let us handle 150 concurrent uploads in week four of a build.",
     links: {
-      linkedin: "https://www.linkedin.com/in/pavanbaber",
-      github: "https://github.com/pavanbaber",
-      twitter: "https://twitter.com/pavanbaber",
+      linkedin: "https://www.linkedin.com/in/pavanbabar/",
+      github: "https://github.com/pavanofficiall",
     },
   },
   {
@@ -42,9 +40,8 @@ const founders = [
     superpower: "Designs processes that keep velocity high while stakeholders stay fully informed.",
     proudOf: "Our reputation for transparency—weekly readouts, clear risks, and no surprises.",
     links: {
-      linkedin: "https://www.linkedin.com/in/mangalasawant",
-      github: "https://github.com/mangalasawant",
-      twitter: "https://twitter.com/mangalasawant",
+      linkedin: "https://www.linkedin.com/in/mangala-sawant-34a3a92a6/",
+      github: "https://github.com/MangalaSawant",
     },
   },
 ];
@@ -113,17 +110,6 @@ export function TeamSection() {
                   >
                     <Github className="h-4 w-4" aria-hidden="true" />
                     GitHub
-                  </Link>
-                ) : null}
-                {founder.links.twitter ? (
-                  <Link
-                    href={founder.links.twitter}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[#0D1015]/10 px-3 py-2 transition hover:border-[#A3542B]/50 hover:text-[#A3542B]/80"
-                  >
-                    <Twitter className="h-4 w-4" aria-hidden="true" />
-                    Twitter
                   </Link>
                 ) : null}
               </div>

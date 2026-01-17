@@ -68,14 +68,14 @@ export function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <Badge variant="info" className="w-fit border-none bg-[#0D1015]/5 text-[#3F3A32]">
-            Trusted by scale-ups shipping weekly
+            Built by founders, not account teams
           </Badge>
 
           <h1 className="font-display text-4xl font-bold leading-[1.1] text-[#0D1015] md:text-6xl">
-            Automation That Actually Works. Faster Than You Think.
+            Slow consultancies ship decks. We ship working software.
           </h1>
           <p className="max-w-xl text-lg text-[#3F3A32] md:text-xl">
-            Enterprise-grade custom software and AI, delivered 3-4x faster than traditional consultancies. See it working, then decide.
+            Founder-led builds in your stack, live in days—not quarters. See the automation running before you sign anything.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
@@ -83,13 +83,13 @@ export function Hero() {
               href="#demo-preview"
               className={ctaButtonVariants({ variant: "primary", size: "lg" })}
             >
-              See It In Action
+              See a live build
             </Link>
             <Link
               href="/contact"
               className={ctaButtonVariants({ variant: "secondary", size: "lg" })}
             >
-              Schedule 30-Min Consultation
+              Book a 20-min build review
             </Link>
           </div>
 
@@ -115,35 +115,35 @@ export function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         >
-          <div className="space-y-5">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#3F3A32]">
-              <span className="inline-flex h-2 w-2 items-center justify-center rounded-full bg-[#A3542B]" aria-hidden="true" />
-              Key Deliverables
+            <div className="space-y-5">
+              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#3F3A32]">
+                <span className="inline-flex h-2 w-2 items-center justify-center rounded-full bg-[#A3542B]" aria-hidden="true" />
+                Week one, zero theater
+              </div>
+              <h3 className="text-2xl font-semibold text-[#0D1015]">
+                You get a running automation before paperwork.
+              </h3>
+              <ul className="space-y-3 text-sm text-[#3F3A32]">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
+                  Live walkthrough in your stack, not a slide deck.
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
+                  Time-to-value dashboard showing latency, accuracy, and risk.
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
+                  Founder-to-founder launch plan with cutover and rollback spelled out.
+                </li>
+              </ul>
+              <div className="rounded-2xl border border-[#0D1015]/10 bg-[#CBC8BA] p-5 text-sm text-[#3F3A32]">
+                <p className="text-xs uppercase tracking-[0.3em] text-[#A3542B]">No demo, no deal</p>
+                <p className="mt-2 leading-relaxed">
+                  If we can&apos;t show you a working slice in week one, you don&apos;t move forward. We don&apos;t ask for trust—we earn it with software on screen.
+                </p>
+              </div>
             </div>
-            <h3 className="text-2xl font-semibold text-[#0D1015]">
-              What You See In Week One
-            </h3>
-            <ul className="space-y-3 text-sm text-[#3F3A32]">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
-                Live automation walkthrough tailored to your operations stack.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
-                Metrics dashboard preview highlighting time-to-value and accuracy.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
-                Founder-to-founder roadmap outlining launch milestones and risks.
-              </li>
-            </ul>
-            <div className="rounded-2xl border border-[#0D1015]/10 bg-[#CBC8BA] p-5 text-sm text-[#3F3A32]">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#A3542B]">Why This Matters</p>
-              <p className="mt-2 leading-relaxed">
-                Every pitch comes with working software, not wireframes. You get clarity on impact, effort, and the first automation win before we ever send a proposal.
-              </p>
-            </div>
-          </div>
         </motion.aside>
       </div>
 

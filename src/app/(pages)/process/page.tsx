@@ -24,48 +24,48 @@ export const metadata: Metadata = {
 
 const phases = [
   {
-    title: "Discovery & Alignment",
+    title: "Gate 0: Discovery & Alignment",
     duration: "3-5 days",
     items: [
-      "Define outcomes, risks, and success metrics",
-      "Map data sources, integrations, constraints",
-      "Draft acceptance criteria and demo plan",
+      "Lock KPI, owner, and access; no KPI, no start",
+      "Map data sources, constraints, security requirements",
+      "Draft acceptance criteria and week-2 demo slice",
     ],
   },
   {
-    title: "Architecture & Plan",
+    title: "Gate 1: Architecture & Plan",
     duration: "3-7 days",
     items: [
-      "Select stack, hosting, and observability",
-      "Design data flows and security controls",
-      "Sequence milestones with owner + dates",
+      "Select stack, observability, and controls",
+      "Sequence milestones with decision dates",
+      "Publish rollback paths and non-negotiables",
     ],
   },
   {
-    title: "Build & Demo",
+    title: "Gate 2: Build & Demo",
     duration: "Weekly cadence",
     items: [
-      "Ship vertical slices with feature flags",
-      "Weekly demos with metrics and risks",
-      "QA + accessibility checks each increment",
+      "Ship vertical slices behind flags",
+      "Week-2 live slice; if missed, pause and fix",
+      "Weekly demos with risks and deltas vs KPI",
     ],
   },
   {
-    title: "Hardening & Launch",
+    title: "Gate 3: Hardening & Launch",
     duration: "1-2 weeks",
     items: [
       "Load, perf, and resiliency checks",
       "Runbooks, alerts, and SLOs in place",
-      "Cutover plan with rollback paths",
+      "Cutover with rollback rehearsed; miss SLO twice → revert",
     ],
   },
 ];
 
 const guarantees = [
-  "Weekly demos with agreed acceptance criteria",
-  "Visibility on risks, blockers, and scope changes",
-  "Security and accessibility baked into definition of done",
-  "Documentation and handoff playbooks before launch",
+  "Week-2 live slice or we pause and fix before proceeding",
+  "Weekly demos with acceptance criteria and KPI delta",
+  "Two strikes on SLOs (uptime/latency) → fix-only until green",
+  "Security, accessibility, and rollback baked into definition of done",
 ];
 
 export default function ProcessPage() {
@@ -76,10 +76,10 @@ export default function ProcessPage() {
         <div className="container relative z-10 space-y-6 text-center sm:max-w-4xl sm:text-left">
           <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">How we work</p>
           <h1 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl md:text-[3rem]">
-            A predictable playbook from brief to launch
+            Governance over theater. Stop-rules baked in.
           </h1>
           <p className="text-base text-[#3F3A32] sm:text-lg">
-            We pair founder-level ownership with engineering rigor: clear acceptance criteria, weekly demos, and quality gates that keep delivery fast and auditable.
+            Every phase has a gate. Miss it, we pause or change course. Week-2 live slice, weekly demos, rollback rehearsed, and a KPI we’re accountable to.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <Link href="/contact" className={`${primaryCta} h-12 text-lg`}>
@@ -95,9 +95,9 @@ export default function ProcessPage() {
       <section className="border-t border-[#0D1015]/10 bg-[#CBC8BA] py-16">
         <div className="container grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-[#0D1015]">Delivery phases</h2>
+            <h2 className="text-2xl font-semibold text-[#0D1015]">Decision gates</h2>
             <p className="text-sm leading-relaxed text-[#3F3A32]">
-              Each phase ships artifacts and demos. We don&apos;t move forward without owner sign-off and measurable acceptance criteria.
+              Each gate has a pass/fail. If we miss a gate, we stop, fix, or pivot before spending another dollar.
             </p>
           </div>
           <div className="grid gap-4 rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_24px_50px_-24px_rgba(13,16,21,0.65)] md:grid-cols-2">
@@ -124,12 +124,13 @@ export default function ProcessPage() {
       <section className="border-t border-[#0D1015]/10 bg-[#CBC8BA] py-16">
         <div className="container grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-[#0D1015]">Quality and governance</h2>
+            <h2 className="text-2xl font-semibold text-[#0D1015]">Quality, risk, and escalation</h2>
             <ul className="space-y-3 text-sm leading-relaxed text-[#3F3A32]">
-              <li>Definition of Done includes tests, accessibility, and performance budgets.</li>
-              <li>Secure-by-default: secrets in env, CSP headers, no inline credentials.</li>
-              <li>Observability: logs, metrics, and alerts wired before launch.</li>
-              <li>Runbooks and rollback paths are prepared before cutover.</li>
+              <li>Definition of Done: tests, accessibility, performance budgets enforced.</li>
+              <li>Secure-by-default: CSP headers, no inline creds, secrets managed.</li>
+              <li>Observability wired before launch: logs, metrics, alerts with owners.</li>
+              <li>Rollback ready: rehearsed paths, not just a paragraph in a doc.</li>
+              <li>Escalation: two consecutive misses on KPI/SLO triggers fix-only mode.</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_24px_50px_-24px_rgba(13,16,21,0.65)]">

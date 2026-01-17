@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Quote } from "lucide-react";
 
+import { useState } from "react";
 import type { CaseStudy } from "@/lib/case-studies";
 import { useModal } from "@/context/ModalContext";
 import { ctaButtonVariants } from "@/ui/CTAButton";
@@ -16,6 +17,9 @@ interface CaseStudyDetailProps {
 
 export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
   const { openContactModal } = useModal();
+  const [showBreakdown, setShowBreakdown] = useState(false);
+
+  const killerMetric = caseStudy.metrics[0];
 
   return (
     <article className="flex flex-col">
@@ -36,13 +40,19 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
               <p className="text-lg text-[#3F3A32] sm:text-xl">{caseStudy.subtitle}</p>
             ) : null}
             <p className="text-base text-[#3F3A32] sm:text-lg">{caseStudy.heroDescription}</p>
+            {killerMetric ? (
+              <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#A3542B]/40 bg-[#A3542B]/10 px-4 py-2 text-sm font-semibold text-[#A3542B]">
+                <span>Killer result:</span>
+                <span>{killerMetric.value} · {killerMetric.label}</span>
+              </div>
+            ) : null}
             <div className="flex flex-wrap gap-3">
               <button
                 type="button"
                 onClick={() => openContactModal({ message: `Interested in ${caseStudy.title}. Let's schedule a demo.` })}
                 className={ctaButtonVariants({ variant: "primary", size: "lg" })}
               >
-                Schedule Demo
+                See live demo
               </button>
               {caseStudy.demoLink ? (
                 <Link
@@ -84,9 +94,9 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
-            <h2 className="text-2xl font-semibold text-[#0D1015]">Problem</h2>
+            <h2 className="text-2xl font-semibold text-[#0D1015]">What was broken</h2>
             <p className="text-sm leading-relaxed text-[#3F3A32]">{caseStudy.problem}</p>
-            <h2 className="text-2xl font-semibold text-[#0D1015]">Solution</h2>
+            <h2 className="text-2xl font-semibold text-[#0D1015]">What we did differently</h2>
             <p className="text-sm leading-relaxed text-[#3F3A32]">{caseStudy.solution}</p>
             <div className="space-y-3">
               <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Technologies</p>
@@ -104,24 +114,45 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
           </motion.div>
 
           <motion.div
-            className="grid gap-4 sm:grid-cols-2"
+            className="space-y-4"
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
           >
-            {caseStudy.metrics.map((metric) => (
-              <div
-                key={`${caseStudy.id}-${metric.label}`}
-                className="flex h-full flex-col justify-between rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_22px_60px_-38px_rgba(13,16,21,0.8)]"
+            <div className="grid gap-4 sm:grid-cols-2">
+              {killerMetric ? (
+                <div className="flex h-full flex-col justify-between rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_22px_60px_-38px_rgba(13,16,21,0.8)]">
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Killer result</p>
+                  <p className="mt-4 text-3xl font-semibold text-[#A3542B]">{killerMetric.value}</p>
+                  <p className="mt-3 text-sm text-[#3F3A32]">{killerMetric.label}</p>
+                </div>
+              ) : null}
+              <button
+                type="button"
+                onClick={() => setShowBreakdown((prev) => !prev)}
+                className="flex h-full items-center justify-center rounded-2xl border border-dashed border-[#0D1015]/15 bg-[#CBC8BA]/70 p-6 text-sm font-semibold text-[#0D1015] transition hover:border-[#A3542B]/50"
               >
-                <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">{metric.label}</p>
-                <p className="mt-4 text-3xl font-semibold text-[#A3542B]">{metric.value}</p>
-                {metric.description ? (
-                  <p className="mt-3 text-sm text-[#3F3A32]">{metric.description}</p>
-                ) : null}
+                {showBreakdown ? "Hide full breakdown" : "View full breakdown"}
+              </button>
+            </div>
+
+            {showBreakdown ? (
+              <div className="grid gap-4 sm:grid-cols-2">
+                {caseStudy.metrics.map((metric) => (
+                  <div
+                    key={`${caseStudy.id}-${metric.label}`}
+                    className="flex h-full flex-col justify-between rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_22px_60px_-38px_rgba(13,16,21,0.8)]"
+                  >
+                    <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">{metric.label}</p>
+                    <p className="mt-4 text-3xl font-semibold text-[#A3542B]">{metric.value}</p>
+                    {metric.description ? (
+                      <p className="mt-3 text-sm text-[#3F3A32]">{metric.description}</p>
+                    ) : null}
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : null}
           </motion.div>
         </div>
       </section>

@@ -35,10 +35,10 @@ export default function AboutPage() {
         <div className="container relative z-10 space-y-6 text-center sm:max-w-4xl sm:text-left">
           <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">About NexaWorks</p>
           <h1 className="font-display text-3xl font-semibold leading-tight sm:text-4xl md:text-[3rem]">
-            Founder-led builders shipping real products faster than anyone else.
+            Three founders. No sales layer. Only working software.
           </h1>
           <p className="text-base text-[#3F3A32] sm:text-lg">
-            We are three hands-on founders who write code, ship production systems, and own outcomes. This page is our story, the team behind the work, and why partners trust us with their most critical bets.
+            We stay on the hook for outcomes, write the code ourselves, and refuse staff-aug theater or endless discovery decks. This page is the why, the team, and what we won&apos;t do.
           </p>
         </div>
       </section>

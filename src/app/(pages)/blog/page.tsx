@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { BlogCard } from "@/components/blog/BlogCard";
-import { BlogSidebar } from "@/components/blog/BlogSidebar";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -23,7 +22,8 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const posts = getAllPosts();
-  const allTags = Array.from(new Set(posts.flatMap((post) => post.tags)));
+  const topPosts = posts.slice(0, 3);
+  const rest = posts.slice(3);
 
   return (
     <main className="flex flex-col bg-[#E7E2D6] text-[#0D1015]">
@@ -32,21 +32,34 @@ export default function BlogPage() {
         <div className="container relative z-10 space-y-4 text-center sm:max-w-4xl sm:text-left">
           <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">Blog</p>
           <h1 className="font-display text-3xl font-semibold leading-tight sm:text-4xl md:text-[3rem]">
-            Founder perspectives on shipping automation and AI—fast, reliable, accountable.
+            Founder briefs: what we ship, what broke, what we learned.
           </h1>
           <p className="text-base text-[#3F3A32] sm:text-lg">
-            Deep dives, battle-tested playbooks, and lessons from building ten products in eight months.
+            Only the sharp takes and playbooks we use. No filler. If it doesn&apos;t have a stance and a proof, it&apos;s not here.
           </p>
         </div>
       </section>
 
-      <section className="container grid gap-10 py-14 lg:grid-cols-[minmax(0,2fr)_minmax(0,0.8fr)]">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
+      <section className="container space-y-10 py-14">
+        <div className="space-y-4">
+          <p className="text-xs uppercase tracking-[0.28em] text-[#3F3A32]">Featured briefs</p>
+          <div className="grid gap-6 md:grid-cols-3">
+            {topPosts.map((post) => (
+              <BlogCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
-        <BlogSidebar related={posts.slice(0, 3)} allTags={allTags} />
+
+        {rest.length ? (
+          <div className="space-y-4">
+            <p className="text-xs uppercase tracking-[0.28em] text-[#3F3A32]">Archive</p>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {rest.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </div>
+        ) : null}
       </section>
     </main>
   );

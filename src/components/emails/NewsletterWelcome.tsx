@@ -58,7 +58,7 @@ export const NewsletterWelcome = ({
         <Text style={footerStyles}>
           NexaWorks · Crafted for innovators. Follow us on
           {" "}
-          <Link href="https://linkedin.com/company/nexaworks" style={linkStyles}>
+          <Link href="https://www.linkedin.com/company/nexaworks-tech" style={linkStyles}>
             LinkedIn
           </Link>
           .

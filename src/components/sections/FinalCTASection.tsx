@@ -21,32 +21,19 @@ export function FinalCTASection() {
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            Let&apos;s Talk About Your Automation Challenge
+            Want proof? See a live build.
           </h2>
           <p className="mt-6 text-base text-[#3F3A32] sm:text-lg">
-            Whether you&apos;re an enterprise tired of slow consultancies or a startup needing custom software, we can help. Schedule a free 30-minute consultation to see how we&apos;d approach your problem.
+            No PDFs, no sales theater. We&apos;ll show you a running slice in your stack and agree on the first metric to move. If we can&apos;t demo it fast, you don&apos;t proceed.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+          <div className="mt-10 flex flex-col items-center justify-center">
             <button
               type="button"
-              onClick={() => openContactModal({ message: "I want to schedule a demo." })}
+              onClick={() => openContactModal({ message: "Show me a live build." })}
               className={ctaButtonVariants({ variant: "primary", size: "lg" })}
             >
-              Schedule Demo
-            </button>
-            <Link
-              href="/projects"
-              className={ctaButtonVariants({ variant: "secondary", size: "lg" })}
-            >
-              See Our Work
-            </Link>
-            <button
-              type="button"
-              onClick={() => openContactModal({ message: "I would like a proposal for my project." })}
-              className={ctaButtonVariants({ variant: "tertiary", size: "lg" })}
-            >
-              Get a Proposal
+              See live demo
             </button>
           </div>
         </motion.div>

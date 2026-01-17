@@ -36,7 +36,7 @@ export function ContactModal() {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="relative w-full max-w-3xl"
+            className="relative w-full max-w-xl"
             initial={{ scale: 0.96, opacity: 0, y: 16 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 10 }}

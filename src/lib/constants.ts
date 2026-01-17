@@ -8,9 +8,8 @@ export const siteConfig: SiteConfig = {
   url: siteUrl,
   ogImage: `${siteUrl.replace(/\/$/, "")}/og.png`,
   links: {
-    twitter: "https://twitter.com/nexaworks",
-    github: "https://github.com/nexaworks",
-    linkedin: "https://linkedin.com/company/nexaworks",
+    github: "https://github.com/orgs/nexaworks-technology",
+    linkedin: "https://www.linkedin.com/company/nexaworks-tech",
   },
 };
 
@@ -83,7 +82,7 @@ export const FOOTER_LINK_GROUPS = [
     links: [
       { label: "About", href: "/about" },
       { label: "Team", href: "/team" },
-      { label: "GitHub", href: siteConfig.links.github ?? "https://github.com/nexaworks" },
+      { label: "GitHub", href: siteConfig.links.github ?? "https://github.com/orgs/nexaworks-technology" },
       { label: "Blog", href: "/blog" },
     ],
   },
