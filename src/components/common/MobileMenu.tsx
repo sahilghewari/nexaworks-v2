@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -27,12 +27,19 @@ const panelVariants = {
 };
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const { openContactModal } = useModal();
   const { theme, resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const activeTheme = (theme === "system" ? resolvedTheme : theme) === "dark" ? "dark" : "light";
-  const logoSrc = activeTheme === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg";
-  const iconSrc = activeTheme === "dark" ? "/nexa-icon.svg" : "/icon-light.svg";
+  const themeChoice = mounted ? activeTheme : "dark";
+  const logoSrc = themeChoice === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg";
+  const iconSrc = themeChoice === "dark" ? "/nexa-icon.svg" : "/icon-light.svg";
 
   useEffect(() => {
     if (!isOpen) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Twitter } from "lucide-react";
@@ -8,8 +8,15 @@ import { useTheme } from "next-themes";
 import { COMPANY_INFO, FOOTER_LINK_GROUPS, siteConfig, SOCIAL_LINKS } from "@/lib/constants";
 
 export function Footer() {
+  const [mounted, setMounted] = useState(false);
   const { theme, resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const activeTheme = (theme === "system" ? resolvedTheme : theme) === "dark" ? "dark" : "light";
+  const themeChoice = mounted ? activeTheme : "dark";
 
   const currentYear = new Date().getFullYear();
 
@@ -30,7 +37,7 @@ export function Footer() {
           <div className="flex w-full max-w-sm flex-col gap-4">
             <Link href="/" className="inline-flex items-center" aria-label="NexaWorks home">
               <Image
-                src={activeTheme === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg"}
+                src={themeChoice === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg"}
                 alt="NexaWorks logo"
                 width={224}
                 height={40}
