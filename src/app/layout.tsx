@@ -106,6 +106,34 @@ export default function RootLayout({
               strategy="afterInteractive"
             />
           ) : null}
+          <Script
+            id="organization-structured-data"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "NexaWorks",
+                "url": "https://nexaworks.com",
+                "logo": "https://nexaworks.com/nexaworks-logo-icon.svg",
+                "description": "Full-stack experts designing and shipping resilient digital products for fast-moving teams.",
+                "foundingDate": "2024",
+                "sameAs": [
+                  // Add social media URLs here when available
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "", // Add phone if available
+                  "contactType": "customer service",
+                  "availableLanguage": "English"
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "IN" // Update based on location
+                }
+              }),
+            }}
+          />
           <ModalProvider>
             <Header />
             <main id="main-content" className="min-h-screen">

@@ -1,3 +1,5 @@
+import Script from "next/script";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -30,30 +32,59 @@ export function generateMetadata({ params }: BlogPageProps): Metadata {
     };
   }
 
+  const url = `https://nexaworks.com/blog/${post.slug}`;
+  const publishedTime = new Date(post.date).toISOString();
+  const modifiedTime = publishedTime; // Update this if you track modifications
+
   return {
     title: `${post.title} | NexaWorks`,
     description: post.excerpt,
+    keywords: post.tags,
+    authors: [{ name: post.author }],
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://nexaworks.tech/blog/${post.slug}`,
+      url,
       siteName: "NexaWorks",
       type: "article",
+      publishedTime,
+      modifiedTime,
+      authors: [post.author],
+      tags: post.tags,
       images: post.image
         ? [
             {
-              url: post.image,
+              url: post.image.startsWith('http') ? post.image : `https://nexaworks.com${post.image}`,
               width: 1200,
               height: 630,
               alt: post.title,
             },
           ]
-        : undefined,
+        : [
+            {
+              url: "https://nexaworks.com/og.png",
+              width: 1200,
+              height: 630,
+              alt: "NexaWorks",
+            },
+          ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: post.image
+        ? [post.image.startsWith('http') ? post.image : `https://nexaworks.com${post.image}`]
+        : ["https://nexaworks.com/og.png"],
+    },
+    other: {
+      'article:author': post.author,
+      'article:published_time': publishedTime,
+      'article:section': 'Blog',
+      'article:tag': post.tags.join(','),
     },
   };
 }
@@ -86,8 +117,51 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     year: "numeric",
   });
 
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.image ? (post.image.startsWith('http') ? post.image : `https://nexaworks.com${post.image}`) : "https://nexaworks.com/og.png",
+    "datePublished": new Date(post.date).toISOString(),
+    "dateModified": new Date(post.date).toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": post.author,
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "NexaWorks"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "NexaWorks",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nexaworks.com/nexaworks-logo-icon.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://nexaworks.com/blog/${post.slug}`
+    },
+    "keywords": post.tags.join(", "),
+    "articleSection": "Blog",
+    "timeRequired": `PT${Math.ceil(post.readingTimeMinutes)}M`
+  };
+
   return (
-    <main className="flex flex-col bg-[#E7E2D6] text-[#0D1015]">
+    <>
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <main className="flex flex-col bg-[#E7E2D6] text-[#0D1015]">
       <section className="relative isolate overflow-hidden bg-[#CBC8BA] py-16 sm:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#A79F90_0%,transparent_55%)]" aria-hidden="true" />
         <div className="container relative z-10 space-y-4 text-center sm:max-w-4xl sm:text-left">
@@ -107,8 +181,14 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         <article className="space-y-10">
           {post.image ? (
             <div className="overflow-hidden rounded-3xl border border-[#0D1015]/10 shadow-[0_28px_70px_-32px_rgba(13,16,21,0.8)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={post.image} alt={post.title} className="h-80 w-full object-cover" />
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={800}
+                height={400}
+                className="h-80 w-full object-cover"
+                priority
+              />
             </div>
           ) : null}
 
@@ -146,5 +226,6 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         <BlogSidebar related={related} allTags={Array.from(new Set(getAllPosts().flatMap((p) => p.tags)))} />
       </section>
     </main>
+    </>
   );
 }
