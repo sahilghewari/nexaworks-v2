@@ -43,7 +43,7 @@ const demos: DemoItem[] = [
 
 export function SocialProofSection() {
   return (
-    <section className="bg-[#0D1015] py-24 sm:py-28">
+    <section className="bg-[#CBC8BA] py-24 sm:py-28">
       <div className="container space-y-12">
         <motion.div
           className="flex flex-col gap-6 text-center sm:text-left"
@@ -55,10 +55,10 @@ export function SocialProofSection() {
           <Badge variant="success" className="mx-auto w-fit sm:mx-0">
             Live Product Demos
           </Badge>
-          <h2 className="font-display text-3xl font-semibold text-[#CBC8BA] sm:text-4xl md:text-[2.75rem]">
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl md:text-[2.75rem]">
             Proven Track Record
           </h2>
-          <p className="max-w-3xl text-base text-[#9CA3AF] sm:text-lg">
+          <p className="max-w-3xl text-base text-[#3F3A32] sm:text-lg">
             Live products, not promises.
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export function SocialProofSection() {
           {demos.map((demo, index) => (
             <motion.article
               key={demo.title}
-              className="group flex h-full flex-col justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-[#111827]/90 via-[#0D1015]/90 to-[#1F2937]/80 p-8 shadow-[0_26px_60px_-30px_rgba(15,23,42,0.75)] transition duration-300 hover:-translate-y-2 hover:border-[#FF2003]/50 hover:shadow-[0_35px_65px_-25px_rgba(255,32,3,0.28)]"
+              className="group flex h-full flex-col justify-between gap-6 rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/90 to-[#A79F90]/80 p-8 shadow-[0_26px_60px_-30px_rgba(13,16,21,0.75)] transition duration-300 hover:-translate-y-2 hover:border-[#A3542B]/50 hover:shadow-[0_35px_65px_-25px_rgba(163,84,43,0.28)]"
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
@@ -75,13 +75,13 @@ export function SocialProofSection() {
             >
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm uppercase tracking-[0.3em] text-[#9CA3AF]">{demo.title}</h3>
-                  <p className="mt-2 text-2xl font-semibold text-[#CBC8BA]">{demo.tagline}</p>
+                  <h3 className="text-sm uppercase tracking-[0.3em] text-[#3F3A32]">{demo.title}</h3>
+                  <p className="mt-2 text-2xl font-semibold text-[#0D1015]">{demo.tagline}</p>
                 </div>
-                <p className="text-sm font-semibold text-[#FF2003]">{demo.stat}</p>
+                <p className="text-sm font-semibold text-[#A3542B]">{demo.stat}</p>
               </div>
               {demo.previewUrl ? (
-                <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+                <div className="relative overflow-hidden rounded-2xl border border-[#0D1015]/10 bg-black/40">
                   <iframe
                     src={demo.previewUrl}
                     title={`${demo.title} preview`}
@@ -90,13 +90,13 @@ export function SocialProofSection() {
                   />
                 </div>
               ) : (
-                <div className="flex h-48 items-center justify-center rounded-2xl border border-dashed border-white/10 bg-[#0D1015]/80 text-sm text-[#9CA3AF]">
+                <div className="flex h-48 items-center justify-center rounded-2xl border border-dashed border-[#0D1015]/10 bg-[#CBC8BA]/80 text-sm text-[#3F3A32]">
                   Preview available on request
                 </div>
               )}
               <Link
                 href={demo.ctaHref}
-                className="mt-auto inline-flex items-center text-sm font-semibold text-[#FF2003] transition hover:text-[#FF2003]/80"
+                className="mt-auto inline-flex items-center text-sm font-semibold text-[#A3542B] transition hover:text-[#A3542B]/80"
                 target={demo.external ? "_blank" : undefined}
                 rel={demo.external ? "noreferrer" : undefined}
               >

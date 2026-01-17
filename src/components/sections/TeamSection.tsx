@@ -51,7 +51,7 @@ const founders = [
 
 export function TeamSection() {
   return (
-    <section className="bg-[#0A0D12] py-20 sm:py-24">
+    <section className="bg-[#E7E2D6] py-20 sm:py-24">
       <div className="container space-y-10">
         <motion.div
           className="space-y-3 text-center sm:text-left"
@@ -60,45 +60,45 @@ export function TeamSection() {
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
-          <p className="text-xs uppercase tracking-[0.35em] text-[#9CA3AF]">Team</p>
-          <h2 className="font-display text-3xl font-semibold text-[#CBC8BA] sm:text-4xl">Three founders who code</h2>
-          <p className="text-base text-[#9CA3AF] sm:text-lg">Hands-on leaders accountable for every sprint, release, and customer outcome.</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">Team</p>
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">Three founders who code</h2>
+          <p className="text-base text-[#3F3A32] sm:text-lg">Hands-on leaders accountable for every sprint, release, and customer outcome.</p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {founders.map((founder, index) => (
             <motion.article
               key={founder.name}
-              className="flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-[#0D1015] p-8 shadow-[0_26px_70px_-30px_rgba(15,23,42,0.8)]"
+              className="flex h-full flex-col gap-4 rounded-3xl border border-[#0D1015]/10 bg-[#CBC8BA] p-8 shadow-[0_26px_70px_-30px_rgba(13,16,21,0.8)]"
               initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.05 }}
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#FF2003] to-[#9CA3AF] text-lg font-semibold text-[#0D1015]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#A3542B] to-[#3F3A32] text-lg font-semibold text-[#CBC8BA]">
                   {founder.avatar}
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-xl font-semibold text-[#CBC8BA]">{founder.name}</h3>
-                  <p className="text-sm text-[#9CA3AF]">{founder.role}</p>
+                  <h3 className="text-xl font-semibold text-[#0D1015]">{founder.name}</h3>
+                  <p className="text-sm text-[#3F3A32]">{founder.role}</p>
                 </div>
               </div>
 
-              <p className="text-sm leading-relaxed text-[#9CA3AF]">{founder.bio}</p>
+              <p className="text-sm leading-relaxed text-[#3F3A32]">{founder.bio}</p>
 
-              <div className="space-y-2 text-sm text-[#9CA3AF]">
-                <p><span className="text-[#CBC8BA]">Superpower: </span>{founder.superpower}</p>
-                <p><span className="text-[#CBC8BA]">Proud of: </span>{founder.proudOf}</p>
+              <div className="space-y-2 text-sm text-[#3F3A32]">
+                <p><span className="text-[#0D1015]">Superpower: </span>{founder.superpower}</p>
+                <p><span className="text-[#0D1015]">Proud of: </span>{founder.proudOf}</p>
               </div>
 
-              <div className="mt-auto flex gap-3 text-sm font-semibold text-[#FF2003]">
+              <div className="mt-auto flex gap-3 text-sm font-semibold text-[#A3542B]">
                 {founder.links.linkedin ? (
                   <Link
                     href={founder.links.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 transition hover:border-[#FF2003]/50 hover:text-[#FF2003]/80"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#0D1015]/10 px-3 py-2 transition hover:border-[#A3542B]/50 hover:text-[#A3542B]/80"
                   >
                     <Linkedin className="h-4 w-4" aria-hidden="true" />
                     LinkedIn
@@ -109,7 +109,7 @@ export function TeamSection() {
                     href={founder.links.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 transition hover:border-[#FF2003]/50 hover:text-[#FF2003]/80"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#0D1015]/10 px-3 py-2 transition hover:border-[#A3542B]/50 hover:text-[#A3542B]/80"
                   >
                     <Github className="h-4 w-4" aria-hidden="true" />
                     GitHub
@@ -120,7 +120,7 @@ export function TeamSection() {
                     href={founder.links.twitter}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 transition hover:border-[#FF2003]/50 hover:text-[#FF2003]/80"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#0D1015]/10 px-3 py-2 transition hover:border-[#A3542B]/50 hover:text-[#A3542B]/80"
                   >
                     <Twitter className="h-4 w-4" aria-hidden="true" />
                     Twitter

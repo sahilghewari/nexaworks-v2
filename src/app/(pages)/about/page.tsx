@@ -29,15 +29,15 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col bg-[#0A0D12] text-[#CBC8BA]">
-      <section className="relative isolate overflow-hidden bg-[#0D1015] py-16 sm:py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1F2937_0%,transparent_55%)]" aria-hidden="true" />
+    <main className="flex flex-col bg-[#E7E2D6] text-[#0D1015]">
+      <section className="relative isolate overflow-hidden bg-[#CBC8BA] py-16 sm:py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#A79F90_0%,transparent_55%)]" aria-hidden="true" />
         <div className="container relative z-10 space-y-6 text-center sm:max-w-4xl sm:text-left">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#9CA3AF]">About NexaWorks</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">About NexaWorks</p>
           <h1 className="font-display text-3xl font-semibold leading-tight sm:text-4xl md:text-[3rem]">
             Founder-led builders shipping real products faster than anyone else.
           </h1>
-          <p className="text-base text-[#9CA3AF] sm:text-lg">
+          <p className="text-base text-[#3F3A32] sm:text-lg">
             We are three hands-on founders who write code, ship production systems, and own outcomes. This page is our story, the team behind the work, and why partners trust us with their most critical bets.
           </p>
         </div>

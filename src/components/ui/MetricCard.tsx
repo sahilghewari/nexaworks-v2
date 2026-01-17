@@ -57,7 +57,7 @@ export function MetricCard({
     <motion.article
       ref={containerRef}
       className={cn(
-        "flex h-full flex-col gap-6 rounded-2xl border border-[#1F2937] bg-[#111827] p-6 shadow-[0_24px_50px_-24px_rgba(15,23,42,0.65)]",
+        "flex h-full flex-col gap-6 rounded-2xl border border-[#A79F90] bg-[#B7B0A0] p-6 shadow-[0_24px_50px_-24px_rgba(13,16,21,0.65)]",
         className
       )}
       initial={{ opacity: 0, y: 24 }}
@@ -66,7 +66,7 @@ export function MetricCard({
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
       <AnimatedNumber value={motionValue} prefix={prefix} suffix={suffix} decimals={decimals} />
-      <p className="text-sm uppercase tracking-[0.25em] text-[#9CA3AF]">{label}</p>
+      <p className="text-sm uppercase tracking-[0.25em] text-[#3F3A32]">{label}</p>
     </motion.article>
   );
 }
@@ -93,15 +93,15 @@ function AnimatedNumber({
   return (
     <motion.span className="inline-flex items-baseline gap-1 leading-none whitespace-nowrap">
       {prefix ? (
-        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#9CA3AF]">
+        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#3F3A32]">
           {prefix.trim()}
         </span>
       ) : null}
-      <motion.span className="text-[1.85rem] font-semibold tracking-tight text-[#FF2003] md:text-[2.4rem]">
+      <motion.span className="text-[1.85rem] font-semibold tracking-tight text-[#A3542B] md:text-[2.4rem]">
         {rounded}
       </motion.span>
       {suffix ? (
-        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#9CA3AF]">
+        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#3F3A32]">
           {suffix.trim()}
         </span>
       ) : null}

@@ -38,9 +38,9 @@ export function Hero() {
   const particles = useMemo(() => createParticles(), []);
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#0D1015]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1F2937_0%,transparent_55%)]" aria-hidden="true" />
-      <div className="absolute inset-x-0 top-[-15%] z-0 h-[420px] bg-gradient-to-b from-[#FF2003]/10 via-transparent to-transparent blur-3xl" aria-hidden="true" />
+    <section className="relative isolate overflow-hidden bg-[#CBC8BA]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#A79F90_0%,transparent_55%)]" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-[-15%] z-0 h-[420px] bg-gradient-to-b from-[#A3542B]/10 via-transparent to-transparent blur-3xl" aria-hidden="true" />
 
       <motion.div
         className="absolute inset-0 z-0"
@@ -50,7 +50,7 @@ export function Hero() {
         {particles.map((particle) => (
           <motion.span
             key={particle.id}
-            className="absolute h-1.5 w-1.5 rounded-full bg-[#FF2003]/40"
+            className="absolute h-1.5 w-1.5 rounded-full bg-[#A3542B]/40"
             style={{ left: `${particle.x}%`, top: `${particle.y}%` }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: [0, 0.4, 0], y: [0, -14, 0] }}
@@ -67,14 +67,14 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <Badge variant="info" className="w-fit border-none bg-white/5 text-[#9CA3AF]">
+          <Badge variant="info" className="w-fit border-none bg-[#0D1015]/5 text-[#3F3A32]">
             Trusted by scale-ups shipping weekly
           </Badge>
 
-          <h1 className="font-display text-4xl font-bold leading-[1.1] text-[#CBC8BA] md:text-6xl">
+          <h1 className="font-display text-4xl font-bold leading-[1.1] text-[#0D1015] md:text-6xl">
             Automation That Actually Works. Faster Than You Think.
           </h1>
-          <p className="max-w-xl text-lg text-[#9CA3AF] md:text-xl">
+          <p className="max-w-xl text-lg text-[#3F3A32] md:text-xl">
             Enterprise-grade custom software and AI, delivered 3-4x faster than traditional consultancies. See it working, then decide.
           </p>
 
@@ -93,7 +93,7 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="grid w-full max-w-lg gap-3 rounded-2xl border border-white/10 bg-[#111827]/60 p-5 backdrop-blur sm:grid-cols-2">
+          <div className="grid w-full max-w-lg gap-3 rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/60 p-5 backdrop-blur sm:grid-cols-2">
             {metrics.map((metric) => (
               <MetricCard
                 key={metric.label}
@@ -103,42 +103,42 @@ export function Hero() {
                 label={metric.label}
                 decimals={metric.decimals}
                 animate
-                className="border-white/5 bg-[#0D1015]/80"
+                className="border-[#0D1015]/5 bg-[#CBC8BA]/80"
               />
             ))}
           </div>
         </motion.div>
 
         <motion.aside
-          className="w-full rounded-3xl border border-white/10 bg-[#111827]/70 p-8 shadow-[0_32px_65px_-32px_rgba(15,23,42,0.75)]"
+          className="w-full rounded-3xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-8 shadow-[0_32px_65px_-32px_rgba(13,16,21,0.75)]"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         >
           <div className="space-y-5">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#9CA3AF]">
-              <span className="inline-flex h-2 w-2 items-center justify-center rounded-full bg-[#FF2003]" aria-hidden="true" />
+            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#3F3A32]">
+              <span className="inline-flex h-2 w-2 items-center justify-center rounded-full bg-[#A3542B]" aria-hidden="true" />
               Key Deliverables
             </div>
-            <h3 className="text-2xl font-semibold text-[#CBC8BA]">
+            <h3 className="text-2xl font-semibold text-[#0D1015]">
               What You See In Week One
             </h3>
-            <ul className="space-y-3 text-sm text-[#9CA3AF]">
+            <ul className="space-y-3 text-sm text-[#3F3A32]">
               <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-[#FF2003]" aria-hidden="true" />
+                <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
                 Live automation walkthrough tailored to your operations stack.
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-[#FF2003]" aria-hidden="true" />
+                <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
                 Metrics dashboard preview highlighting time-to-value and accuracy.
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-[#FF2003]" aria-hidden="true" />
+                <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
                 Founder-to-founder roadmap outlining launch milestones and risks.
               </li>
             </ul>
-            <div className="rounded-2xl border border-white/10 bg-[#0D1015] p-5 text-sm text-[#9CA3AF]">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#FF2003]">Why This Matters</p>
+            <div className="rounded-2xl border border-[#0D1015]/10 bg-[#CBC8BA] p-5 text-sm text-[#3F3A32]">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#A3542B]">Why This Matters</p>
               <p className="mt-2 leading-relaxed">
                 Every pitch comes with working software, not wireframes. You get clarity on impact, effort, and the first automation win before we ever send a proposal.
               </p>
@@ -149,7 +149,7 @@ export function Hero() {
 
       <div className="pointer-events-none absolute bottom-10 left-1/2 z-20 -translate-x-1/2">
         <motion.div
-          className="flex flex-col items-center text-[#9CA3AF]"
+          className="flex flex-col items-center text-[#3F3A32]"
           animate={{ y: [0, 12, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           aria-hidden="true"

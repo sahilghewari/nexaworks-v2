@@ -69,66 +69,66 @@ export const NewsletterWelcome = ({
 );
 
 const bodyStyles: CSSProperties = {
-  backgroundColor: "#0D1015",
+  backgroundColor: "#CBC8BA",
   margin: 0,
   padding: "24px",
   fontFamily: "Inter, system-ui, -apple-system, sans-serif",
 };
 
 const containerStyles: CSSProperties = {
-  backgroundColor: "#111827",
+  backgroundColor: "#B7B0A0",
   borderRadius: "12px",
   padding: "32px",
-  color: "#CBC8BA",
+  color: "#0D1015",
 };
 
 const headingStyles: CSSProperties = {
-  color: "#CBC8BA",
+  color: "#0D1015",
   fontSize: "24px",
   fontWeight: 700,
   marginBottom: "16px",
 };
 
 const subheadingStyles: CSSProperties = {
-  color: "#CBC8BA",
+  color: "#0D1015",
   fontSize: "18px",
   fontWeight: 600,
   marginBottom: "12px",
 };
 
 const paragraphStyles: CSSProperties = {
-  color: "#CBC8BA",
+  color: "#0D1015",
   fontSize: "16px",
   lineHeight: "24px",
   margin: "0 0 16px 0",
 };
 
 const sectionStyles: CSSProperties = {
-  backgroundColor: "#1F2937",
+  backgroundColor: "#A79F90",
   borderRadius: "8px",
   padding: "20px",
   marginTop: "24px",
 };
 
 const listStyles: CSSProperties = {
-  color: "#CBC8BA",
+  color: "#0D1015",
   fontSize: "16px",
   lineHeight: "24px",
   paddingLeft: "20px",
 };
 
 const linkStyles: CSSProperties = {
-  color: "#FF2003",
+  color: "#A3542B",
   textDecoration: "underline",
 };
 
 const hrStyles: CSSProperties = {
-  borderColor: "#1F2937",
+  borderColor: "#A79F90",
   margin: "32px 0",
 };
 
 const footerStyles: CSSProperties = {
-  color: "#5A352F",
+  color: "#9B8B75",
   fontSize: "12px",
   textAlign: "center",
 };

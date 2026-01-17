@@ -80,7 +80,7 @@ const coreServices = [
 
 export function CoreServicesSection() {
   return (
-    <section className="bg-[#0A0D12] py-20 sm:py-24">
+    <section className="bg-[#E7E2D6] py-20 sm:py-24">
       <div className="container space-y-12">
         <motion.div
           className="max-w-3xl space-y-4 text-center sm:text-left"
@@ -89,8 +89,8 @@ export function CoreServicesSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm uppercase tracking-[0.35em] text-[#9CA3AF]">What we deliver</p>
-          <h2 className="font-display text-3xl font-semibold text-[#CBC8BA] sm:text-4xl">
+          <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">What we deliver</p>
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
             Three ways we unlock operational leverage
           </h2>
         </motion.div>
@@ -101,44 +101,44 @@ export function CoreServicesSection() {
             return (
               <motion.article
                 key={service.title}
-                className="group flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-[#111827]/90 via-[#0D1015]/90 to-[#1F2937]/80 p-8 shadow-[0_28px_65px_-32px_rgba(15,23,42,0.75)] transition duration-300 hover:-translate-y-2 hover:border-[#FF2003]/50 hover:shadow-[0_35px_70px_-30px_rgba(255,32,3,0.25)]"
+                className="group flex h-full flex-col gap-6 rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/90 to-[#A79F90]/80 p-8 shadow-[0_28px_65px_-32px_rgba(13,16,21,0.75)] transition duration-300 hover:-translate-y-2 hover:border-[#A3542B]/50 hover:shadow-[0_35px_70px_-30px_rgba(163,84,43,0.25)]"
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.08 }}
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FF2003]/20 bg-[#FF2003]/10 text-[#FF2003]">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#A3542B]/20 bg-[#A3542B]/10 text-[#A3542B]">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <div className="space-y-3">
-                  <h3 className="text-xl font-semibold text-[#CBC8BA]">{service.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#9CA3AF]">{service.description}</p>
+                  <h3 className="text-xl font-semibold text-[#0D1015]">{service.title}</h3>
+                  <p className="text-sm leading-relaxed text-[#3F3A32]">{service.description}</p>
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#9CA3AF]">What's Included</p>
-                  <ul className="space-y-2 text-sm text-[#9CA3AF]">
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">What's Included</p>
+                  <ul className="space-y-2 text-sm text-[#3F3A32]">
                     {service.highlights.map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#FF2003]" aria-hidden="true" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#A3542B]" aria-hidden="true" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="space-y-1 text-xs uppercase tracking-[0.25em] text-[#9CA3AF]">
-                  <p className="text-[#CBC8BA]">Timeline</p>
-                  <p className="text-sm normal-case tracking-normal text-[#9CA3AF]">{service.timeline}</p>
+                <div className="space-y-1 text-xs uppercase tracking-[0.25em] text-[#3F3A32]">
+                  <p className="text-[#0D1015]">Timeline</p>
+                  <p className="text-sm normal-case tracking-normal text-[#3F3A32]">{service.timeline}</p>
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#9CA3AF]">Typical Problems We Solve</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Typical Problems We Solve</p>
                   <div className="flex flex-wrap gap-2">
                     {service.problems.map((problem) => (
                       <span
                         key={problem}
-                        className="rounded-full border border-white/10 bg-[#111827] px-3 py-1 text-xs text-[#9CA3AF]"
+                        className="rounded-full border border-[#0D1015]/10 bg-[#B7B0A0] px-3 py-1 text-xs text-[#3F3A32]"
                       >
                         {problem}
                       </span>

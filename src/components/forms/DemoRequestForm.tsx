@@ -61,11 +61,11 @@ export function DemoRequestForm({ defaultValues, className, onSuccess }: DemoReq
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={cn("space-y-5 rounded-3xl border border-white/10 bg-[#0D1015] p-6 shadow-[0_24px_60px_-32px_rgba(15,23,42,0.75)]", className)}
+      className={cn("space-y-5 rounded-3xl border border-[#0D1015]/10 bg-[#CBC8BA] p-6 shadow-[0_24px_60px_-32px_rgba(13,16,21,0.75)]", className)}
     >
       <div className="space-y-1">
-        <h3 className="text-xl font-semibold text-[#CBC8BA]">Request a live demo</h3>
-        <p className="text-sm text-[#9CA3AF]">We&apos;ll respond within 24 hours with a time slot.</p>
+        <h3 className="text-xl font-semibold text-[#0D1015]">Request a live demo</h3>
+        <p className="text-sm text-[#3F3A32]">We&apos;ll respond within 24 hours with a time slot.</p>
       </div>
 
       <FormField

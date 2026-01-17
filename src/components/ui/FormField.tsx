@@ -62,10 +62,10 @@ export function FormField<
       <div className="flex items-baseline justify-between">
         <Label htmlFor={fieldId}>
           {label}
-          {required ? <span className="ml-1 text-[#FF2003]">*</span> : null}
+          {required ? <span className="ml-1 text-[#A3542B]">*</span> : null}
         </Label>
         {description ? (
-          <span className="text-xs text-[#9CA3AF]">{description}</span>
+          <span className="text-xs text-[#3F3A32]">{description}</span>
         ) : null}
       </div>
       {render(controllerWithProps)}

@@ -62,11 +62,11 @@ export function ContactForm({ defaultValues, className, onSuccess, ctaLabel }: C
   return (
     <form
       onSubmit={submitHandler}
-      className={cn("space-y-5 rounded-3xl border border-white/10 bg-[#0D1015] p-6 shadow-[0_24px_60px_-32px_rgba(15,23,42,0.75)]", className)}
+      className={cn("space-y-5 rounded-3xl border border-[#0D1015]/10 bg-[#CBC8BA] p-6 shadow-[0_24px_60px_-32px_rgba(13,16,21,0.75)]", className)}
     >
       <div className="space-y-1">
-        <h3 className="text-xl font-semibold text-[#CBC8BA]">Tell us about your challenge</h3>
-        <p className="text-sm text-[#9CA3AF]">We respond within one business day.</p>
+        <h3 className="text-xl font-semibold text-[#0D1015]">Tell us about your challenge</h3>
+        <p className="text-sm text-[#3F3A32]">We respond within one business day.</p>
       </div>
 
       <FormField

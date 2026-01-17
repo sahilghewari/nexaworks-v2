@@ -49,7 +49,7 @@ export function ContactModal() {
               type="button"
               aria-label="Close"
               onClick={closeModal}
-              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#111827] text-[#CBC8BA] transition hover:border-[#FF2003]/50 hover:text-white"
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#0D1015]/10 bg-[#B7B0A0] text-[#0D1015] transition hover:border-[#A3542B]/50 hover:text-white"
             >
               <X className="h-5 w-5" />
             </button>
@@ -59,7 +59,7 @@ export function ContactModal() {
               className="backdrop-blur"
               ctaLabel="Send Message"
             />
-            <div className="mt-3 flex justify-end text-xs text-[#9CA3AF]">
+            <div className="mt-3 flex justify-end text-xs text-[#3F3A32]">
               <Button variant="ghost" size="sm" onClick={closeModal}>
                 Close
               </Button>

@@ -74,10 +74,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${inkTrap.variable} antialiased bg-[#0D1015] text-[#CBC8BA]`}
-      >
+    <html lang="en" className="light">
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${inkTrap.variable} antialiased`}>
         <a href="#main-content" className="skip-to-main">
           Skip to main content
         </a>

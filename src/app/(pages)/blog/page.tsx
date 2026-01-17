@@ -26,15 +26,15 @@ export default function BlogPage() {
   const allTags = Array.from(new Set(posts.flatMap((post) => post.tags)));
 
   return (
-    <main className="flex flex-col bg-[#0A0D12] text-[#CBC8BA]">
-      <section className="relative isolate overflow-hidden bg-[#0D1015] py-16 sm:py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1F2937_0%,transparent_55%)]" aria-hidden="true" />
+    <main className="flex flex-col bg-[#E7E2D6] text-[#0D1015]">
+      <section className="relative isolate overflow-hidden bg-[#CBC8BA] py-16 sm:py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#A79F90_0%,transparent_55%)]" aria-hidden="true" />
         <div className="container relative z-10 space-y-4 text-center sm:max-w-4xl sm:text-left">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#9CA3AF]">Blog</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">Blog</p>
           <h1 className="font-display text-3xl font-semibold leading-tight sm:text-4xl md:text-[3rem]">
             Founder perspectives on shipping automation and AI—fast, reliable, accountable.
           </h1>
-          <p className="text-base text-[#9CA3AF] sm:text-lg">
+          <p className="text-base text-[#3F3A32] sm:text-lg">
             Deep dives, battle-tested playbooks, and lessons from building ten products in eight months.
           </p>
         </div>

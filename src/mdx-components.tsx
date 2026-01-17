@@ -2,20 +2,20 @@ import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
 const baseClasses = {
-  h1: "font-display text-4xl font-semibold text-[#CBC8BA] mt-8 mb-4",
-  h2: "font-display text-3xl font-semibold text-[#CBC8BA] mt-10 mb-4",
-  h3: "font-display text-2xl font-semibold text-[#CBC8BA] mt-8 mb-3",
-  p: "text-base leading-7 text-[#9CA3AF] mt-4",
-  ul: "list-disc pl-6 text-base leading-7 text-[#9CA3AF] mt-4 space-y-2",
-  ol: "list-decimal pl-6 text-base leading-7 text-[#9CA3AF] mt-4 space-y-2",
+  h1: "font-display text-4xl font-semibold text-[#0D1015] mt-8 mb-4",
+  h2: "font-display text-3xl font-semibold text-[#0D1015] mt-10 mb-4",
+  h3: "font-display text-2xl font-semibold text-[#0D1015] mt-8 mb-3",
+  p: "text-base leading-7 text-[#3F3A32] mt-4",
+  ul: "list-disc pl-6 text-base leading-7 text-[#3F3A32] mt-4 space-y-2",
+  ol: "list-decimal pl-6 text-base leading-7 text-[#3F3A32] mt-4 space-y-2",
   blockquote:
-    "border-l-4 border-[#FF2003] bg-[#111827] px-4 py-3 text-[#CBC8BA] rounded-lg mt-6",
+    "border-l-4 border-[#A3542B] bg-[#B7B0A0] px-4 py-3 text-[#0D1015] rounded-lg mt-6",
 };
 
 function CodeBlock(props: React.HTMLAttributes<HTMLElement>) {
   return (
     <pre
-      className={`overflow-x-auto rounded-xl border border-white/10 bg-[#0A0D12] p-4 text-sm leading-7 text-[#E5E7EB] shadow-[0_24px_60px_-32px_rgba(15,23,42,0.75)] ${props.className ?? ""}`}
+      className={`overflow-x-auto rounded-xl border border-[#0D1015]/10 bg-[#E7E2D6] p-4 text-sm leading-7 text-[#E5E7EB] shadow-[0_24px_60px_-32px_rgba(13,16,21,0.75)] ${props.className ?? ""}`}
     >
       <code className="language-javascript text-[#E5E7EB]" {...props} />
     </pre>
@@ -25,7 +25,7 @@ function CodeBlock(props: React.HTMLAttributes<HTMLElement>) {
 function InlineCode(props: React.HTMLAttributes<HTMLElement>) {
   return (
     <code
-      className="rounded-md bg-white/10 px-1.5 py-0.5 text-[0.95em] text-[#E5E7EB]"
+      className="rounded-md bg-[#0D1015]/10 px-1.5 py-0.5 text-[0.95em] text-[#E5E7EB]"
       {...props}
     />
   );
@@ -45,7 +45,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ children, href = "", ...rest }) => (
       <Link
         href={href}
-        className="font-semibold text-[#FF2003] underline decoration-[#FF2003]/50 underline-offset-4 transition hover:text-[#FF2003]/80"
+        className="font-semibold text-[#A3542B] underline decoration-[#A3542B]/50 underline-offset-4 transition hover:text-[#A3542B]/80"
         {...rest}
       >
         {children}

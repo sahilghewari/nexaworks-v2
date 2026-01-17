@@ -1,187 +1,109 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  COMPANY_INFO,
-  FOOTER_LINK_GROUPS,
-  siteConfig,
-  SOCIAL_LINKS,
-} from "@/lib/constants";
-import { Button } from "@/ui/button";
-import { Input } from "@/ui/input";
+import { Github, Linkedin, Twitter } from "lucide-react";
+import { COMPANY_INFO, FOOTER_LINK_GROUPS, siteConfig, SOCIAL_LINKS } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [feedback, setFeedback] = useState("");
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (!email) {
-      setFeedback("Enter your email to subscribe.");
-      setStatus("error");
-      return;
-    }
-
-    try {
-      setStatus("loading");
-      setFeedback("");
-
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      if (!response.ok) {
-        const body = await response.json().catch(() => ({}));
-        throw new Error(body?.error ?? "Unable to subscribe right now.");
-      }
-
-      setEmail("");
-      setStatus("success");
-      setFeedback("Thank you for subscribing! Check your inbox for a welcome email.");
-    } catch (error) {
-      setStatus("error");
-      setFeedback(error instanceof Error ? error.message : "Unable to subscribe right now.");
-    }
-  };
+  const socials = useMemo(
+    () =>
+      [
+        SOCIAL_LINKS.github && { label: "GitHub", href: SOCIAL_LINKS.github, Icon: Github },
+        SOCIAL_LINKS.linkedin && { label: "LinkedIn", href: SOCIAL_LINKS.linkedin, Icon: Linkedin },
+        SOCIAL_LINKS.twitter && { label: "Twitter", href: SOCIAL_LINKS.twitter, Icon: Twitter },
+      ].filter(Boolean) as { label: string; href: string; Icon: typeof Github }[],
+    []
+  );
 
   return (
-    <footer className="border-t border-[#1F2937] bg-[#0D1015]">
-      <div className="container space-y-12 py-12 md:space-y-16 md:py-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_1fr_1fr] xl:grid-cols-[1.5fr_1fr_1fr_1fr]">
-          <div className="space-y-6">
+    <footer className="border-t border-[#A79F90] bg-[#CBC8BA]">
+      <div className="container space-y-8 py-10">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex w-full max-w-sm flex-col gap-4">
             <Link href="/" className="inline-flex items-center" aria-label="NexaWorks home">
-              <span className="font-display text-2xl font-semibold uppercase tracking-widest text-gradient">
+              <span className="font-display text-xl font-semibold uppercase tracking-widest text-gradient">
                 NexaWorks
               </span>
             </Link>
-            <p className="max-w-md text-sm leading-relaxed text-[#9CA3AF]">
-              {COMPANY_INFO.tagline}
-            </p>
-            <div className="grid gap-2 text-sm text-[#9CA3AF]">
-              <span className="font-semibold text-[#CBC8BA]">Contact</span>
-              <a className="transition hover:text-[#CBC8BA]" href={`mailto:${COMPANY_INFO.email}`}>
-                {COMPANY_INFO.email}
-              </a>
-              <a className="transition hover:text-[#CBC8BA]" href={`tel:${COMPANY_INFO.phone}`}>
-                {COMPANY_INFO.phone}
-              </a>
-              <span>{COMPANY_INFO.address}</span>
-            </div>
-            <div className="flex items-center gap-4">
-              {SOCIAL_LINKS.github && (
+            <p className="max-w-xs text-xs leading-relaxed text-[#3F3A32]">{COMPANY_INFO.tagline}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              {socials.map(({ label, href, Icon }) => (
                 <a
-                  href={SOCIAL_LINKS.github}
-                  className="text-sm text-[#9CA3AF] transition hover:text-[#CBC8BA]"
+                  key={label}
+                  href={href}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0D1015]/10 bg-[#0D1015]/5 text-[#0D1015] transition hover:bg-[#0D1015]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A3542B]"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={label}
                 >
-                  GitHub
+                  <Icon className="h-4 w-4" aria-hidden="true" />
                 </a>
-              )}
-              {SOCIAL_LINKS.linkedin && (
-                <a
-                  href={SOCIAL_LINKS.linkedin}
-                  className="text-sm text-[#9CA3AF] transition hover:text-[#CBC8BA]"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-              )}
-              {SOCIAL_LINKS.twitter && (
-                <a
-                  href={SOCIAL_LINKS.twitter}
-                  className="text-sm text-[#9CA3AF] transition hover:text-[#CBC8BA]"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Twitter
-                </a>
-              )}
+              ))}
             </div>
           </div>
 
-          {FOOTER_LINK_GROUPS.map((group) => (
-            <div key={group.title} className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#CBC8BA]">
-                {group.title}
-              </h3>
-              <ul className="space-y-3 text-sm text-[#9CA3AF]">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    {link.href.startsWith("http") ? (
-                      <a
-                        href={link.href}
-                        className="transition hover:text-[#CBC8BA]"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link href={link.href} className="transition hover:text-[#CBC8BA]">
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <motion.div
-            className="space-y-4 rounded-xl border border-white/10 bg-white/5 p-6"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4 }}
-          >
-            <h3 className="text-lg font-semibold text-[#CBC8BA]">Stay in the loop</h3>
-            <p className="text-sm text-[#9CA3AF]">
-              Insights on emerging tech, fresh case studies, and behind-the-scenes updates delivered monthly.
-            </p>
-            <form className="space-y-3" onSubmit={handleSubmit}>
-              <label htmlFor="newsletter" className="sr-only">
-                Email address
-              </label>
-              <Input
-                id="newsletter"
-                type="email"
-                inputMode="email"
-                autoComplete="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                aria-describedby="newsletter-feedback"
-                required
-              />
-              <Button type="submit" className="w-full" disabled={status === "loading"}>
-                {status === "loading" ? "Joining..." : "Join newsletter"}
-              </Button>
-              {feedback && (
-                <p
-                  id="newsletter-feedback"
-                  className={`text-sm ${status === "success" ? "text-emerald-400" : "text-[#F59E0B]"}`}
-                  role={status === "success" ? "status" : "alert"}
+          <div className="grid w-full grid-cols-2 gap-x-6 gap-y-6 text-sm text-[#3F3A32] sm:grid-cols-3 md:flex md:flex-1 md:flex-wrap md:justify-end md:gap-8">
+            {FOOTER_LINK_GROUPS.map((group) => (
+              <div key={group.title} className="space-y-2 text-xs">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0D1015]">
+                  {group.title}
+                </h3>
+                <ul className="space-y-1.5 text-xs">
+                  {group.links.map((link) => (
+                    <li key={link.label}>
+                      {link.href.startsWith("http") ? (
+                        <a
+                          href={link.href}
+                          className="transition hover:text-[#0D1015]"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link href={link.href} className="transition hover:text-[#0D1015]">
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div className="col-span-2 space-y-2 text-xs sm:col-span-3 md:col-auto">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0D1015]">Contact</h3>
+              <div className="space-y-1.5 text-[#3F3A32]">
+                <a
+                  className="block break-words transition hover:text-[#0D1015]"
+                  href={`mailto:${COMPANY_INFO.email}`}
                 >
-                  {feedback}
+                  {COMPANY_INFO.email}
+                </a>
+                <a
+                  className="block transition hover:text-[#0D1015]"
+                  href={`tel:${COMPANY_INFO.phone}`}
+                >
+                  {COMPANY_INFO.phone}
+                </a>
+                <p className="max-w-sm break-words text-pretty leading-relaxed sm:max-w-xs">
+                  {COMPANY_INFO.address}
                 </p>
-              )}
-            </form>
-          </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-[#1F2937] pt-8 text-sm text-[#9CA3AF]">
-          <div className="flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
-            <span>© {currentYear} {siteConfig.name}. All rights reserved.</span>
-            <span>Crafted for visionaries building tomorrow&apos;s products.</span>
+        <div className="border-t border-[#A79F90] pt-4 text-xs text-[#3F3A32]">
+          <div className="flex flex-col gap-2 text-center md:flex-row md:items-center md:justify-between md:text-left">
+            <span>© {currentYear} {siteConfig.name}</span>
+            <div className="flex flex-wrap items-center justify-center gap-3 md:justify-end">
+              <span className="rounded-full bg-[#0D1015]/5 px-2.5 py-1 font-semibold text-[#0D1015]">AI-native delivery</span>
+              <span className="rounded-full bg-[#0D1015]/5 px-2.5 py-1 font-semibold text-[#0D1015]">Founder-led teams</span>
+              <span className="rounded-full bg-[#0D1015]/5 px-2.5 py-1 font-semibold text-[#0D1015]">Shipping real products</span>
+            </div>
           </div>
         </div>
       </div>

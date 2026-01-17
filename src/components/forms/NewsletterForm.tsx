@@ -53,7 +53,7 @@ export function NewsletterForm({ defaultValues, className }: NewsletterFormProps
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={cn("space-y-3 rounded-2xl border border-white/10 bg-[#0D1015] p-4", className)}
+      className={cn("space-y-3 rounded-2xl border border-[#0D1015]/10 bg-[#CBC8BA] p-4", className)}
     >
       <FormField
         control={control}

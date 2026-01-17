@@ -44,7 +44,7 @@ const models: Array<{
 
 export function EngagementModelsSection() {
   return (
-    <section className="bg-[#0D1015] py-20 sm:py-24">
+    <section className="bg-[#CBC8BA] py-20 sm:py-24">
       <div className="container space-y-12">
         <motion.div
           className="max-w-3xl space-y-4 text-center sm:text-left"
@@ -53,11 +53,11 @@ export function EngagementModelsSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm uppercase tracking-[0.35em] text-[#9CA3AF]">How we work together</p>
-          <h2 className="font-display text-3xl font-semibold text-[#CBC8BA] sm:text-4xl">
+          <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">How we work together</p>
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
             Flexible Engagement Models. Transparent Outcomes.
           </h2>
-          <p className="text-base text-[#9CA3AF] sm:text-lg">
+          <p className="text-base text-[#3F3A32] sm:text-lg">
             Choose the collaboration style that matches your risk tolerance and internal bandwidth. We stay accountable across every model.
           </p>
         </motion.div>
@@ -68,24 +68,24 @@ export function EngagementModelsSection() {
             return (
               <motion.article
                 key={model.title}
-                className="flex h-full flex-col gap-5 rounded-3xl border border-white/10 bg-gradient-to-br from-[#111827]/90 via-[#0D1015]/90 to-[#1F2937]/80 p-8 shadow-[0_28px_60px_-30px_rgba(15,23,42,0.7)]"
+                className="flex h-full flex-col gap-5 rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/90 to-[#A79F90]/80 p-8 shadow-[0_28px_60px_-30px_rgba(13,16,21,0.7)]"
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.08 }}
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FF2003]/20 bg-[#FF2003]/10 text-[#FF2003]">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#A3542B]/20 bg-[#A3542B]/10 text-[#A3542B]">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-[#CBC8BA]">{model.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#9CA3AF]">{model.scope}</p>
+                  <h3 className="text-xl font-semibold text-[#0D1015]">{model.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#3F3A32]">{model.scope}</p>
                 </div>
-                <ul className="space-y-2 text-sm text-[#9CA3AF]">
+                <ul className="space-y-2 text-sm text-[#3F3A32]">
                   <li>{model.timeline}</li>
                   <li>{model.price}</li>
                   <li>{model.bestFor}</li>
-                  {model.example ? <li className="text-[#CBC8BA]">{model.example}</li> : null}
+                  {model.example ? <li className="text-[#0D1015]">{model.example}</li> : null}
                 </ul>
               </motion.article>
             );

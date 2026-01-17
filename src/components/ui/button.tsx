@@ -5,18 +5,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF2003] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3542B] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-[#FF2003] text-white shadow-lg shadow-[#FF2003]/20 hover:bg-[#FF2003]/90",
-        primary: "bg-[#FF2003] text-white shadow-lg shadow-[#FF2003]/20 hover:bg-[#FF2003]/90",
+        default: "bg-[#A3542B] text-white shadow-lg shadow-[#A3542B]/20 hover:bg-[#A3542B]/90",
+        primary: "bg-[#A3542B] text-white shadow-lg shadow-[#A3542B]/20 hover:bg-[#A3542B]/90",
         secondary:
-          "bg-[#1F2937] text-[#CBC8BA] border border-[#374151] hover:border-[#FF2003]/50 hover:text-white",
+          "bg-[#A79F90] text-[#0D1015] border border-[#374151] hover:border-[#A3542B]/50 hover:text-white",
         outline:
-          "border border-[#FF2003]/60 bg-transparent text-[#FF2003] hover:bg-[#FF2003]/10 hover:text-[#FF2003]",
-        ghost: "hover:bg-[#1F2937] hover:text-[#CBC8BA]",
-        link: "text-[#FF2003] underline-offset-4 hover:underline",
+          "border border-[#A3542B]/60 bg-transparent text-[#A3542B] hover:bg-[#A3542B]/10 hover:text-[#A3542B]",
+        ghost: "hover:bg-[#A79F90] hover:text-[#0D1015]",
+        link: "text-[#A3542B] underline-offset-4 hover:underline",
         destructive: "bg-[#EF4444] text-white hover:bg-[#EF4444]/90",
       },
       size: {
