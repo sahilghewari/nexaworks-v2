@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import {
   IconBriefcase,
   IconHome,
@@ -24,10 +25,14 @@ const headerMotion = {
 };
 
 export function Header() {
-  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const { openContactModal } = useModal();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,25 +45,24 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
-    const prefersDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial = saved === "dark" || (!saved && prefersDark) ? "dark" : "light";
-    setTheme(initial);
-  }, []);
+  const activeTheme = (theme === "system" ? resolvedTheme : theme) === "dark" ? "dark" : "light";
+  const themeChoice = mounted ? activeTheme : "light";
 
-  useEffect(() => {
-    const root = document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  const toggleTheme = () => setTheme(themeChoice === "dark" ? "light" : "dark");
 
   const headerBackground = isScrolled
     ? "border-[#A79F90] bg-[#CBC8BA]/95 shadow-sm"
     : "border-transparent bg-[#CBC8BA]/85";
+
+  const logoSrc = useMemo(
+    () => (themeChoice === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg"),
+    [themeChoice]
+  );
+
+  const iconSrc = useMemo(
+    () => (themeChoice === "dark" ? "/nexa-icon.svg" : "/icon-light.svg"),
+    [themeChoice]
+  );
 
   const dockItems = navItems.map((item) => {
     const icon = (() => {
@@ -93,9 +97,22 @@ export function Header() {
           aria-label="Primary navigation"
         >
           <Link href="/" className="flex items-center space-x-2" aria-label="NexaWorks home">
-            <span className="font-display text-2xl font-semibold uppercase tracking-widest text-gradient">
-              NexaWorks
-            </span>
+            <Image
+              src={logoSrc}
+              alt="NexaWorks logo"
+              width={224}
+              height={40}
+              priority
+              className="hidden h-10 w-[14rem] object-contain sm:block"
+            />
+            <Image
+              src={iconSrc}
+              alt="NexaWorks icon"
+              width={36}
+              height={36}
+              priority
+              className="h-9 w-9 sm:hidden"
+            />
           </Link>
 
           <div className="flex items-center gap-2">
@@ -103,9 +120,9 @@ export function Header() {
               type="button"
               onClick={toggleTheme}
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#0D1015]/10 bg-[#0D1015]/5 text-[#0D1015] transition hover:bg-[#0D1015]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A3542B]"
-              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={themeChoice === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" aria-hidden="true" /> : <Moon className="h-5 w-5" aria-hidden="true" />}
+              {themeChoice === "dark" ? <Sun className="h-5 w-5" aria-hidden="true" /> : <Moon className="h-5 w-5" aria-hidden="true" />}
             </button>
 
             <Button asChild size="sm">

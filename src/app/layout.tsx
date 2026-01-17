@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   keywords: ["software development", "product strategy", "design systems", "consulting", "NexaWorks"],
   authors: [{ name: "NexaWorks" }],
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/nexaworks-logo-icon.svg",
+    shortcut: "/nexaworks-logo-icon.svg",
+    apple: "/nexaworks-logo-icon.svg",
   },
   openGraph: {
     type: "website",

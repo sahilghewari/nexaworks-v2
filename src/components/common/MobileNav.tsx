@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -31,6 +32,9 @@ export function MobileNav({ isOpen, onOpenChange, onToggleTheme, theme, brand = 
   const { openContactModal } = useModal();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null);
+
+  const logoSrc = theme === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg";
+  const iconSrc = theme === "dark" ? "/nexa-icon.svg" : "/icon-light.svg";
 
   useEffect(() => {
     if (!isOpen) return;
@@ -93,7 +97,24 @@ export function MobileNav({ isOpen, onOpenChange, onToggleTheme, theme, brand = 
               transition={{ type: "spring", stiffness: 260, damping: 28 }}
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-xl tracking-[0.24em]">{brand}</span>
+                <div className="flex items-center gap-2">
+                  <Image
+                    src={iconSrc}
+                    alt={`${brand} logo`}
+                    width={184}
+                    height={38}
+                    className="hidden h-9 w-[11.5rem] object-contain sm:block"
+                    priority
+                  />
+                  <Image
+                    src={iconSrc}
+                    alt={`${brand} icon`}
+                    width={36}
+                    height={36}
+                    className="h-9 w-9 sm:hidden"
+                    priority
+                  />
+                </div>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"

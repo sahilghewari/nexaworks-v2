@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -8,6 +9,7 @@ import { X } from "lucide-react";
 import { useModal } from "@/context/ModalContext";
 import { navItems } from "@/lib/constants";
 import { Button } from "@/ui/button";
+import { useTheme } from "next-themes";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -27,6 +29,10 @@ const panelVariants = {
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const { openContactModal } = useModal();
+  const { theme, resolvedTheme } = useTheme();
+  const activeTheme = (theme === "system" ? resolvedTheme : theme) === "dark" ? "dark" : "light";
+  const logoSrc = activeTheme === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg";
+  const iconSrc = activeTheme === "dark" ? "/nexa-icon.svg" : "/icon-light.svg";
 
   useEffect(() => {
     if (!isOpen) {
@@ -66,7 +72,24 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             transition={{ type: "spring", stiffness: 260, damping: 30 }}
           >
             <div className="flex items-center justify-between">
-              <span className="font-display text-xl tracking-widest text-[#F6F1E8]">NexaWorks</span>
+              <div className="flex items-center gap-2">
+                <Image
+                  src={iconSrc}
+                  alt="NexaWorks logo"
+                  width={184}
+                  height={38}
+                  className="hidden h-9 w-[11.5rem] object-contain sm:block"
+                  priority
+                />
+                <Image
+                  src={iconSrc}
+                  alt="NexaWorks icon"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 sm:hidden"
+                  priority
+                />
+              </div>
               <button
                 type="button"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"

@@ -1,11 +1,16 @@
 "use client";
 
 import { useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { useTheme } from "next-themes";
 import { COMPANY_INFO, FOOTER_LINK_GROUPS, siteConfig, SOCIAL_LINKS } from "@/lib/constants";
 
 export function Footer() {
+  const { theme, resolvedTheme } = useTheme();
+  const activeTheme = (theme === "system" ? resolvedTheme : theme) === "dark" ? "dark" : "light";
+
   const currentYear = new Date().getFullYear();
 
   const socials = useMemo(
@@ -24,9 +29,14 @@ export function Footer() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="flex w-full max-w-sm flex-col gap-4">
             <Link href="/" className="inline-flex items-center" aria-label="NexaWorks home">
-              <span className="font-display text-xl font-semibold uppercase tracking-widest text-gradient">
-                NexaWorks
-              </span>
+              <Image
+                src={activeTheme === "dark" ? "/nexaworks-logo-dark.svg" : "/nexaworks-logo-light.svg"}
+                alt="NexaWorks logo"
+                width={224}
+                height={40}
+                className="h-10 w-[14rem] object-contain"
+                priority
+              />
             </Link>
             <p className="max-w-xs text-xs leading-relaxed text-[#3F3A32]">{COMPANY_INFO.tagline}</p>
             <div className="flex flex-wrap items-center gap-3">
