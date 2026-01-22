@@ -5,14 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useModal } from "@/context/ModalContext";
 import { navItems } from "@/lib/constants";
 
 interface MobileNavProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
-  onToggleTheme: () => void;
   theme: "light" | "dark";
   brand?: string;
 }
@@ -27,7 +26,7 @@ const panelVariants = {
   visible: { x: 0 },
 };
 
-export function MobileNav({ isOpen, onOpenChange, onToggleTheme, theme, brand = "NEXAWORKS" }: MobileNavProps) {
+export function MobileNav({ isOpen, onOpenChange, theme, brand = "NEXAWORKS" }: MobileNavProps) {
   const pathname = usePathname();
   const { openContactModal } = useModal();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -116,14 +115,7 @@ export function MobileNav({ isOpen, onOpenChange, onToggleTheme, theme, brand = 
                   />
                 </div>
                 <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                    onClick={onToggleTheme}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A3542B]"
-                  >
-                    {theme === "dark" ? <Sun className="h-5 w-5" aria-hidden="true" /> : <Moon className="h-5 w-5" aria-hidden="true" />}
-                  </button>
+                  {/* Theme toggle removed — default theme is dark */}
                   <button
                     type="button"
                     aria-label="Close navigation menu"

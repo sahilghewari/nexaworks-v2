@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
   IconBriefcase,
@@ -27,7 +26,7 @@ const headerMotion = {
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
   const { openContactModal, isContactOpen } = useModal();
 
   useEffect(() => {
@@ -47,8 +46,6 @@ export function Header() {
 
   const activeTheme = (theme === "system" ? resolvedTheme : theme) === "dark" ? "dark" : "light";
   const themeChoice = mounted ? activeTheme : "light";
-
-  const toggleTheme = () => setTheme(themeChoice === "dark" ? "light" : "dark");
 
   const headerBackground = isScrolled
     ? "border-[#A79F90] bg-[#CBC8BA]/95 shadow-sm"
@@ -116,14 +113,16 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#0D1015]/10 bg-[#0D1015]/5 text-[#0D1015] transition hover:bg-[#0D1015]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A3542B]"
-              aria-label={themeChoice === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {themeChoice === "dark" ? <Sun className="h-5 w-5" aria-hidden="true" /> : <Moon className="h-5 w-5" aria-hidden="true" />}
-            </button>
+            {/* Mobile: render floating dock inside the navbar; Desktop: keep fixed bottom dock */}
+            <div className="md:hidden mr-2">
+              {!isContactOpen && (
+                <FloatingDock
+                  items={dockItems}
+                  mobileClassName="translate-y-0"
+                  desktopClassName=""
+                />
+              )}
+            </div>
             <div className="hidden sm:flex items-center gap-2">
               <Button asChild size="sm">
                 <a href="/campaigns/republic-day-2026" className="inline-flex items-center px-3 py-2">Apply for Free MVP</a>
@@ -139,7 +138,7 @@ export function Header() {
         </nav>
       </motion.header>
 
-      <div className="pointer-events-none fixed inset-x-0 bottom-5 z-[9999] flex justify-center px-4 md:bottom-6">
+      <div className="pointer-events-none fixed inset-x-0 bottom-5 z-[9999] hidden md:flex justify-center px-4 md:bottom-6">
         <div className="pointer-events-auto">
           {!isContactOpen && (
             <FloatingDock

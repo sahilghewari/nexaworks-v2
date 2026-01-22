@@ -29,7 +29,7 @@ const FloatingDockMobile = ({ items, className }: { items: FloatingDockItem[]; c
   return (
     <div className={cn("relative block w-full md:hidden", className)}>
       <div className="mx-auto flex w-full max-w-[360px] items-center justify-center overflow-visible">
-        <div className="flex gap-3 rounded-2xl bg-gray-50 px-3 py-2 shadow-[0_32px_65px_-32px_rgba(13,16,21,0.75)] dark:bg-neutral-900">
+        <div className="flex gap-3 rounded-2xl bg-transparent px-3 py-2 shadow-[0_32px_65px_-32px_rgba(13,16,21,0.75)] dark:bg-transparent">
           {items.map((item) => (
             <MobileIcon key={item.title} item={item} />
           ))}
