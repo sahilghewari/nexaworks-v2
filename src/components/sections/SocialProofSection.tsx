@@ -30,20 +30,24 @@ const demos: DemoItem[] = [
     tagline: "Automated report generation at scale",
     stat: "98.5% success rate, 2.4s per report",
     ctaLabel: "See Reports Demo",
-    ctaHref: "/projects/reports",
+    ctaHref: "https://reports.nexaworks.tech/",
+    previewUrl: "https://reports.nexaworks.tech/",
+    external: true,
   },
   {
     title: "Analytics Dashboard",
     tagline: "Real-time operational visibility",
     stat: "Deployed in 8 weeks (vs. industry 16 weeks)",
+    previewUrl: "https://analytics.nexaworks.tech/",
     ctaLabel: "View Dashboard",
-    ctaHref: "/projects/analytics",
+    ctaHref: "https://analytics.nexaworks.tech/",
+    external: true,
   },
 ];
 
 export function SocialProofSection() {
   return (
-    <section className="bg-[#CBC8BA] py-16 sm:py-18">
+    <section id="demo-preview" className="bg-[#CBC8BA] py-16 sm:py-18">
       <div className="container space-y-8">
         <motion.div
           className="flex flex-col gap-4 text-center sm:text-left"

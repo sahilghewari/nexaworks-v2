@@ -10,7 +10,7 @@ const founders = [
     role: "Co-founder & CEO",
     avatar: "SG",
     bio:
-      "Sahil grew up in Pune, studied computer engineering, and built internal tools for fast-moving product teams before founding NexaWorks. He leads product strategy and delivery rituals, spending as much time pairing with engineers as he does with clients. Sahil obsesses over turning ambiguous business goals into crisp roadmaps, removing blockers daily, and ensuring every sprint ships something demoable. Before NexaWorks he led automation initiatives across fintech and retail, proving that disciplined execution and honest communication beat bloated programs every time.",
+      "Sahil grew up in Mumbai, studied computer engineering, and built internal tools for fast-moving product teams before founding NexaWorks. He leads product strategy and delivery rituals, spending as much time pairing with engineers as he does with clients. Sahil obsesses over turning ambiguous business goals into crisp roadmaps, removing blockers daily, and ensuring every sprint ships something demoable. Before NexaWorks he led automation initiatives across fintech and retail, proving that disciplined execution and honest communication beat bloated programs every time.",
     superpower: "Translate business ambiguity into a technical plan the team can ship in weeks.",
     proudOf: "Keeping founders in the loop with real demos instead of slideware.",
     links: {
@@ -23,7 +23,7 @@ const founders = [
     role: "Co-founder & CTO",
     avatar: "PB",
     bio:
-      "Pavan is a systems engineer from Bengaluru who has shipped distributed services, data pipelines, and AI infrastructure for high-volume platforms. At NexaWorks he designs the architecture runway, codifies engineering standards, and leads deep dives on reliability and security. Pavan cares about measurable performance: telemetry by default, latency budgets, and guardrails that keep shipping fast without sacrificing safety. He previously led backend and ML platform teams, where he learned that the fastest way to earn trust is to make systems observable and resilient from day one.",
+      "Pavan is a systems engineer who has shipped distributed services, data pipelines, and AI infrastructure for high-volume platforms. At NexaWorks he designs the architecture runway, codifies engineering standards, and leads deep dives on reliability and security. Pavan cares about measurable performance: telemetry by default, latency budgets, and guardrails that keep shipping fast without sacrificing safety. He previously led backend and ML platform teams, where he learned that the fastest way to earn trust is to make systems observable and resilient from day one.",
     superpower: "Builds resilient systems with clear SLAs, tracing, and rollback paths baked in.",
     proudOf: "Standing up infra that let us handle 150 concurrent uploads in week four of a build.",
     links: {
@@ -58,7 +58,7 @@ export function TeamSection() {
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">Team</p>
-          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">Three founders who code</h2>
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">Three founders from Mumbai, SG</h2>
           <p className="text-base text-[#3F3A32] sm:text-lg">Hands-on leaders accountable for every sprint, release, and customer outcome.</p>
         </motion.div>
 

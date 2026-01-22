@@ -26,34 +26,32 @@ export const FloatingDock = ({ items, desktopClassName, mobileClassName }: Float
 };
 
 const FloatingDockMobile = ({ items, className }: { items: FloatingDockItem[]; className?: string }) => {
-  const marqueeItems = [...items, ...items];
-
   return (
     <div className={cn("relative block w-full md:hidden", className)}>
-      <div className="mx-auto w-full max-w-[360px] overflow-hidden rounded-full border border-[#D6D1C4] bg-[#CBC8BA] px-2 py-2 shadow-[0_10px_28px_rgba(0,0,0,0.14)] ring-1 ring-[#D6D1C4]/80 backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-900/95 dark:shadow-[0_10px_28px_rgba(0,0,0,0.45)] dark:ring-neutral-700/80">
-        <motion.div
-          className="flex min-w-max items-center gap-1"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 16, ease: "linear", repeat: Infinity }}
-        >
-          {marqueeItems.map((item, idx) => (
-            <motion.a
-              key={`${item.title}-${idx}`}
-              href={item.href}
-              whileTap={{ scale: 0.97 }}
-              className="flex min-w-[80px] flex-col items-center gap-0.5 rounded-xl border border-[#D6D1C4] bg-[#E7E2D6] px-2 py-1.5 text-[#0D1015] shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition hover:border-[#C5BEAE] hover:bg-[#F0ECE3] dark:border-[#C5BEAE] dark:bg-[#E7E2D6] dark:text-[#0D1015] dark:shadow-[0_6px_18px_rgba(0,0,0,0.2)] dark:hover:border-[#B7AE9B] dark:hover:bg-[#F0ECE3]"
-            >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2B2B2B] text-[#E7E2D6] dark:bg-neutral-800">
-                <span className="h-4 w-4">{item.icon}</span>
-              </span>
-              <span className="text-[11px] font-semibold leading-tight tracking-wide text-[#2B2B2B]">
-                {item.title}
-              </span>
-            </motion.a>
+      <div className="mx-auto flex w-full max-w-[360px] items-center justify-center overflow-visible">
+        <div className="flex gap-3 rounded-2xl bg-gray-50 px-3 py-2 shadow-[0_32px_65px_-32px_rgba(13,16,21,0.75)] dark:bg-neutral-900">
+          {items.map((item) => (
+            <MobileIcon key={item.title} item={item} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
+  );
+};
+
+const MobileIcon = ({ item }: { item: FloatingDockItem }) => {
+  return (
+    <a href={item.href} className="flex flex-col items-center gap-1">
+      <motion.div
+        whileTap={{ scale: 0.92 }}
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 dark:bg-neutral-800 text-[#0D1015]"
+      >
+        <span className="h-5 w-5">{item.icon}</span>
+      </motion.div>
+      <span className="text-[11px] font-semibold leading-none text-[#2B2B2B] dark:text-white">
+        {item.title}
+      </span>
+    </a>
   );
 };
 

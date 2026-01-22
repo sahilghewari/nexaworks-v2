@@ -124,12 +124,17 @@ export function Header() {
             >
               {themeChoice === "dark" ? <Sun className="h-5 w-5" aria-hidden="true" /> : <Moon className="h-5 w-5" aria-hidden="true" />}
             </button>
+            <div className="hidden sm:flex items-center gap-2">
+              <Button asChild size="sm">
+                <a href="/campaigns/republic-day-2026" className="inline-flex items-center px-3 py-2">Apply for Free MVP</a>
+              </Button>
 
-            <Button asChild size="sm">
-              <button type="button" onClick={() => openContactModal()}>
-                Schedule Demo
-              </button>
-            </Button>
+              <Button asChild size="sm">
+                <button type="button" onClick={() => openContactModal()}>
+                  Schedule Demo
+                </button>
+              </Button>
+            </div>
           </div>
         </nav>
       </motion.header>
