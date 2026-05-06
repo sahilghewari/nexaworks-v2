@@ -40,7 +40,10 @@ export const metadata: Metadata = {
   keywords: ["AI Outbound", "B2B SaaS Lead Gen", "Pipeline Automation", "AI Revenue Engine", "Sales Automation", "SDR Automation"],
   authors: [{ name: "NexaWorks" }],
   alternates: {
-    canonical: "./",
+    canonical: "https://nexaworks.tech",
+    languages: {
+      "en-US": "https://nexaworks.tech",
+    },
   },
   openGraph: {
     type: "website",
