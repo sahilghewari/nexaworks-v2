@@ -10,32 +10,32 @@ export function ServiceCTASection() {
   const { openContactModal } = useModal();
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#E7E2D6] py-24 sm:py-28">
-      <div className="absolute inset-x-0 top-0 z-0 h-56 bg-gradient-to-b from-[#A3542B]/20 via-transparent to-transparent blur-3xl" aria-hidden="true" />
+    <section className="relative isolate overflow-hidden bg-[#0A0A0B] py-24 sm:py-32">
+      <div className="absolute inset-x-0 top-0 z-0 h-64 bg-gradient-to-b from-[#10B981]/15 via-transparent to-transparent blur-3xl" aria-hidden="true" />
       <div className="container relative z-10">
         <motion.div
-          className="mx-auto max-w-3xl space-y-6 rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/95 via-[#CBC8BA]/95 to-[#A79F90]/85 p-12 text-center shadow-[0_35px_75px_-30px_rgba(13,16,21,0.8)]"
+          className="mx-auto max-w-4xl space-y-8 rounded-[3rem] border border-[#27272A] bg-[#131316] p-12 sm:p-20 text-center shadow-[0_45px_100px_-30px_rgba(0,0,0,0.8)]"
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 0.45, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            See it running in your stack.
+          <h2 className="font-display text-4xl font-semibold text-[#FAFAFA] sm:text-5xl leading-tight">
+            Design your <span className="text-[#10B981]">Revenue System</span> today.
           </h2>
-          <p className="text-base text-[#3F3A32] sm:text-lg">
-            Bring one workflow and the metric that hurts. We&apos;ll demo a live slice, share the cutover plan, and set the stop-rule. No slides, just software.
+          <p className="text-lg text-[#A1A1AA] max-w-2xl mx-auto">
+            Stop guessing why your pipeline is dry. We&apos;ll audit your current outbound stack, identify the leaks, and show you exactly how an AI Engine can fix them in 14 days.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center pt-4">
             <button
               type="button"
-              onClick={() => openContactModal({ message: "I want to schedule an automation demo." })}
+              onClick={() => openContactModal({ message: "I want to schedule a 15-min pipeline audit." })}
               className={ctaButtonVariants({ variant: "primary", size: "lg" })}
             >
-              See a live slice
+              Book 15-Min Pipeline Audit
             </button>
             <Link
-              href="/projects"
+              href="/case-studies"
               className={ctaButtonVariants({ variant: "secondary", size: "lg" })}
             >
               See Our Work
@@ -46,3 +46,4 @@ export function ServiceCTASection() {
     </section>
   );
 }
+

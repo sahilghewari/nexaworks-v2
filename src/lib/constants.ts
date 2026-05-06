@@ -4,7 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.com";
 
 export const siteConfig: SiteConfig = {
   name: "NexaWorks",
-  description: "Strategic product partners for ambitious teams.",
+  description: "AI Revenue Systems for B2B SaaS Founders.",
   url: siteUrl,
   ogImage: `${siteUrl.replace(/\/$/, "")}/og.png`,
   links: {

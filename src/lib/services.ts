@@ -30,111 +30,112 @@ export interface ServiceDetail {
 
 export const SERVICES: ServiceDetail[] = [
   {
-    id: "ai-native",
-    slug: "ai-native-development",
+    id: "ai-revenue",
+    slug: "ai-revenue-systems",
     iconName: "ai-native",
-    title: "AI-Native Development",
-    subtitle: "Agentic AI, RAG, and LLM Orchestration",
+    title: "AI Revenue Systems",
+    subtitle: "Autonomous Pipeline & Meeting Generation",
     heroDescription:
-      "We build production-grade AI systems that don't just chat—they execute. From agentic workflows to semantic search, we embed intelligence where it moves the needle.",
+      "We design and ship the engines that power your top-of-funnel. From signal-based prospecting to AI booking agents, we automate the manual grunt work of outbound sales.",
     problem:
-      "Most AI initiatives fail because they're treated as chatbots rather than systems. Companies struggle with prompt drift, hallucinations, and high compute costs without measurable ROI.",
+      "Traditional SDR teams are expensive, inconsistent, and slow. Generic lists and manual outreach lead to low reply rates and high CAC, burning through your runway without predictable pipeline.",
     solution:
-      "We treat LLMs as one component of a larger orchestration layer. We build Retrieval-Augmented Generation (RAG) pipelines, secure agentic workflows, and automated evaluation frameworks that ensure your AI is accurate, secure, and cost-effective.",
+      "We build full-stack revenue systems that ingest real-time buying signals and orchestrate hyper-personalized multi-channel outreach. Our AI agents handle qualification and booking, ensuring your AEs only spend time on high-intent demos.",
     metrics: [
-      { label: "Parsing Accuracy", value: "95%+", description: "Achieved on complex unstructured data" },
-      { label: "Latency Reduction", value: "40%", description: "Via optimized vector retrieval & caching" },
-      { label: "Automation ROI", value: "10x", description: "Average efficiency gain for document triage" },
+      { label: "Pipeline Velocity", value: "4.2x", description: "Increase in qualified meetings booked" },
+      { label: "Reply Rate", value: "12%+", description: "Average across AI-personalized sequences" },
+      { label: "SDR Headcount", value: "0", description: "Scale pipeline without hiring more humans" },
     ],
     highlights: [
       {
-        title: "Agentic Workflows",
-        description: "Autonomous agents that can use tools, browse data, and complete multi-step tasks without hand-holding.",
+        title: "Signal-Based Prospecting",
+        description: "Scraping real-time triggers like funding, hiring, or tech stack changes to identify buyers.",
       },
       {
-        title: "Enterprise RAG",
-        description: "Connecting your private data safely to LLMs for context-aware, hallucination-free answers.",
+        title: "Autonomous Outreach",
+        description: "AI-driven LinkedIn and Email sequences that sound human and handle complex objections.",
       },
       {
-        title: "Custom LLM Ops",
-        description: "Setting up the infrastructure for monitoring, fine-tuning, and evaluating models in production.",
+        title: "Inbox Management",
+        description: "Automated rotation and deliverability monitoring to ensure 99% inbox placement.",
       },
     ],
-    technologies: ["LangChain", "OpenAI", "Anthropic", "Pinecone", "Python", "FastAPI", "Redis"],
-    timeline: "2-4 weeks for Pilot · 8-12 weeks for Enterprise Scale",
-    ctaLabel: "Review Your AI Strategy",
+    technologies: ["LangChain", "OpenAI", "Instantly", "Clay", "Python", "Node.js", "Redis"],
+    timeline: "Live in 14 Days",
+    ctaLabel: "Audit Your Pipeline",
   },
   {
-    id: "mvp-engineering",
-    slug: "mvp-engineering",
+    id: "ops-automation",
+    slug: "ops-automation",
     iconName: "mvp",
-    title: "MVP Engineering",
-    subtitle: "Ship Production Software in Weeks, Not Quarters",
+    title: "Ops & Workflow Automation",
+    subtitle: "Scale Your Business Loops Without Friction",
     heroDescription:
-      "We help ambitious founders and enterprise teams validate product bets fast. We don't ship 'minimum viable' junk; we ship production-ready foundations.",
+      "Eliminate manual triage and brittle handoffs. We build the custom internal platforms and automations that make your business run while you sleep.",
     problem:
-      "The biggest risk to any software project is speed-to-market. Traditional agencies spend months on 'discovery' while your window of opportunity closes.",
+      "Operational drag kills growth. When data is siloed between Sales, Success, and Finance, manual work increases and customer experience suffers.",
     solution:
-      "We use our 'Proof before Paperwork' methodology to show you a working prototype in week one. Our AI-accelerated delivery pipeline allows us to ship complete platforms in 4-6 weeks without cutting corners on security or scale.",
+      "We unify your stack into a cohesive operational engine. We automate onboarding, lead routing, and post-sale handovers using resilient job orchestration and custom internal dashboards.",
     metrics: [
-      { label: "Time-to-Demo", value: "7 Days", description: "First working slice in your stack" },
-      { label: "Success Rate", value: "90%", description: "Of our MVPs secure further funding or scale" },
-      { label: "Code Coverage", value: "85%+", description: "Standard for every release" },
+      { label: "Manual Effort", value: "-85%", description: "Reduction in repetitive admin tasks" },
+      { label: "Onboarding Speed", value: "3x", description: "Faster time-to-value for new customers" },
+      { label: "Data Accuracy", value: "100%", description: "Single source of truth across all platforms" },
     ],
     highlights: [
       {
-        title: "Rapid Prototyping",
-        description: "Moving from Figma to code in days, testing core assumptions with real users immediately.",
+        title: "Customer Onboarding",
+        description: "Automated account provisioning and training sequences that delight users.",
       },
       {
-        title: "Scalable Foundations",
-        description: "Clean architectures using Next.js, Node.js, and Serverless that can grow to 1M+ users.",
+        title: "Intelligent Lead Routing",
+        description: "Routing leads to the right AE based on intent scoring and territory rules automatically.",
       },
       {
-        title: "Product-First Engineering",
-        description: "Engineers who think like founders, focusing on the features that drive customer acquisition.",
+        title: "Internal Ops Portals",
+        description: "Self-serve dashboards that give your team the data they need without bothering engineering.",
       },
     ],
-    technologies: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL", "Node.js", "Serverless", "Framer"],
-    timeline: "1 week for Prototype · 4-6 weeks for Production Launch",
-    ctaLabel: "Schedule a Build Review",
+    technologies: ["Next.js", "Zapier/Make", "PostgreSQL", "Node.js", "Serverless", "Retool"],
+    timeline: "MVP in 3-5 Weeks",
+    ctaLabel: "Optimize Your Ops",
   },
   {
-    id: "cloud-integration",
-    slug: "cloud-systems-integration",
+    id: "product-engineering",
+    slug: "ai-product-engineering",
     iconName: "cloud",
-    title: "Cloud & Systems Integration",
-    subtitle: "Resilient Architecture for Complex Operations",
+    title: "Custom AI Product Builds",
+    subtitle: "Bespoke AI Engineering for Funded SaaS",
     heroDescription:
-      "We orchestrate the data streams and infrastructure that power modern business. We move data, automate handoffs, and keep your systems in sync 24/7.",
+      "For teams needing unique AI moats or complex product engineering that off-the-shelf tools can't handle. We build the future of your product.",
     problem:
-      "Fragmentation is the enemy of efficiency. Legacy systems, siloed data, and brittle custom scripts create operational drag and hidden costs.",
+      "Standard LLM wrappers are no longer enough to win. To build a true AI moat, you need deep integration of NLP, RAG, and Agentic architectures into your core product.",
     solution:
-      "We build resilient cloud-native integration layers that unify your stack. From real-time data pipelines to complex API orchestration, we ensure your systems work as one cohesive unit with full observability.",
+      "We act as your premium AI engineering partner. We design proprietary knowledge graphs, complex RAG pipelines, and high-performance SaaS architectures that scale to millions of users.",
     metrics: [
-      { label: "Platform Uptime", value: "99.9%", description: "Target for all integrated systems" },
-      { label: "Data Sync Latency", value: "<100ms", description: "For real-time operational streams" },
-      { label: "Cost Reduction", value: "30%", description: "Average infra saving post-optimization" },
+      { label: "Product Moat", value: "Proprietary", description: "Custom AI architectures unique to your biz" },
+      { label: "Delivery Speed", value: "2x", description: "Faster than building an internal AI squad" },
+      { label: "Uptime Target", value: "99.9%", description: "Standard for all product builds" },
     ],
     highlights: [
       {
-        title: "Infrastructure as Code",
-        description: "Immutable infra using Terraform and AWS CDK for predictable, reproducible deployments.",
+        title: "Advanced RAG Pipelines",
+        description: "Sophisticated document ingestion and vector search that actually works in production.",
       },
       {
-        title: "Event-Driven Architecture",
-        description: "Decoupled systems that communicate via message queues (RabbitMQ, Kafka) for extreme scale.",
+        title: "Agentic Infrastructure",
+        description: "Building systems where AI can perform complex, multi-step actions within your platform.",
       },
       {
-        title: "API Orchestration",
-        description: "Custom middleware that unifies fragmented 3rd party services into a single source of truth.",
+        title: "Cloud-Native Scale",
+        description: "Serverless and microservices architectures that scale horizontally with your growth.",
       },
     ],
-    technologies: ["AWS", "Terraform", "Docker", "Kubernetes", "RabbitMQ", "Redis", "ElasticSearch"],
-    timeline: "4-6 weeks for Integration · 8-12 weeks for Infrastructure Overhaul",
-    ctaLabel: "Audit Your Infrastructure",
+    technologies: ["AWS/GCP", "Terraform", "Python", "Next.js", "Pinecone", "Kubernetes", "Redis"],
+    timeline: "8-12 Weeks to Production",
+    ctaLabel: "Discuss Your Build",
   },
 ];
+
 
 export const SERVICE_ICONS: Record<string, LucideIcon> = {
   "ai-native": BrainCircuit,

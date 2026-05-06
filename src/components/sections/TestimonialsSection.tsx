@@ -64,7 +64,7 @@ export function TestimonialsSection() {
   const handleNext = () => setActive((prev) => (prev + 1) % total);
 
   return (
-    <section className="bg-[#CBC8BA] py-24 sm:py-28">
+    <section id="testimonials" className="bg-[#0A0A0B] py-24 sm:py-32">
       <div className="container space-y-12">
         <motion.div
           className="flex flex-col gap-4 text-center sm:text-left"
@@ -73,49 +73,49 @@ export function TestimonialsSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <Badge variant="info" className="mx-auto w-fit sm:mx-0">
-            Customer Testimonials
+          <Badge variant="success" className="mx-auto w-fit sm:mx-0">
+            Real Pipeline Outcomes
           </Badge>
           <div className="space-y-3">
-            <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl md:text-[2.75rem]">
-              What Our Customers Say
+            <h2 className="font-display text-3xl font-semibold text-[#FAFAFA] sm:text-4xl md:text-[2.75rem]">
+              Trusted by B2B SaaS Founders
             </h2>
-            <p className="mx-auto max-w-3xl text-base text-[#3F3A32] sm:text-lg">
-              Proof over promises: teams ship faster, unblock roadmaps, and keep uptime steady while NexaWorks handles the heavy lifting.
+            <p className="mx-auto max-w-3xl text-base text-[#A1A1AA] sm:text-lg">
+              We don&apos;t just ship code; we ship meetings. See how our AI Revenue Engine is transforming outbound for high-growth teams.
             </p>
           </div>
         </motion.div>
 
         <div className="relative">
-          <div className="flex items-center justify-between pb-3">
-            <div className="hidden gap-2 sm:flex">
+          <div className="flex items-center justify-between pb-6">
+            <div className="hidden gap-3 sm:flex">
               <button
                 type="button"
                 onClick={handlePrev}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#0D1015]/10 bg-[#0D1015]/5 text-[#0D1015] transition hover:bg-[#0D1015]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A3542B]"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#27272A] bg-[#131316] text-[#FAFAFA] transition hover:bg-[#1A1A1F] hover:border-[#10B981]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10B981]"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+                <ChevronLeft className="h-6 w-6" aria-hidden="true" />
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#0D1015]/10 bg-[#0D1015]/5 text-[#0D1015] transition hover:bg-[#0D1015]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A3542B]"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#27272A] bg-[#131316] text-[#FAFAFA] transition hover:bg-[#1A1A1F] hover:border-[#10B981]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10B981]"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="h-5 w-5" aria-hidden="true" />
+                <ChevronRight className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
           </div>
 
           <div
             ref={scrollRef}
-            className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4"
+            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-8"
           >
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
-                className="relative h-full w-[88%] shrink-0 snap-start sm:w-[70%] md:w-[48%] lg:w-[34%]"
+                className="relative h-full w-[88%] shrink-0 snap-start sm:w-[70%] md:w-[48%] lg:w-[32%]"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
@@ -126,20 +126,20 @@ export function TestimonialsSection() {
                   name={testimonial.name}
                   title={testimonial.title}
                   rating={5}
-                  className="h-full"
+                  className="h-full bg-[#131316] border-[#27272A] text-[#FAFAFA]"
                 />
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-4 flex items-center justify-center gap-2">
+          <div className="mt-8 flex items-center justify-center gap-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => setActive(index)}
-                className={`h-2.5 rounded-full transition ${
-                  active === index ? "w-6 bg-[#A3542B]" : "w-2.5 bg-[#0D1015]/25 hover:bg-[#0D1015]/50"
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  active === index ? "w-8 bg-[#10B981]" : "w-2 bg-[#27272A] hover:bg-[#3F3F46]"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
                 aria-pressed={active === index}
@@ -150,4 +150,5 @@ export function TestimonialsSection() {
       </div>
     </section>
   );
+
 }

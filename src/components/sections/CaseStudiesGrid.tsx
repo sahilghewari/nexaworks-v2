@@ -10,8 +10,8 @@ import { ctaButtonVariants } from "@/ui/CTAButton";
 
 export function CaseStudiesGrid() {
   return (
-    <section className="bg-[#E7E2D6] py-20 sm:py-24">
-      <div className="container space-y-12">
+    <section id="case-studies" className="bg-[#0A0A0B] py-24 sm:py-32">
+      <div className="container space-y-16">
         <motion.div
           className="max-w-3xl space-y-4 text-center sm:text-left"
           initial={{ opacity: 0, y: 24 }}
@@ -19,12 +19,12 @@ export function CaseStudiesGrid() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">Case Studies &amp; Live Demos</p>
-          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            What was broken → how we fixed it
+          <p className="text-sm uppercase tracking-[0.35em] text-[#A1A1AA]">Case Studies & Proof</p>
+          <h2 className="font-display text-4xl font-semibold text-[#FAFAFA] sm:text-5xl">
+            What was broken → <span className="text-[#10B981]">How we fixed it.</span>
           </h2>
-          <p className="text-base text-[#3F3A32] sm:text-lg">
-            Each card leads with the tension: what failed, what we did differently, and one killer metric. Deep metrics stay behind the breakdown.
+          <p className="text-base text-[#A1A1AA] sm:text-xl">
+            Each breakdown focuses on the tension: the failure of traditional methods, the AI-native shift, and the undeniable revenue metric that followed.
           </p>
         </motion.div>
 
@@ -32,67 +32,62 @@ export function CaseStudiesGrid() {
           {CASE_STUDIES.map((caseStudy, index) => (
             <motion.article
               key={caseStudy.id}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/90 to-[#A79F90]/80 shadow-[0_30px_70px_-35px_rgba(13,16,21,0.75)]"
+              className="group flex h-full flex-col overflow-hidden rounded-[2.5rem] border border-[#27272A] bg-[#131316] shadow-[0_32px_65px_-32px_rgba(0,0,0,0.8)] transition-all hover:border-[#10B981]/30"
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.05 }}
             >
-              <div className="relative h-52 w-full overflow-hidden border-b border-[#0D1015]/10">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#A79F90_0%,transparent_65%)]" aria-hidden="true" />
+              <div className="relative h-64 w-full overflow-hidden border-b border-[#27272A]">
                 <Image
                   src={caseStudy.coverImage}
                   alt={`${caseStudy.title} preview`}
                   fill
                   sizes="(max-width: 768px) 100vw, 600px"
-                  className="object-cover opacity-70 transition duration-300 group-hover:scale-105 group-hover:opacity-90"
+                  className="object-cover opacity-60 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/20 to-transparent" aria-hidden="true" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-white/80">
-                  <span className="inline-flex h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
-                  Live Product Demo
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent" aria-hidden="true" />
+                <div className="absolute bottom-6 left-8 flex items-center gap-3">
+                   <div className="flex items-center gap-2 rounded-full bg-[#10B981] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                      Live Result
+                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-1 flex-col gap-6 p-8">
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-semibold text-[#0D1015]">{caseStudy.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#3F3A32]">{caseStudy.problem}</p>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#3F3A32]">
-                    <span className="text-[#0D1015]">Killer result</span>
-                    <span className="rounded-full border border-[#A3542B]/40 bg-[#A3542B]/10 px-3 py-1 text-xs font-semibold text-[#A3542B]">
-                      {caseStudy.metrics[0]?.value ?? "Live"} · {caseStudy.metrics[0]?.label ?? "Result"}
-                    </span>
-                  </div>
-                  <div className="space-y-2 text-sm text-[#3F3A32]">
-                    <p className="font-semibold text-[#0D1015]">What was broken</p>
-                    <p className="leading-relaxed">{caseStudy.problem}</p>
-                    <p className="font-semibold text-[#0D1015]">What we did differently</p>
-                    <p className="leading-relaxed line-clamp-3">{caseStudy.solution}</p>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-[#3F3A32]/80">
-                    <span className="text-[#0D1015]">Timeline</span>
-                    <span>{caseStudy.timelineSummary ?? "On demand"}</span>
+              <div className="flex flex-1 flex-col gap-8 p-10">
+                <div className="space-y-4">
+                  <h3 className="text-3xl font-semibold text-[#FAFAFA] leading-tight group-hover:text-[#10B981] transition-colors">{caseStudy.title}</h3>
+                  <div className="flex items-center gap-2">
+                     <span className="text-sm font-medium text-[#10B981]">{caseStudy.metrics[0]?.value}</span>
+                     <span className="text-sm text-[#A1A1AA]">{caseStudy.metrics[0]?.label}</span>
                   </div>
                 </div>
 
-                <div className="mt-auto flex items-center justify-between">
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">The Challenge</p>
+                    <p className="text-sm leading-relaxed text-[#A1A1AA] line-clamp-2">{caseStudy.problem}</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Our System</p>
+                    <p className="text-sm leading-relaxed text-[#FAFAFA] line-clamp-3">{caseStudy.solution}</p>
+                  </div>
+                </div>
+
+                <div className="mt-auto flex items-center justify-between pt-8 border-t border-[#27272A]">
                   <Link
-                    href={`/projects/${caseStudy.slug}`}
-                    className={ctaButtonVariants({ variant: "secondary", size: "sm" })}
+                    href={`/case-studies/${caseStudy.slug}`}
+                    className="text-sm font-semibold text-[#FAFAFA] hover:text-[#10B981] transition-colors"
                   >
-                    View full breakdown
+                    View Breakdown →
                   </Link>
                   <Link
-                    href={caseStudy.demoLink?.href ?? caseStudy.related[0]?.href ?? "/contact"}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#A3542B] transition hover:text-[#A3542B]/80"
+                    href={caseStudy.demoLink?.href ?? "/pipeline-audit"}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#10B981] transition hover:text-[#10B981]/80"
                     target={caseStudy.demoLink?.href?.startsWith("http") ? "_blank" : undefined}
                     rel={caseStudy.demoLink?.href?.startsWith("http") ? "noreferrer" : undefined}
                   >
-                    {caseStudy.demoLink?.label ?? "See live demo"}
+                    {caseStudy.demoLink?.label ?? "See System"}
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
@@ -103,4 +98,5 @@ export function CaseStudiesGrid() {
       </div>
     </section>
   );
+
 }

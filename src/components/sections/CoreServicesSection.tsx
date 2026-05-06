@@ -9,79 +9,79 @@ import { ctaButtonVariants } from "@/ui/CTAButton";
 const coreServices = [
   {
     icon: BrainCircuit,
-    title: "AI-Native Development",
-    slug: "ai-native-development",
+    title: "AI Revenue Systems",
+    slug: "ai-revenue-systems",
     description:
-      "We build agentic AI, Retrieval-Augmented Generation (RAG), and custom LLM integrations that don't just chat—they execute. Our systems automate high-cognitive tasks with 95%+ accuracy.",
+      "Full-stack outbound orchestration. We build the data scrapers, personalized sequences, and AI booking agents that own your top-of-funnel.",
     highlights: [
-      "Custom LLM & Agent orchestration",
-      "Retrieval-Augmented Generation (RAG) pipelines",
-      "Semantic search & NLP scoring (ResuMind architecture)",
-      "Automated prompt engineering & evaluation",
-      "Secure, private AI deployment on VPC",
+      "Custom Signal-Based Prospecting",
+      "AI-Agent LinkedIn & Email Outreach",
+      "Deliverability & Inbox Management",
+      "Automated Meeting Qualification",
+      "Real-time Pipeline Dashboards",
     ],
-    timeline: "Pilot 2 weeks · Full RAG System 6-10 weeks",
+    timeline: "Live in 14 Days",
     problems: [
-      "Automating complex document triage",
-      "Scaling technical support with AI agents",
-      "Building proprietary knowledge graphs",
-      "De-risking GenAI implementation",
+      "Low reply rates on generic lists",
+      "SDRs wasting time on data entry",
+      "High CAC on paid channels",
+      "Scaling pipeline without headcount",
     ],
-    ctaLabel: "View AI Capabilities",
-    ctaHref: "/services/ai-native-development",
+    ctaLabel: "View Revenue Systems",
+    ctaHref: "/solutions/b2b-saas-outbound",
   },
   {
     icon: GaugeCircle,
-    title: "MVP Engineering",
-    slug: "mvp-engineering",
+    title: "Ops & Workflow Automation",
+    slug: "ops-automation",
     description:
-      "Stop waiting quarters for a release. We ship production-grade MVPs in weeks, using AI-accelerated delivery and a 'Proof before Paperwork' methodology.",
+      "Eliminate manual triage and brittle handoffs. We build custom internal platforms that automate your core business loops.",
     highlights: [
-      "Rapid prototyping with real data",
-      "Scalable Next.js & Node.js architectures",
-      "Mobile-first responsive applications",
-      "Database design & API orchestration",
-      "Phased rollout & feature flag management",
+      "Automated Customer Onboarding",
+      "Intelligent Lead Routing",
+      "Post-Sale Handover Workflows",
+      "Self-Serve Internal Dashboards",
+      "System-to-System API Syncing",
     ],
-    timeline: "Prototype 1 week · Production MVP 4-6 weeks",
+    timeline: "MVP in 3-5 Weeks",
     problems: [
-      "Validating new product bets fast",
-      "Escaping legacy vendor lock-in",
-      "Building for scale from day zero",
-      "Rapid market entry for startups",
+      "Data silos between Sales & Success",
+      "Manual triage of support/leads",
+      "Fragile spreadsheet-based ops",
+      "Scaling backend ops during growth",
     ],
-    ctaLabel: "Explore MVP Framework",
-    ctaHref: "/services/mvp-engineering",
+    ctaLabel: "Explore Ops Automation",
+    ctaHref: "/solutions/ecommerce-automation",
   },
   {
     icon: ShieldCheck,
-    title: "Cloud & Systems Integration",
-    slug: "cloud-systems-integration",
+    title: "Custom AI Product Builds",
+    slug: "ai-product-engineering",
     description:
-      "Modern software doesn't live in a vacuum. We orchestrate resilient cloud infrastructure and seamless systems integration to ensure your data flows without friction.",
+      "For funded SaaS teams needing bespoke AI features or complex product engineering that off-the-shelf tools can't handle.",
     highlights: [
-      "AWS/GCP/Azure architecture & migration",
-      "Serverless & microservices orchestration",
-      "Data pipeline & ETL automation",
-      "System-to-system API integration",
-      "Observed infra with 99.9% uptime targets",
+      "Proprietary AI Feature Development",
+      "RAG & Large-Scale NLP Pipelines",
+      "Agentic Infrastructure (Bespoke)",
+      "High-Performance SaaS Architectures",
+      "Scale-Ready Cloud Orchestration",
     ],
-    timeline: "Integration 3-5 weeks · Full Infra 8-12 weeks",
+    timeline: "8-12 Weeks to Production",
     problems: [
-      "Consolidating fragmented data streams",
-      "Modernizing legacy monoliths",
-      "Automating cross-platform workflows",
-      "Infrastructure cost optimization",
+      "Building unique AI moats",
+      "Modernizing legacy product stacks",
+      "Rapid feature validation/MVPs",
+      "Complex integration requirements",
     ],
-    ctaLabel: "See Integration Patterns",
-    ctaHref: "/services/cloud-systems-integration",
+    ctaLabel: "See Product Engineering",
+    ctaHref: "/solutions/ai-agents",
   },
 ] as const;
 
 export function CoreServicesSection() {
   return (
-    <section className="bg-[#E7E2D6] py-20 sm:py-24">
-      <div className="container space-y-12">
+    <section className="bg-[#0A0A0B] py-24 sm:py-32">
+      <div className="container space-y-16">
         <motion.div
           className="max-w-3xl space-y-4 text-center sm:text-left"
           initial={{ opacity: 0, y: 24 }}
@@ -89,56 +89,56 @@ export function CoreServicesSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">Pain → outcome</p>
-          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            Three ways we fix broken ops
+          <p className="text-sm uppercase tracking-[0.35em] text-[#A1A1AA]">Core Capabilities</p>
+          <h2 className="font-display text-3xl font-semibold text-[#FAFAFA] sm:text-4xl md:text-5xl">
+            Engineered to Solve Your <br className="hidden md:block" /> Most Complex Revenue Leaks.
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {coreServices.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.article
                 key={service.title}
-                className="group flex h-full flex-col gap-6 rounded-3xl border border-[#0D1015]/10 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/90 to-[#A79F90]/80 p-8 shadow-[0_28px_65px_-32px_rgba(13,16,21,0.75)] transition duration-300 hover:-translate-y-2 hover:border-[#A3542B]/50 hover:shadow-[0_35px_70px_-30px_rgba(163,84,43,0.25)]"
+                className="group flex h-full flex-col gap-8 rounded-[2.5rem] border border-[#27272A] bg-[#131316] p-10 shadow-[0_32px_65px_-32px_rgba(0,0,0,0.8)] transition duration-300 hover:-translate-y-2 hover:border-[#10B981]/40"
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.08 }}
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#A3542B]/20 bg-[#A3542B]/10 text-[#A3542B]">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#10B981]/10 text-[#10B981]">
+                  <Icon className="h-7 w-7" aria-hidden="true" />
                 </div>
-                <div className="space-y-3">
-                  <h3 className="text-xl font-semibold text-[#0D1015]">{service.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#3F3A32]">{service.description}</p>
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-semibold text-[#FAFAFA]">{service.title}</h3>
+                  <p className="text-base leading-relaxed text-[#A1A1AA]">{service.description}</p>
                 </div>
 
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Failure modes we eliminate</p>
-                  <ul className="space-y-2 text-sm text-[#3F3A32]">
+                <div className="space-y-4">
+                  <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Included in the build</p>
+                  <ul className="space-y-3 text-sm text-[#A1A1AA]">
                     {service.highlights.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#A3542B]" aria-hidden="true" />
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#10B981]" aria-hidden="true" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="space-y-1 text-xs uppercase tracking-[0.25em] text-[#3F3A32]">
-                  <p className="text-[#0D1015]">Outcome / timeline</p>
-                  <p className="text-sm normal-case tracking-normal text-[#3F3A32]">{service.timeline}</p>
+                <div className="space-y-2">
+                  <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Typical Timeline</p>
+                  <p className="text-lg font-semibold text-[#10B981]">{service.timeline}</p>
                 </div>
 
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">If this is you</p>
+                <div className="space-y-4">
+                  <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">If this is you</p>
                   <div className="flex flex-wrap gap-2">
                     {service.problems.map((problem) => (
                       <span
                         key={problem}
-                        className="rounded-full border border-[#0D1015]/10 bg-[#B7B0A0] px-3 py-1 text-xs text-[#3F3A32]"
+                        className="rounded-full border border-[#27272A] bg-[#1A1A1F] px-4 py-1.5 text-xs text-[#A1A1AA]"
                       >
                         {problem}
                       </span>
@@ -148,7 +148,7 @@ export function CoreServicesSection() {
 
                 <Link
                   href={service.ctaHref}
-                  className={ctaButtonVariants({ variant: "secondary", size: "md", className: "mt-auto w-full justify-center sm:w-auto" })}
+                  className={ctaButtonVariants({ variant: "secondary", size: "lg", className: "mt-auto w-full justify-center group-hover:bg-[#10B981]/5 transition-colors" })}
                 >
                   {service.ctaLabel}
                 </Link>
@@ -160,3 +160,4 @@ export function CoreServicesSection() {
     </section>
   );
 }
+

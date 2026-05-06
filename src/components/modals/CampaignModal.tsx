@@ -33,7 +33,7 @@ export default function CampaignModal() {
     setVisible(false);
   }
 
-  if (!visible) return null;
+  return null; // Deactivated by user request
 
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">

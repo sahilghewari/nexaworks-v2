@@ -5,13 +5,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const ctaButtonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3542B] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60",
+  "inline-flex items-center justify-center gap-2 font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60",
   {
     variants: {
       variant: {
-        primary: "rounded-full bg-[#A3542B] px-6 text-white shadow-lg shadow-[#A3542B]/20 hover:bg-[#A3542B]/90 active:bg-[#A3542B]/95",
+        primary: "rounded-lg bg-[#10B981] px-6 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:bg-[#059669] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] active:bg-[#047857]",
         secondary:
-          "rounded-full border border-[#A3542B]/60 bg-transparent px-6 text-[#A3542B] hover:bg-[#A3542B]/10 active:bg-[#A3542B]/15",
+          "rounded-lg border border-[#10B981]/30 bg-transparent px-6 text-[#10B981] hover:bg-[#10B981]/10 active:bg-[#10B981]/15",
         tertiary:
           "rounded-none border-b border-transparent px-0 text-[#0D1015] hover:border-[#A3542B] hover:text-[#A3542B]",
       },

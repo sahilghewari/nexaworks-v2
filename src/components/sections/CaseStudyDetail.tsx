@@ -22,37 +22,43 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
   const killerMetric = caseStudy.metrics[0];
 
   return (
-    <article className="flex flex-col">
-      <section className="relative isolate overflow-hidden bg-[#CBC8BA] py-20 sm:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#A79F90_0%,transparent_60%)]" aria-hidden="true" />
-        <div className="container relative z-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.7fr)] md:items-center md:gap-14">
+    <article className="flex flex-col bg-[#0A0A0B]">
+      {/* Hero Section */}
+      <section className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-48 sm:pb-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#10B981/10_0%,transparent_60%)]" aria-hidden="true" />
+        <div className="container relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <motion.div
-            className="space-y-6"
+            className="space-y-8"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <Badge variant="info" className="w-fit">Case Study</Badge>
-            <h1 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl md:text-[3rem]">
+            <Badge variant="success" className="w-fit">Case Study</Badge>
+            <h1 className="font-display text-4xl font-semibold text-[#FAFAFA] sm:text-5xl md:text-[4rem] leading-[1.1]">
               {caseStudy.title}
             </h1>
             {caseStudy.subtitle ? (
-              <p className="text-lg text-[#3F3A32] sm:text-xl">{caseStudy.subtitle}</p>
+              <p className="text-xl text-[#A1A1AA] sm:text-2xl font-light">{caseStudy.subtitle}</p>
             ) : null}
-            <p className="text-base text-[#3F3A32] sm:text-lg">{caseStudy.heroDescription}</p>
+            <p className="text-base text-[#A1A1AA] sm:text-lg max-w-xl">{caseStudy.heroDescription}</p>
+            
             {killerMetric ? (
-              <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#A3542B]/40 bg-[#A3542B]/10 px-4 py-2 text-sm font-semibold text-[#A3542B]">
-                <span>Killer result:</span>
-                <span>{killerMetric.value} · {killerMetric.label}</span>
+              <div className="inline-flex flex-col gap-1 rounded-3xl border border-[#10B981]/20 bg-[#10B981]/5 px-8 py-4 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)]">
+                <span className="text-[0.65rem] uppercase tracking-[0.3em] text-[#10B981]">Killer result</span>
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl font-bold text-[#FAFAFA]">{killerMetric.value}</span>
+                  <span className="text-sm text-[#A1A1AA]">{killerMetric.label}</span>
+                </div>
               </div>
             ) : null}
-            <div className="flex flex-wrap gap-3">
+
+            <div className="flex flex-wrap gap-4 pt-4">
               <button
                 type="button"
                 onClick={() => openContactModal({ message: `Interested in ${caseStudy.title}. Let's schedule a demo.` })}
                 className={ctaButtonVariants({ variant: "primary", size: "lg" })}
               >
-                See live demo
+                Schedule Demo
               </button>
               {caseStudy.demoLink ? (
                 <Link
@@ -68,43 +74,52 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
           </motion.div>
 
           <motion.div
-            className="relative h-72 overflow-hidden rounded-3xl border border-[#0D1015]/10 bg-[#E7E2D6] shadow-[0_28px_80px_-40px_rgba(13,16,21,0.8)]"
+            className="relative aspect-video lg:aspect-square overflow-hidden rounded-[3rem] border border-[#27272A] bg-[#131316] shadow-[0_32px_65px_-32px_rgba(0,0,0,0.8)]"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#B7B0A0]/90 via-[#CBC8BA]/70 to-[#A79F90]/80" aria-hidden="true" />
             <Image
               src={caseStudy.coverImage}
               alt={`${caseStudy.title} cover`}
               fill
-              sizes="(max-width: 768px) 100vw, 520px"
-              className="object-cover opacity-80"
+              sizes="(max-width: 768px) 100vw, 800px"
+              className="object-cover opacity-70 group-hover:opacity-100 transition-opacity"
+              priority
             />
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#E7E2D6] py-16 sm:py-20">
-        <div className="container grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-16">
+      {/* Narrative Section */}
+      <section className="bg-[#131316] py-24 sm:py-32 border-y border-[#27272A]">
+        <div className="container grid gap-16 lg:grid-cols-2 lg:gap-24">
           <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="space-y-12"
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
-            <h2 className="text-2xl font-semibold text-[#0D1015]">What was broken</h2>
-            <p className="text-sm leading-relaxed text-[#3F3A32]">{caseStudy.problem}</p>
-            <h2 className="text-2xl font-semibold text-[#0D1015]">What we did differently</h2>
-            <p className="text-sm leading-relaxed text-[#3F3A32]">{caseStudy.solution}</p>
-            <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Technologies</p>
+            <div className="space-y-4">
+               <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">The Challenge</p>
+               <h2 className="text-3xl font-semibold text-[#FAFAFA]">What was broken</h2>
+               <p className="text-base leading-relaxed text-[#A1A1AA]">{caseStudy.problem}</p>
+            </div>
+            
+            <div className="space-y-4">
+               <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#10B981]/50">Our System</p>
+               <h2 className="text-3xl font-semibold text-[#FAFAFA]">What we did differently</h2>
+               <p className="text-base leading-relaxed text-[#A1A1AA]">{caseStudy.solution}</p>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">AI-Native Tech Stack</p>
               <div className="flex flex-wrap gap-2">
                 {caseStudy.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-[#0D1015]/10 bg-[#B7B0A0] px-3 py-1 text-xs text-[#3F3A32]"
+                    className="rounded-full border border-[#27272A] bg-[#1A1A1F] px-4 py-1.5 text-xs text-[#FAFAFA]"
                   >
                     {tech}
                   </span>
@@ -114,75 +129,60 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
           </motion.div>
 
           <motion.div
-            className="space-y-4"
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="space-y-8"
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
           >
+            <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Performance Metrics</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              {killerMetric ? (
-                <div className="flex h-full flex-col justify-between rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_22px_60px_-38px_rgba(13,16,21,0.8)]">
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Killer result</p>
-                  <p className="mt-4 text-3xl font-semibold text-[#A3542B]">{killerMetric.value}</p>
-                  <p className="mt-3 text-sm text-[#3F3A32]">{killerMetric.label}</p>
-                </div>
-              ) : null}
-              <button
-                type="button"
-                onClick={() => setShowBreakdown((prev) => !prev)}
-                className="flex h-full items-center justify-center rounded-2xl border border-dashed border-[#0D1015]/15 bg-[#CBC8BA]/70 p-6 text-sm font-semibold text-[#0D1015] transition hover:border-[#A3542B]/50"
-              >
-                {showBreakdown ? "Hide full breakdown" : "View full breakdown"}
-              </button>
-            </div>
-
-            {showBreakdown ? (
-              <div className="grid gap-4 sm:grid-cols-2">
-                {caseStudy.metrics.map((metric) => (
-                  <div
-                    key={`${caseStudy.id}-${metric.label}`}
-                    className="flex h-full flex-col justify-between rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-6 shadow-[0_22px_60px_-38px_rgba(13,16,21,0.8)]"
-                  >
-                    <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">{metric.label}</p>
-                    <p className="mt-4 text-3xl font-semibold text-[#A3542B]">{metric.value}</p>
+              {caseStudy.metrics.map((metric, idx) => (
+                <div
+                  key={`${caseStudy.id}-${metric.label}`}
+                  className="flex flex-col justify-between rounded-3xl border border-[#27272A] bg-[#1A1A1F] p-8 transition hover:border-[#10B981]/30"
+                >
+                  <p className="text-3xl font-bold text-[#10B981]">{metric.value}</p>
+                  <div className="mt-4 space-y-1">
+                    <p className="text-sm font-semibold text-[#FAFAFA]">{metric.label}</p>
                     {metric.description ? (
-                      <p className="mt-3 text-sm text-[#3F3A32]">{metric.description}</p>
+                      <p className="text-xs text-[#A1A1AA] leading-relaxed">{metric.description}</p>
                     ) : null}
                   </div>
-                ))}
-              </div>
-            ) : null}
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#CBC8BA] py-16 sm:py-20">
-        <div className="container space-y-10">
+      {/* Timeline & Testimonial */}
+      <section className="bg-[#0A0A0B] py-24 sm:py-32">
+        <div className="container space-y-20">
           <motion.div
-            className="grid gap-6 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1fr)] lg:gap-12"
+            className="grid gap-12 lg:grid-cols-[0.4fr_1fr] lg:gap-24"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
-            <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Timeline</p>
+            <div className="space-y-4">
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Timeline to Live</p>
               {caseStudy.timelineSummary ? (
-                <p className="text-lg font-semibold text-[#0D1015]">{caseStudy.timelineSummary}</p>
+                <p className="text-2xl font-semibold text-[#FAFAFA]">{caseStudy.timelineSummary}</p>
               ) : null}
             </div>
             <div className="grid gap-4">
               {caseStudy.timeline.map((phase) => (
                 <div
                   key={`${caseStudy.id}-${phase.title}`}
-                  className="rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/80 p-6"
+                  className="rounded-3xl border border-[#27272A] bg-[#131316] p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                 >
-                  <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em] text-[#3F3A32]">
-                    <span className="text-[#0D1015]">{phase.title}</span>
-                    <span>{phase.duration}</span>
+                  <div className="space-y-1">
+                    <p className="text-[0.65rem] uppercase tracking-[0.3em] text-[#10B981]">{phase.title}</p>
+                    <p className="text-base text-[#FAFAFA]">{phase.description}</p>
                   </div>
-                  <p className="mt-3 text-sm text-[#3F3A32]">{phase.description}</p>
+                  <span className="text-sm font-medium text-[#A1A1AA] shrink-0">{phase.duration}</span>
                 </div>
               ))}
             </div>
@@ -190,45 +190,50 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
 
           {caseStudy.testimonial ? (
             <motion.blockquote
-              className="relative overflow-hidden rounded-3xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-10 text-center text-lg text-[#0D1015]"
+              className="relative overflow-hidden rounded-[3rem] border border-[#27272A] bg-[#131316] p-12 sm:p-16 text-center shadow-[0_32px_65px_-32px_rgba(0,0,0,0.8)]"
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.45, ease: "easeOut" }}
             >
-              <Quote className="absolute left-6 top-6 h-10 w-10 text-[#A3542B]/30" aria-hidden="true" />
-              <p className="relative z-10 leading-relaxed">“{caseStudy.testimonial.quote}”</p>
-              <footer className="relative z-10 mt-4 text-sm text-[#3F3A32]">
-                {caseStudy.testimonial.author} · {caseStudy.testimonial.role}
+              <Quote className="absolute left-10 top-10 h-12 w-12 text-[#10B981]/10" aria-hidden="true" />
+              <p className="relative z-10 text-xl sm:text-2xl font-medium text-[#FAFAFA] leading-relaxed italic">
+                “{caseStudy.testimonial.quote}”
+              </p>
+              <footer className="relative z-10 mt-8 space-y-1">
+                <p className="text-base font-semibold text-[#FAFAFA]">{caseStudy.testimonial.author}</p>
+                <p className="text-sm text-[#A1A1AA]">{caseStudy.testimonial.role}</p>
               </footer>
             </motion.blockquote>
           ) : null}
 
-          <div className="grid gap-4 rounded-3xl border border-[#0D1015]/10 bg-[#E7E2D6] p-8 text-sm text-[#3F3A32] sm:grid-cols-2">
-            <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Next Steps</p>
-              <p>
-                Ready to explore a similar build? Grab time with us and we&apos;ll map the fastest path to your automation or AI win.
+          {/* Related/Footer */}
+          <div className="grid gap-8 rounded-[3rem] border border-[#27272A] bg-[#131316] p-12 sm:grid-cols-2">
+            <div className="space-y-6">
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Next Steps</p>
+              <h3 className="text-2xl font-semibold text-[#FAFAFA]">Ready for a similar win?</h3>
+              <p className="text-[#A1A1AA] max-w-sm">
+                We can map your fastest path to an AI Revenue System in a 15-minute pipeline audit.
               </p>
               <button
                 type="button"
                 onClick={() => openContactModal({ message: `Interested in ${caseStudy.title}. Schedule a demo.` })}
-                className={ctaButtonVariants({ variant: "primary", size: "md", className: "w-fit" })}
+                className={ctaButtonVariants({ variant: "primary", size: "lg" })}
               >
-                Schedule Demo
+                Schedule Pipeline Audit
               </button>
             </div>
-            <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#3F3A32]">Related Case Studies</p>
-              <ul className="space-y-2">
+            <div className="space-y-6 sm:pl-12 sm:border-l border-[#27272A]">
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Related Breakthroughs</p>
+              <ul className="space-y-4">
                 {caseStudy.related.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#A3542B] transition hover:text-[#A3542B]/80"
+                      className="group flex items-center justify-between text-base font-semibold text-[#FAFAFA] hover:text-[#10B981] transition-colors"
                     >
                       {item.label}
-                      <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                      <ArrowUpRight className="h-5 w-5 opacity-50 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
                     </Link>
                   </li>
                 ))}
@@ -240,3 +245,4 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
     </article>
   );
 }
+

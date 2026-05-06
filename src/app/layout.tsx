@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/common/header";
-import { Footer } from "@/components/common/footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { ContactModal } from "@/components/modals/ContactModal";
 import { ModalProvider } from "@/context/ModalContext";
 import { siteConfig, COMPANY_INFO } from "@/lib/constants";
@@ -33,10 +33,10 @@ const VERCEL_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "NexaWorks · Strategic Product Partners",
+  title: "NexaWorks · AI Revenue Systems for B2B SaaS",
   description:
-    "Full-stack experts designing and shipping resilient digital products for fast-moving teams.",
-  keywords: ["software development", "product strategy", "design systems", "consulting", "NexaWorks"],
+    "We design and ship autonomous AI engines that book meetings and scale pipeline for high-growth SaaS founders.",
+  keywords: ["AI Outbound", "B2B SaaS Lead Gen", "Pipeline Automation", "AI Revenue Engine", "Sales Automation", "SDR Automation"],
   authors: [{ name: "NexaWorks" }],
   alternates: {
     canonical: "./",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "NexaWorks · Strategic Product Partners",
+    title: "NexaWorks · AI Revenue Systems for B2B SaaS",
     description:
-      "Full-stack experts designing and shipping resilient digital products for fast-moving teams.",
+      "We design and ship autonomous AI engines that book meetings and scale pipeline for high-growth SaaS founders.",
     images: [
       {
         url: `${siteConfig.url}/og.png`,
@@ -65,11 +65,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: "NexaWorks · AI Revenue Systems",
+    description: "Autonomous pipeline engines for high-growth SaaS founders.",
     images: [`${siteConfig.url}/og.png`],
   },
 };
+
 
 export default function RootLayout({
   children,

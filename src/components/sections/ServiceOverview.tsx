@@ -6,7 +6,7 @@ import { Badge } from "@/ui/Badge";
 
 export function ServiceOverview() {
   return (
-    <section className="bg-[#CBC8BA] py-20 sm:py-24">
+    <section className="bg-[#0A0A0B] pt-32 pb-20 sm:pt-40 sm:pb-24">
       <div className="container">
         <motion.div
           className="mx-auto flex max-w-4xl flex-col gap-6 text-center sm:gap-8"
@@ -15,29 +15,47 @@ export function ServiceOverview() {
           viewport={{ once: true, amount: 0.45 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <Badge variant="info" className="mx-auto w-fit">Services</Badge>
-          <h1 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl md:text-[3rem]">
-            Ops hurting? We fix the bottleneck and prove it live.
+          <Badge variant="success" className="mx-auto w-fit">Services</Badge>
+          <h1 className="font-display text-4xl font-semibold text-[#FAFAFA] sm:text-5xl md:text-[3.5rem] leading-[1.1]">
+            We Design & Ship <span className="text-[#10B981]">AI Revenue Systems</span> That Book Meetings.
           </h1>
-          <p className="text-base text-[#3F3A32] sm:text-lg">
-            Founder-led teams that enter when revenue is leaking from manual ops, brittle handoffs, or dashboards no one trusts. We ship a running slice in your stack within days—no slideware, no endless discovery.
+          <p className="text-base text-[#A1A1AA] sm:text-xl max-w-3xl mx-auto">
+            Founder-led engineering teams that enter when your outbound is leaking revenue. We build autonomous pipeline engines in your stack within 14 days—no slideware, no generic lists.
           </p>
 
-          <div className="grid gap-3 rounded-2xl border border-[#0D1015]/10 bg-[#B7B0A0]/70 p-5 text-left sm:grid-cols-2">
-            <div className="space-y-2">
-              <p className="text-[0.72rem] uppercase tracking-[0.28em] text-[#3F3A32]">Who should engage</p>
-              <ul className="space-y-2 text-sm text-[#3F3A32]">
-                <li>Founder/exec sponsor ready to ship a v1 in &lt; 4 weeks.</li>
-                <li>Production data access and a clear KPI to move now.</li>
-                <li>Comfort with weekly live demos and fast decisions.</li>
+          <div className="grid gap-4 rounded-[2.5rem] border border-[#27272A] bg-[#131316] p-8 text-left sm:grid-cols-2 mt-8 shadow-[0_32px_65px_-32px_rgba(0,0,0,0.8)]">
+            <div className="space-y-4">
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">Ideal Engagement</p>
+              <ul className="space-y-3 text-sm text-[#A1A1AA]">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#10B981]" />
+                  <span>B2B SaaS teams ready to scale pipeline in &lt; 3 weeks.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#10B981]" />
+                  <span>Production CRM/Email access for immediate implementation.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#10B981]" />
+                  <span>Direct founder/exec sponsorship for fast decisions.</span>
+                </li>
               </ul>
             </div>
-            <div className="space-y-2">
-              <p className="text-[0.72rem] uppercase tracking-[0.28em] text-[#3F3A32]">Who we won&apos;t</p>
-              <ul className="space-y-2 text-sm text-[#3F3A32]">
-                <li>Procurement-first, no direct owner or access.</li>
-                <li>“Exploratory” with no success metric or budget.</li>
-                <li>Requests for decks instead of working software.</li>
+            <div className="space-y-4 pt-6 sm:pt-0 sm:pl-8 sm:border-l border-[#27272A]">
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FAFAFA]/50">What we avoid</p>
+              <ul className="space-y-3 text-sm text-[#A1A1AA]/70">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#27272A]" />
+                  <span>Procurement-heavy processes without direct technical owners.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#27272A]" />
+                  <span>“Exploratory” projects without concrete pipeline targets.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#27272A]" />
+                  <span>Clients seeking consulting decks instead of production systems.</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -45,4 +63,5 @@ export function ServiceOverview() {
       </div>
     </section>
   );
+
 }

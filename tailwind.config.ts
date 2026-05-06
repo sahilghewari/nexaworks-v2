@@ -13,7 +13,6 @@ const config: Config = {
         // Brand Colors
         background: "var(--color-bg-primary)",
         foreground: "var(--color-text-primary)",
-        "accent-red": "var(--color-accent-red)",
         texture: "var(--color-texture)",
         
         // Semantic Colors
@@ -26,7 +25,7 @@ const config: Config = {
           foreground: "#FFFFFF",
         },
         accent: {
-          DEFAULT: "var(--color-accent-red)",
+          DEFAULT: "var(--color-accent)",
           foreground: "#FFFFFF",
         },
         success: {
@@ -57,9 +56,9 @@ const config: Config = {
           DEFAULT: "#1F2937",
           foreground: "var(--color-text-primary)",
         },
-        border: "#374151",
-        input: "#374151",
-        ring: "var(--color-accent-red)",
+        border: "var(--color-border)",
+        input: "var(--color-input)",
+        ring: "var(--color-ring)",
       },
       spacing: {
         // Custom spacing scale based on 8px

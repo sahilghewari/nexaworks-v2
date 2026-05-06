@@ -9,53 +9,67 @@ export const metadata: Metadata = {
 
 export default function PipelineAuditPage() {
   return (
-    <main className="flex-1 bg-[#CBC8BA] py-20 sm:py-32">
+    <main className="flex-1 bg-[#0A0A0B] py-20 sm:py-32">
       <div className="container max-w-4xl">
         <div className="mb-12 text-center">
-          <Badge variant="info" className="mb-6 bg-[#0D1015]/5">
+          <Badge variant="info" className="mb-6 bg-white/5 text-[#A1A1AA] border-none">
             Limited spots available this month
           </Badge>
-          <h1 className="font-display text-4xl font-bold text-[#0D1015] sm:text-5xl">
+          <h1 className="font-display text-4xl font-bold text-[#FAFAFA] sm:text-5xl">
             Apply for a Pipeline Acceleration Audit
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-[#3F3A32]">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-[#A1A1AA]">
             If we can&apos;t identify at least 3 actionable ways to increase your qualified pipeline by 30% using AI automation, we&apos;ll pay you $500 for your time.
           </p>
         </div>
 
-        <div className="rounded-3xl border border-[#0D1015]/10 bg-[#B7B0A0]/30 p-8 shadow-[0_32px_65px_-32px_rgba(13,16,21,0.2)] sm:p-12">
+        <div className="rounded-3xl border border-[#27272A] bg-[#131316] p-8 shadow-[0_32px_65px_-32px_rgba(0,0,0,0.5)] sm:p-12">
           <form className="space-y-6">
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[#0D1015]">Full Name</label>
+                <label className="text-sm font-semibold text-[#FAFAFA]">Work Email</label>
                 <input 
-                  type="text" 
-                  className="w-full rounded-xl border-none bg-[#CBC8BA]/60 p-4 text-[#0D1015] outline-none ring-1 ring-[#0D1015]/10 transition focus:ring-2 focus:ring-[#A3542B]" 
+                  type="email" 
+                  className="w-full rounded-xl border-none bg-[#1A1A1F] p-4 text-[#FAFAFA] outline-none ring-1 ring-[#27272A] transition focus:ring-2 focus:ring-[#10B981]" 
+                  placeholder="name@company.com"
                   required 
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[#0D1015]">Work Email</label>
+                <label className="text-sm font-semibold text-[#FAFAFA]">Mobile Number</label>
                 <input 
-                  type="email" 
-                  className="w-full rounded-xl border-none bg-[#CBC8BA]/60 p-4 text-[#0D1015] outline-none ring-1 ring-[#0D1015]/10 transition focus:ring-2 focus:ring-[#A3542B]" 
+                  type="tel" 
+                  className="w-full rounded-xl border-none bg-[#1A1A1F] p-4 text-[#FAFAFA] outline-none ring-1 ring-[#27272A] transition focus:ring-2 focus:ring-[#10B981]" 
+                  placeholder="+1 (555) 000-0000"
                   required 
                 />
               </div>
             </div>
-            
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#0D1015]">Company Website</label>
-              <input 
-                type="url" 
-                className="w-full rounded-xl border-none bg-[#CBC8BA]/60 p-4 text-[#0D1015] outline-none ring-1 ring-[#0D1015]/10 transition focus:ring-2 focus:ring-[#A3542B]" 
-                required 
-              />
+
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-[#FAFAFA]">Full Name</label>
+                <input 
+                  type="text" 
+                  className="w-full rounded-xl border-none bg-[#1A1A1F] p-4 text-[#FAFAFA] outline-none ring-1 ring-[#27272A] transition focus:ring-2 focus:ring-[#10B981]" 
+                  placeholder="John Doe"
+                  required 
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-[#FAFAFA]">Company Website</label>
+                <input 
+                  type="url" 
+                  className="w-full rounded-xl border-none bg-[#1A1A1F] p-4 text-[#FAFAFA] outline-none ring-1 ring-[#27272A] transition focus:ring-2 focus:ring-[#10B981]" 
+                  placeholder="https://company.com"
+                  required 
+                />
+              </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#0D1015]">What is your current monthly lead generation spend?</label>
-              <select className="w-full appearance-none rounded-xl border-none bg-[#CBC8BA]/60 p-4 text-[#0D1015] outline-none ring-1 ring-[#0D1015]/10 transition focus:ring-2 focus:ring-[#A3542B]" required>
+              <label className="text-sm font-semibold text-[#FAFAFA]">What is your current monthly lead generation spend?</label>
+              <select className="w-full appearance-none rounded-xl border-none bg-[#1A1A1F] p-4 text-[#FAFAFA] outline-none ring-1 ring-[#27272A] transition focus:ring-2 focus:ring-[#10B981]" required>
                 <option value="">Select a range...</option>
                 <option value="under5k">Under $5k / month</option>
                 <option value="5k_15k">$5k - $15k / month</option>
@@ -64,9 +78,9 @@ export default function PipelineAuditPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#0D1015]">What is your primary outbound bottleneck right now?</label>
+              <label className="text-sm font-semibold text-[#FAFAFA]">What is your primary outbound bottleneck right now?</label>
               <textarea 
-                className="h-32 w-full resize-none rounded-xl border-none bg-[#CBC8BA]/60 p-4 text-[#0D1015] outline-none ring-1 ring-[#0D1015]/10 transition focus:ring-2 focus:ring-[#A3542B]" 
+                className="h-32 w-full resize-none rounded-xl border-none bg-[#1A1A1F] p-4 text-[#FAFAFA] outline-none ring-1 ring-[#27272A] transition focus:ring-2 focus:ring-[#10B981]" 
                 required 
                 placeholder="E.g., SDRs are too slow, open rates are dead, data scraping is manual..."
               />

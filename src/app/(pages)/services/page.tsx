@@ -6,24 +6,25 @@ import { EngagementModelsSection } from "@/sections/EngagementModelsSection";
 import { ServiceCTASection } from "@/sections/ServiceCTASection";
 
 export const metadata: Metadata = {
-  title: "Services | NexaWorks",
+  title: "AI Revenue Systems & Automation Services | NexaWorks",
   description:
-    "Explore NexaWorks services: custom automation software, AI-driven dashboards, and outcome-based engagements delivered in weeks with founder-level accountability.",
+    "We build autonomous pipeline engines, revenue ops automation, and custom AI products for high-growth SaaS teams. Live in 14 days.",
   openGraph: {
-    title: "NexaWorks Services",
+    title: "AI Revenue Systems & Automation Services | NexaWorks",
     description:
-      "Custom automation, AI dashboards, and risk-sharing engagements that deliver measurable outcomes in weeks, not quarters.",
-    url: "https://nexaworks.tech/services",
+      "We design and ship autonomous AI engines that book meetings and scale pipeline for high-growth SaaS founders.",
+    url: "https://nexaworks.com/services",
     siteName: "NexaWorks",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NexaWorks Services",
+    title: "AI Revenue Systems | NexaWorks",
     description:
-      "See how NexaWorks ships production-grade automation, AI dashboards, and outcome-based engagements with accountability.",
+      "Autonomous outbound and revenue ops automation for B2B SaaS teams.",
   },
 };
+
 
 export default function ServicesPage() {
   return (

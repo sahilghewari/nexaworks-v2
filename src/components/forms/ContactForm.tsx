@@ -78,15 +78,6 @@ export function ContactForm({ defaultValues, className, onSuccess, ctaLabel }: C
       <div className="grid gap-4 md:grid-cols-2">
         <FormField
           control={control}
-          name="name"
-          label="Name"
-          required
-          className="md:col-span-1"
-          render={({ field }) => <Input {...field} placeholder="Your name" />}
-        />
-
-        <FormField
-          control={control}
           name="email"
           label="Email"
           required
@@ -96,19 +87,28 @@ export function ContactForm({ defaultValues, className, onSuccess, ctaLabel }: C
 
         <FormField
           control={control}
-          name="company"
-          label="Company"
+          name="phone"
+          label="Phone"
+          required
           className="md:col-span-1"
-          render={({ field }) => <Input {...field} placeholder="Company (optional)" />}
+          render={({ field }) => <Input {...field} placeholder="+91-98765-43210" />}
         />
 
         <FormField
           control={control}
-          name="phone"
-          label="Phone"
-          description="Optional"
+          name="name"
+          label="Name"
+          required
           className="md:col-span-1"
-          render={({ field }) => <Input {...field} placeholder="+91-98765-43210" />}
+          render={({ field }) => <Input {...field} placeholder="Your name" />}
+        />
+
+        <FormField
+          control={control}
+          name="company"
+          label="Company"
+          className="md:col-span-1"
+          render={({ field }) => <Input {...field} placeholder="Company (optional)" />}
         />
 
         <FormField

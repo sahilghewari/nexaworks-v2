@@ -2,14 +2,14 @@ import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
 const baseClasses = {
-  h1: "font-display text-4xl font-semibold text-[#0D1015] mt-8 mb-4",
-  h2: "font-display text-3xl font-semibold text-[#0D1015] mt-10 mb-4",
-  h3: "font-display text-2xl font-semibold text-[#0D1015] mt-8 mb-3",
-  p: "text-base leading-7 text-[#3F3A32] mt-4",
-  ul: "list-disc pl-6 text-base leading-7 text-[#3F3A32] mt-4 space-y-2",
-  ol: "list-decimal pl-6 text-base leading-7 text-[#3F3A32] mt-4 space-y-2",
+  h1: "font-display text-4xl font-semibold text-[#FAFAFA] mt-8 mb-4",
+  h2: "font-display text-3xl font-semibold text-[#FAFAFA] mt-10 mb-4",
+  h3: "font-display text-2xl font-semibold text-[#FAFAFA] mt-8 mb-3",
+  p: "text-base leading-7 text-[#A1A1AA] mt-4",
+  ul: "list-disc pl-6 text-base leading-7 text-[#A1A1AA] mt-4 space-y-2",
+  ol: "list-decimal pl-6 text-base leading-7 text-[#A1A1AA] mt-4 space-y-2",
   blockquote:
-    "border-l-4 border-[#A3542B] bg-[#B7B0A0] px-4 py-3 text-[#0D1015] rounded-lg mt-6",
+    "border-l-4 border-[#10B981] bg-[#131316] px-4 py-3 text-[#FAFAFA] rounded-lg mt-6",
 };
 
 function CodeBlock(props: React.HTMLAttributes<HTMLElement>) {
@@ -45,7 +45,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ children, href = "", ...rest }) => (
       <Link
         href={href}
-        className="font-semibold text-[#A3542B] underline decoration-[#A3542B]/50 underline-offset-4 transition hover:text-[#A3542B]/80"
+        className="font-semibold text-[#10B981] underline decoration-[#10B981]/50 underline-offset-4 transition hover:text-[#10B981]/80"
         {...rest}
       >
         {children}

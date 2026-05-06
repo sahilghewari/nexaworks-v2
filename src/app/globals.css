@@ -4,17 +4,17 @@
    CSS Variables - Design Tokens
    ============================================ */
 :root {
-  /* Brand Colors - Light default */
-  --color-bg-primary: #CBC8BA;
-  --color-text-primary: #0D1015;
-  --color-accent-red: #A3542B;
-  --color-texture: #9B8B75;
+  /* Brand Colors - Forced Dark */
+  --color-bg-primary: #0A0A0B;
+  --color-text-primary: #FAFAFA;
+  --color-accent: #10B981;
+  --color-texture: #1A1A1F;
 
-  /* Surface presets for overrides */
-  --surface-1: #CBC8BA;
-  --surface-2: #B7B0A0;
-  --surface-3: #A79F90;
-  --surface-4: #E7E2D6;
+  /* Surfaces */
+  --surface-1: #0A0A0B;
+  --surface-2: #131316;
+  --surface-3: #1A1A1F;
+  --surface-4: #27272A;
   
   /* Semantic Colors */
   --color-success: #10B981;
@@ -23,13 +23,17 @@
   --color-info: #3B82F6;
   
   /* UI Colors */
-  --color-border: #A79F90;
-  --color-input: #E7E2D6;
-  --color-ring: #A3542B;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-input: #131316;
+  --color-ring: #10B981;
   
   /* Backgrounds */
   --background: var(--color-bg-primary);
   --foreground: var(--color-text-primary);
+  --color-muted: #1A1A1F;
+  --color-muted-foreground: #A1A1AA;
+  --color-card: #131316;
+  --color-card-foreground: #FAFAFA;
   
   /* Border Radius */
   --radius: 0.5rem;
@@ -56,103 +60,27 @@
   --z-modal: 1400;
   --z-popover: 1500;
   --z-tooltip: 1600;
-}
 
-/* Dark mode overrides */
-.dark {
-  --color-bg-primary: #0D1015;
-  --color-text-primary: #CBC8BA;
-  --color-accent-red: #A3542B;
-  --color-texture: #5A352F;
-  --color-border: #374151;
-  --color-input: #1F2937;
-  --color-ring: #A3542B;
-  --background: var(--color-bg-primary);
-  --foreground: var(--color-text-primary);
-  --color-muted: #1F2937;
-  --color-muted-foreground: #9CA3AF;
-  --color-card: #111827;
-  --color-card-foreground: #CBC8BA;
-
-  --surface-1: #0D1015;
-  --surface-2: #111827;
-  --surface-3: #1F2937;
-  --surface-4: #0A0D12;
-}
-
-/* Explicit light mode for toggling */
-.light {
-  --color-bg-primary: #CBC8BA;
-  --color-text-primary: #0D1015;
-  --color-accent-red: #A3542B;
-  --color-texture: #9B8B75;
-  --color-border: #A79F90;
-  --color-input: #E7E2D6;
-  --color-ring: #A3542B;
-  --background: var(--color-bg-primary);
-  --foreground: var(--color-text-primary);
-  --color-muted: #E5E0D4;
-  --color-muted-foreground: #3F3A32;
-  --color-card: #E9E4D7;
-  --color-card-foreground: #0D1015;
-
-  --surface-1: #CBC8BA;
-  --surface-2: #B7B0A0;
-  --surface-3: #A79F90;
-  --surface-4: #E7E2D6;
-}
-
-/* Theme override helpers (maps common hardcoded colors to tokens) */
-.light {
-  color-scheme: light;
-}
-
-.dark {
   color-scheme: dark;
 }
 
 body {
-  background: var(--surface-1);
+  background: var(--background);
   color: var(--foreground);
 }
-
-.dark body {
-  background: var(--surface-1);
-  color: var(--foreground);
-}
-
-[class*="bg-[#CBC8BA]"] { background-color: var(--surface-1) !important; }
-[class*="bg-[#B7B0A0]"] { background-color: var(--surface-2) !important; }
-[class*="bg-[#A79F90]"] { background-color: var(--surface-3) !important; }
-[class*="bg-[#E7E2D6]"] { background-color: var(--surface-4) !important; }
-[class*="bg-[#0D1015]"] { background-color: var(--surface-1) !important; }
-[class*="bg-[#111827]"] { background-color: var(--surface-2) !important; }
-[class*="bg-[#1F2937]"] { background-color: var(--surface-3) !important; }
-[class*="bg-[#0A0D12]"] { background-color: var(--surface-4) !important; }
-
-[class*="text-[#0D1015]"] { color: var(--foreground) !important; }
-[class*="text-[#3F3A32]"] { color: var(--color-muted-foreground) !important; }
-[class*="text-[#CBC8BA]"] { color: var(--foreground) !important; }
-[class*="text-[#9CA3AF]"] { color: var(--color-muted-foreground) !important; }
-
-[class*="border-[#A79F90]"] { border-color: var(--color-border) !important; }
-[class*="border-[#0D1015]"] { border-color: var(--color-border) !important; }
-[class*="border-[#374151]"] { border-color: var(--color-border) !important; }
-
-[class*="bg-gradient-to-br from-[#B7B0A0]"] { background-image: linear-gradient(to bottom right, var(--surface-2)/90%, var(--surface-1)/90%, var(--surface-3)/80%) !important; }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent-red: #A3542B;
-  --color-texture: #9B8B75;
-  --color-border: #A79F90;
-  --color-input: #E7E2D6;
-  --color-ring: #A3542B;
-  --color-muted: #E5E0D4;
-  --color-muted-foreground: #3F3A32;
-  --color-card: #E9E4D7;
-  --color-card-foreground: #0D1015;
+  --color-accent: var(--color-accent);
+  --color-texture: var(--color-texture);
+  --color-border: var(--color-border);
+  --color-input: var(--color-input);
+  --color-ring: var(--color-ring);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-card: var(--color-card);
+  --color-card-foreground: var(--color-card-foreground);
 }
 
 /* ============================================
