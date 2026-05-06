@@ -18,31 +18,30 @@ const models: Array<{
 }> = [
     {
       icon: CalendarClock,
-      title: "Fixed-Price Project",
-      scope: "Defined problem, clear deliverables, KPI locked before kickoff",
-      timeline: "Timeline: 5-10 weeks with weekly demos",
-      price: "Pricing: Fixed fee, typically $5k–$25k per project phase",
-      bestFor: "Best For: Enterprises with a specific automation challenge",
-      stopRule: "Stop rule: if week-2 demo misses agreed slice, we pause and fix before proceeding.",
-    },
-    {
-      icon: Handshake,
-      title: "Outcome-Based Risk-Sharing",
-      scope: "We build your MVP at-risk. If it delivers measurable value, we proceed to full development.",
-      timeline: "Timeline: MVP 2-4 weeks, Full Solution 5-10 weeks",
-      price: "Pricing: Performance-based, starting from $0 upfront",
-      bestFor: "Best For: Startups or teams exploring uncertain requirements",
-      stopRule: "Stop rule: if the pilot KPI isn&apos;t hit, you don&apos;t scale or pay for full build.",
-      example: "Example: We'll build a prototype in 2 weeks, on us. If it works, let's build the full solution.",
+      title: "The AI Revenue Engine",
+      scope: "Done-for-you pipeline generation. We build the data scrapers, sequences, and AI booking agent.",
+      timeline: "Timeline: Live in 14 days",
+      price: "Pricing: $15k–$30k setup fee",
+      bestFor: "Best For: B2B SaaS teams needing immediate pipeline scale",
+      stopRule: "Guarantee: If we don't identify 30% pipeline growth opportunities during our audit, we pay you $500.",
     },
     {
       icon: Repeat,
-      title: "Retainer / Ongoing Support",
-      scope: "Maintenance, optimization, and new feature delivery",
-      timeline: "Timeline: Monthly or per-deployment cadence",
-      price: "Pricing: Monthly retainer, starting at $5k/mo",
-      bestFor: "Best For: Long-term partnerships that need velocity",
-      stopRule: "Stop rule: if agreed uptime/latency targets slip twice, we switch to fix-only until back on budget.",
+      title: "Managed Pipeline Retainer",
+      scope: "We run the engine. Monthly optimization, A/B testing, and deliverability management.",
+      timeline: "Timeline: Ongoing monthly partnership",
+      price: "Pricing: $5k–$10k/mo (Performance-tiered options)",
+      bestFor: "Best For: Teams that want hands-off meeting generation",
+      stopRule: "Stop rule: No long-term lock-in. Pause anytime if meeting KPIs drop.",
+    },
+    {
+      icon: Handshake,
+      title: "Custom AI Product Build",
+      scope: "For funded startups needing a bespoke AI tool or complex internal workflow automation.",
+      timeline: "Timeline: 8-12 weeks to production",
+      price: "Pricing: $50k–$150k project-based",
+      bestFor: "Best For: Startups seeking a premium dev partner",
+      stopRule: "Stop rule: Milestone-driven. If week 2 demo misses the mark, we pause and fix before proceeding.",
     },
   ];
 
@@ -59,10 +58,10 @@ export function EngagementModelsSection() {
         >
           <p className="text-sm uppercase tracking-[0.35em] text-[#3F3A32]">How we work together</p>
           <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">
-            Engagements with stop-rules built in
+            Transparent Pricing & Guarantees
           </h2>
           <p className="text-base text-[#3F3A32] sm:text-lg">
-            Pick the model that fits your risk tolerance. Every model ships weekly demos and has a clear pause/stop trigger if we don&apos;t hit the agreed slice.
+            We don&apos;t hide our pricing. Whether you need a turnkey outbound engine or a complex custom product build, our engagements are outcome-driven.
           </p>
         </motion.div>
 
@@ -99,10 +98,10 @@ export function EngagementModelsSection() {
 
         <div className="flex justify-center">
           <Link
-            href="/contact"
+            href="/pipeline-audit"
             className={ctaButtonVariants({ variant: "primary", size: "lg" })}
           >
-            See a live slice
+            Apply for a Pipeline Audit
           </Link>
         </div>
       </div>

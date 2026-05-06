@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import { Loader2, MoveRight } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";

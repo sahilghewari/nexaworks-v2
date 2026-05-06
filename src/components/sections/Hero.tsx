@@ -68,28 +68,28 @@ export function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <Badge variant="info" className="w-fit border-none bg-[#0D1015]/5 text-[#3F3A32]">
-            Built by founders, not account teams
+            The AI Revenue Engine for B2B SaaS
           </Badge>
 
-          <h1 className="font-display text-4xl font-bold leading-[1.1] text-[#0D1015] md:text-6xl">
-            Slow consultancies ship decks. We ship working software.
+          <h1 className="font-display text-4xl font-bold leading-[1.1] text-[#0D1015] md:text-6xl md:leading-[1.1]">
+            We Build AI Systems That Generate $1M+ in Pipeline
           </h1>
           <p className="max-w-xl text-lg text-[#3F3A32] md:text-xl">
-            Founder-led **Custom AI & Product Engineering** in your stack, live in days—not quarters. See the automation running before you sign anything.
+            NexaWorks engineers done-for-you AI outbound engines for B2B SaaS companies. Scale your qualified meetings without hiring a single SDR.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
             <Link
-              href="#demo-preview"
+              href="/pipeline-audit"
               className={ctaButtonVariants({ variant: "primary", size: "lg" })}
             >
-              See a live build
+              Apply for a Pipeline Audit
             </Link>
             <Link
-              href="/contact"
+              href="#roi-calculator"
               className={ctaButtonVariants({ variant: "secondary", size: "lg" })}
             >
-              Book a 20-min build review
+              Calculate Your AI ROI
             </Link>
           </div>
 
@@ -118,29 +118,29 @@ export function Hero() {
             <div className="space-y-5">
               <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#3F3A32]">
                 <span className="inline-flex h-2 w-2 items-center justify-center rounded-full bg-[#A3542B]" aria-hidden="true" />
-                Week one, zero theater
+                Done-For-You Execution
               </div>
               <h3 className="text-2xl font-semibold text-[#0D1015]">
-                You get a running automation before paperwork.
+                Our 3-Step Outbound Engine
               </h3>
               <ul className="space-y-3 text-sm text-[#3F3A32]">
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
-                  Live walkthrough in your stack, not a slide deck.
+                  <strong>Signal Ingestion:</strong> We scrape high-intent buying signals specific to your ICP.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
-                  Time-to-value dashboard showing latency, accuracy, and risk.
+                  <strong>AI Orchestration:</strong> Hyper-personalized, multi-channel sequences that sound human.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#A3542B]" aria-hidden="true" />
-                  Founder-to-founder launch plan with cutover and rollback spelled out.
+                  <strong>Qualified Meetings:</strong> Demos land on your calendar. You just show up and close.
                 </li>
               </ul>
               <div className="rounded-2xl border border-[#0D1015]/10 bg-[#CBC8BA] p-5 text-sm text-[#3F3A32]">
-                <p className="text-xs uppercase tracking-[0.3em] text-[#A3542B]">No demo, no deal</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-[#A3542B]">Pipeline Guarantee</p>
                 <p className="mt-2 leading-relaxed">
-                  If we can&apos;t show you a working slice in week one, you don&apos;t move forward. We don&apos;t ask for trust—we earn it with software on screen.
+                  If we can&apos;t identify at least 3 actionable ways to increase your qualified pipeline by 30%, we&apos;ll pay you $500 for your time.
                 </p>
               </div>
             </div>

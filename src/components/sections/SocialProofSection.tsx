@@ -17,31 +17,28 @@ interface DemoItem {
 
 const demos: DemoItem[] = [
   {
-    title: "ResuMind AI-Analyzer",
-    tagline: "Analyze 1000s of resumes in minutes",
-    stat: "95% parsing accuracy, 150 concurrent uploads",
-    ctaLabel: "Try ResuMind",
-    ctaHref: "https://resumind.nexaworks.tech",
-    previewUrl: "https://resumind.nexaworks.tech",
-    external: true,
+    title: "Series B SaaS",
+    tagline: "Scaled to 15 Demos/Week",
+    stat: "$1.2M Pipeline Generated in 60 Days",
+    ctaLabel: "Read Case Study",
+    ctaHref: "/pipeline-audit",
+    external: false,
   },
   {
-    title: "Reports Platform",
-    tagline: "Automated report generation at scale",
-    stat: "98.5% success rate, 2.4s per report",
-    ctaLabel: "See Reports Demo",
-    ctaHref: "https://reports.nexaworks.tech/",
-    previewUrl: "https://reports.nexaworks.tech/",
-    external: true,
+    title: "Fintech Platform",
+    tagline: "Automated Compliance-Safe Outbound",
+    stat: "347 Qualified Meetings in 90 Days",
+    ctaLabel: "Get the Blueprint",
+    ctaHref: "/pipeline-audit",
+    external: false,
   },
   {
-    title: "Analytics Dashboard",
-    tagline: "Real-time operational visibility",
-    stat: "Deployed in 8 weeks (vs. industry 16 weeks)",
-    previewUrl: "https://analytics.nexaworks.tech/",
-    ctaLabel: "View Dashboard",
-    ctaHref: "https://analytics.nexaworks.tech/",
-    external: true,
+    title: "B2B Consulting",
+    tagline: "Automated Partner Acquisition",
+    stat: "412 Meetings in 120 Days",
+    ctaLabel: "See the Architecture",
+    ctaHref: "/pipeline-audit",
+    external: false,
   },
 ];
 
@@ -57,13 +54,13 @@ export function SocialProofSection() {
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <Badge variant="success" className="mx-auto w-fit sm:mx-0">
-            Live builds you can open now
+            Real Pipeline Numbers
           </Badge>
           <h2 className="font-display text-2xl font-semibold text-[#0D1015] sm:text-3xl md:text-[2.4rem]">
-            Proof before paperwork
+            Proof in your pipeline.
           </h2>
           <p className="max-w-2xl text-sm text-[#3F3A32] sm:text-base">
-            Three production systems in the wild. Open, click, and see for yourself.
+            While others sell chatbots, we engineer predictable revenue. Here is what happened when B2B teams deployed our Outbound Engine.
           </p>
         </motion.div>
 
@@ -94,8 +91,9 @@ export function SocialProofSection() {
                   />
                 </div>
               ) : (
-                <div className="flex h-40 items-center justify-center rounded-xl border border-dashed border-[#0D1015]/10 bg-[#CBC8BA]/80 text-sm text-[#3F3A32]">
-                  Preview on request
+                <div className="flex h-40 flex-col items-center justify-center rounded-xl border border-dashed border-[#A3542B]/30 bg-[#A3542B]/5 px-4 text-center">
+                  <span className="font-display text-3xl font-bold text-[#A3542B]">{demo.stat.split(' ')[0]}</span>
+                  <span className="text-sm font-medium text-[#3F3A32] mt-2">{demo.stat.substring(demo.stat.indexOf(' ') + 1)}</span>
                 </div>
               )}
               <Link
