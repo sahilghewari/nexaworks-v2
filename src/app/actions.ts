@@ -2,9 +2,16 @@
 
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function submitAuditApplication(formData: FormData) {
+  // Initialize Resend inside the function to ensure ENV vars are loaded
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("CRITICAL: RESEND_API_KEY is missing from environment variables.");
+    return { success: false, error: "Email service not configured. Please check Vercel ENV variables." };
+  }
+
+  const resend = new Resend(apiKey);
+
   const email = formData.get("email") as string;
   const phone = formData.get("phone") as string;
   const name = formData.get("name") as string;
@@ -14,37 +21,40 @@ export async function submitAuditApplication(formData: FormData) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+      from: "NexaWorks <onboarding@resend.dev>",
       to: [process.env.CONTACT_EMAIL || "nexaworks28@gmail.com"],
-      subject: `New Pipeline Audit Application: ${name}`,
+      subject: `[LEAD] New Pipeline Audit: ${name}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; padding: 20px;">
-          <h1 style="color: #10B981;">New Pipeline Audit Application</h1>
-          <p>You have received a new application from the NexaWorks website.</p>
-          <hr style="border: 1px solid #eee; margin: 20px 0;" />
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
-          <p><strong>Website:</strong> <a href="${website}">${website}</a></p>
-          <p><strong>Monthly Lead Gen Spend:</strong> ${spend}</p>
-          <p><strong>Primary Bottleneck:</strong></p>
-          <div style="background: #f9f9f9; padding: 15px; border-radius: 8px;">
-            ${bottleneck}
+        <div style="font-family: sans-serif; max-width: 600px; padding: 20px; color: #0A0A0B;">
+          <h1 style="color: #10B981; font-size: 24px;">New High-Intent Lead</h1>
+          <p>A new pipeline audit application has been submitted.</p>
+          <div style="background: #f4f4f5; padding: 20px; border-radius: 12px; margin: 20px 0;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Website:</strong> <a href="${website}" style="color: #10B981;">${website}</a></p>
+            <p><strong>Monthly Spend:</strong> ${spend}</p>
           </div>
-          <hr style="border: 1px solid #eee; margin: 20px 0;" />
-          <p style="font-size: 12px; color: #666;">Sent via NexaWorks AI Revenue Engine Platform</p>
+          <div style="border-left: 4px solid #10B981; padding-left: 15px; margin: 20px 0;">
+            <p><strong>Bottleneck:</strong></p>
+            <p>${bottleneck}</p>
+          </div>
+          <p style="font-size: 10px; color: #A1A1AA; margin-top: 40px;">
+            Sent from NexaWorks Production Engine. Ref ID: ${Date.now()}
+          </p>
         </div>
       `,
     });
 
     if (error) {
-      console.error("Resend Error:", error);
-      return { success: false, error: error.message };
+      console.error("Resend Sending Error:", error);
+      return { success: false, error: `Email Error: ${error.message}` };
     }
 
+    console.log("Email sent successfully:", data?.id);
     return { success: true };
-  } catch (error) {
-    console.error("Submission Error:", error);
-    return { success: false, error: "Internal Server Error" };
+  } catch (error: any) {
+    console.error("Server Action Crash:", error);
+    return { success: false, error: error?.message || "Internal Server Error" };
   }
 }
