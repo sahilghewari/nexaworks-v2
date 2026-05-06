@@ -68,15 +68,25 @@ export function EngagementModelsSection() {
         <div className="grid gap-6 md:grid-cols-3">
           {models.map((model, index) => {
             const Icon = model.icon;
+            const isRecommended = model.title === "Revenue Growth Engine";
             return (
               <motion.article
                 key={model.title}
-                className="flex h-full flex-col gap-5 rounded-3xl border border-[#27272A] bg-[#131316] p-8 shadow-[0_28px_60px_-30px_rgba(0,0,0,0.5)]"
+                className={`flex h-full flex-col gap-5 rounded-3xl border p-8 shadow-[0_28px_60px_-30px_rgba(0,0,0,0.5)] ${
+                  isRecommended 
+                  ? "border-[#10B981] bg-[#10B981]/5 ring-1 ring-[#10B981]" 
+                  : "border-[#27272A] bg-[#131316]"
+                }`}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.08 }}
               >
+                {isRecommended && (
+                  <span className="w-fit rounded-full bg-[#10B981] px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-[#0A0A0B]">
+                    Most Popular
+                  </span>
+                )}
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#10B981]/20 bg-[#10B981]/10 text-[#10B981]">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
@@ -96,13 +106,16 @@ export function EngagementModelsSection() {
           })}
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center gap-4">
           <Link
             href="/pipeline-audit"
             className={ctaButtonVariants({ variant: "primary", size: "lg" })}
           >
             Apply for a Pipeline Audit
           </Link>
+          <p className="text-xs text-[#A1A1AA]">
+            * Includes our <span className="text-emerald-500 font-semibold">$500 Risk-Reversal Guarantee</span>.
+          </p>
         </div>
       </div>
     </section>

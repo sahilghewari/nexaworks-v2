@@ -20,6 +20,7 @@ export function Header() {
   const navLinks = [
     { name: "Services", href: "/services" },
     { name: "Case Studies", href: "/case-studies" },
+    { name: "About", href: "/about" },
     { name: "ROI Calculator", href: "/#roi-calculator" },
     { name: "Process", href: "/#process" },
   ];
