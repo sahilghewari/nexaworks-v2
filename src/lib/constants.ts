@@ -1,6 +1,6 @@
 import type { NavItem, SiteConfig } from "./types";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.tech";
 
 export const siteConfig: SiteConfig = {
   name: "NexaWorks",

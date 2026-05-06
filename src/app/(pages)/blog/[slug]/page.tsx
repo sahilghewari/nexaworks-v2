@@ -32,7 +32,7 @@ export function generateMetadata({ params }: BlogPageProps): Metadata {
     };
   }
 
-  const url = `https://nexaworks.com/blog/${post.slug}`;
+  const url = `https://nexaworks.tech/blog/${post.slug}`;
   const publishedTime = new Date(post.date).toISOString();
   const modifiedTime = publishedTime; // Update this if you track modifications
 
@@ -57,7 +57,7 @@ export function generateMetadata({ params }: BlogPageProps): Metadata {
       images: post.image
         ? [
             {
-              url: post.image.startsWith('http') ? post.image : `https://nexaworks.com${post.image}`,
+              url: post.image.startsWith('http') ? post.image : `https://nexaworks.tech${post.image}`,
               width: 1200,
               height: 630,
               alt: post.title,
@@ -65,7 +65,7 @@ export function generateMetadata({ params }: BlogPageProps): Metadata {
           ]
         : [
             {
-              url: "https://nexaworks.com/og.png",
+              url: "https://nexaworks.tech/og.png",
               width: 1200,
               height: 630,
               alt: "NexaWorks",
@@ -77,8 +77,8 @@ export function generateMetadata({ params }: BlogPageProps): Metadata {
       title: post.title,
       description: post.excerpt,
       images: post.image
-        ? [post.image.startsWith('http') ? post.image : `https://nexaworks.com${post.image}`]
-        : ["https://nexaworks.com/og.png"],
+        ? [post.image.startsWith('http') ? post.image : `https://nexaworks.tech${post.image}`]
+        : ["https://nexaworks.tech/og.png"],
     },
     other: {
       'article:author': post.author,
@@ -123,7 +123,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "image": post.image ? (post.image.startsWith('http') ? post.image : `https://nexaworks.com${post.image}`) : "https://nexaworks.com/og.png",
+    "image": post.image ? (post.image.startsWith('http') ? post.image : `https://nexaworks.tech${post.image}`) : "https://nexaworks.tech/og.png",
     "datePublished": new Date(post.date).toISOString(),
     "dateModified": new Date(post.date).toISOString(),
     "author": {
@@ -140,12 +140,12 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       "name": "NexaWorks",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://nexaworks.com/nexaworks-logo-icon.svg"
+        "url": "https://nexaworks.tech/nexaworks-logo-icon.svg"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://nexaworks.com/blog/${post.slug}`
+      "@id": `https://nexaworks.tech/blog/${post.slug}`
     },
     "keywords": post.tags.join(", "),
     "articleSection": "Blog",

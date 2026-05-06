@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Revenue & Pipeline Results | NexaWorks Case Studies",
     description:
       "What was broken, how we fixed it, and the metrics that matter. Explore our flagship AI Revenue Systems in action.",
-    url: "https://nexaworks.com/case-studies",
+    url: "https://nexaworks.tech/case-studies",
     siteName: "NexaWorks",
     type: "website",
   },

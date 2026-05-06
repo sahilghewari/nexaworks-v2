@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "AI Revenue Systems & Automation Services | NexaWorks",
     description:
       "We design and ship autonomous AI engines that book meetings and scale pipeline for high-growth SaaS founders.",
-    url: "https://nexaworks.com/services",
+    url: "https://nexaworks.tech/services",
     siteName: "NexaWorks",
     type: "website",
   },
