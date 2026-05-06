@@ -42,11 +42,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "./",
   },
-  icons: {
-    icon: "/nexaworks-logo-icon.svg",
-    shortcut: "/nexaworks-logo-icon.svg",
-    apple: "/nexaworks-logo-icon.svg",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
