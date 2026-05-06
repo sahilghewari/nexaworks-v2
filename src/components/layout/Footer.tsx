@@ -72,10 +72,12 @@ export function Footer() {
                 Apply for Audit
               </Link>
               <Link
-                href="mailto:founders@nexaworks.tech"
-                className="block text-sm text-[#A1A1AA] hover:text-[#10B981] transition-colors"
+                href="https://wa.me/918356954152?text=Hello%20NexaWorks!%20I'm%20interested%20in%20a%20Pipeline%20Audit."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm text-[#10B981] hover:text-[#10B981]/80 transition-colors"
               >
-                founders@nexaworks.tech
+                Chat on WhatsApp →
               </Link>
             </div>
           </div>

@@ -8,6 +8,7 @@ import { ContactModal } from "@/components/modals/ContactModal";
 import { ModalProvider } from "@/context/ModalContext";
 import { siteConfig, COMPANY_INFO } from "@/lib/constants";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -148,6 +149,7 @@ export default function RootLayout({
             </main>
             <Footer />
             <ContactModal />
+            <WhatsAppButton />
           </ModalProvider>
         </ThemeProvider>
       </body>
