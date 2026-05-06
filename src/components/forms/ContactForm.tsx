@@ -5,6 +5,7 @@ import type { SubmitHandler } from "react-hook-form";
 
 import { useContactForm } from "@/lib/forms";
 import type { ContactSchema } from "@/lib/validations";
+import { submitAuditApplication } from "@/app/actions";
 import { cn } from "@/lib/utils";
 import { FormField } from "@/ui/FormField";
 import { Input } from "@/ui/input";
@@ -34,22 +35,25 @@ export function ContactForm({ defaultValues, className, onSuccess, ctaLabel }: C
     setStatus("idle");
     setErrorMessage(null);
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+      // Create FormData from values
+      const formData = new FormData();
+      Object.entries(values).forEach(([key, value]) => {
+        formData.append(key, value as string);
       });
-      const result = await response.json();
 
-      if (!response.ok) {
+      const result = await submitAuditApplication(formData);
+
+      if (!result.success) {
         setStatus("error");
-        setErrorMessage(result?.error || result?.message || "Something went wrong.");
+        setErrorMessage(result.error || "Something went wrong.");
         return;
       }
 
       setStatus("success");
       reset(defaultValues ?? undefined);
-      onSuccess?.();
+      setTimeout(() => {
+        onSuccess?.();
+      }, 2000); // Wait 2s to show success before closing modal
     } catch (error) {
       console.error("Contact form error", error);
       setStatus("error");
