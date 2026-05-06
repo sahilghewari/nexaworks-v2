@@ -75,7 +75,7 @@ export function Hero() {
             Slow consultancies ship decks. We ship working software.
           </h1>
           <p className="max-w-xl text-lg text-[#3F3A32] md:text-xl">
-            Founder-led builds in your stack, live in days—not quarters. See the automation running before you sign anything.
+            Founder-led **Custom AI & Product Engineering** in your stack, live in days—not quarters. See the automation running before you sign anything.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">

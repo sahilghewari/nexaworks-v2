@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { CaseStudiesGrid } from "@/sections/CaseStudiesGrid";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Projects | NexaWorks",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     title: "NexaWorks Projects",
     description:
       "Explore production-ready case studies—ResuMind AI-Analyzer, Automated Reports Platform, Analytics Dashboard, and NyayMind Legal AI research.",
-    url: "https://nexaworks.tech/projects",
+    url: `${siteConfig.url}/projects`,
     siteName: "NexaWorks",
     type: "website",
   },

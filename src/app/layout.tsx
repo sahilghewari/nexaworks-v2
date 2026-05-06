@@ -6,7 +6,7 @@ import { Header } from "@/components/common/header";
 import { Footer } from "@/components/common/footer";
 import { ContactModal } from "@/components/modals/ContactModal";
 import { ModalProvider } from "@/context/ModalContext";
-import { siteConfig } from "@/lib/constants";
+import { siteConfig, COMPANY_INFO } from "@/lib/constants";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const inter = Inter({
@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     "Full-stack experts designing and shipping resilient digital products for fast-moving teams.",
   keywords: ["software development", "product strategy", "design systems", "consulting", "NexaWorks"],
   authors: [{ name: "NexaWorks" }],
+  alternates: {
+    canonical: "./",
+  },
   icons: {
     icon: "/nexaworks-logo-icon.svg",
     shortcut: "/nexaworks-logo-icon.svg",
@@ -53,19 +56,18 @@ export const metadata: Metadata = {
       "Full-stack experts designing and shipping resilient digital products for fast-moving teams.",
     images: [
       {
-        url: "https://nexaworks.com/og.png",
+        url: `${siteConfig.url}/og.png`,
         width: 1200,
         height: 630,
-        alt: "NexaWorks",
+        alt: siteConfig.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NexaWorks · Strategic Product Partners",
-    description:
-      "Full-stack experts designing and shipping resilient digital products for fast-moving teams.",
-    images: ["https://nexaworks.com/og.png"],
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/og.png`],
   },
 };
 
@@ -113,23 +115,27 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Organization",
-                "name": "NexaWorks",
-                "url": "https://nexaworks.com",
-                "logo": "https://nexaworks.com/nexaworks-logo-icon.svg",
-                "description": "Full-stack experts designing and shipping resilient digital products for fast-moving teams.",
+                "name": siteConfig.name,
+                "url": siteConfig.url,
+                "logo": `${siteConfig.url}/nexaworks-logo-icon.svg`,
+                "description": siteConfig.description,
                 "foundingDate": "2024",
                 "sameAs": [
-                  // Add social media URLs here when available
-                ],
+                  siteConfig.links.github,
+                  siteConfig.links.linkedin,
+                  siteConfig.links.twitter,
+                ].filter(Boolean),
                 "contactPoint": {
                   "@type": "ContactPoint",
-                  "telephone": "", // Add phone if available
+                  "telephone": COMPANY_INFO.phone,
                   "contactType": "customer service",
                   "availableLanguage": "English"
                 },
                 "address": {
                   "@type": "PostalAddress",
-                  "addressCountry": "IN" // Update based on location
+                  "addressCountry": "IN",
+                  "addressLocality": "Mumbai",
+                  "addressRegion": "Maharashtra"
                 }
               }),
             }}

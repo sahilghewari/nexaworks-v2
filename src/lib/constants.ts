@@ -1,15 +1,16 @@
 import type { NavItem, SiteConfig } from "./types";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.tech";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.com";
 
 export const siteConfig: SiteConfig = {
   name: "NexaWorks",
-  description: "Building the future, one innovation at a time.",
+  description: "Strategic product partners for ambitious teams.",
   url: siteUrl,
   ogImage: `${siteUrl.replace(/\/$/, "")}/og.png`,
   links: {
-    github: "https://github.com/orgs/nexaworks-technology",
+    github: "https://github.com/sahilghewari/nexaworks-v2",
     linkedin: "https://www.linkedin.com/company/nexaworks-tech",
+    twitter: "https://x.com/nexaworks",
   },
 };
 
@@ -38,9 +39,9 @@ export const BREAKPOINTS = {
 
 const INTERNAL_CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "hello@nexaworks.com";
 const INTERNAL_SUPPORT_EMAIL = process.env.SUPPORT_EMAIL ?? "support@nexaworks.com";
-const INTERNAL_CONTACT_PHONE = process.env.CONTACT_PHONE ?? "+1 (800) 555-0128";
+const INTERNAL_CONTACT_PHONE = process.env.CONTACT_PHONE ?? "+91 22 1234 5678";
 const INTERNAL_COMPANY_ADDRESS =
-  process.env.COMPANY_ADDRESS ?? "145 Market Street, Suite 500, San Francisco, CA";
+  process.env.COMPANY_ADDRESS ?? "Mumbai, Maharashtra, India";
 
 export const CONTACT_EMAIL = INTERNAL_CONTACT_EMAIL;
 export const SUPPORT_EMAIL = INTERNAL_SUPPORT_EMAIL;

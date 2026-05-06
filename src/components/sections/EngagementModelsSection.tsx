@@ -16,35 +16,35 @@ const models: Array<{
   stopRule?: string;
   example?: string;
 }> = [
-  {
-    icon: CalendarClock,
-    title: "Fixed-Price Project",
-    scope: "Defined problem, clear deliverables, KPI locked before kickoff",
-    timeline: "Timeline: 5-10 weeks with weekly demos",
-    price: "Pricing: Fixed, shared risk",
-    bestFor: "Best For: Enterprises with a specific automation challenge",
-    stopRule: "Stop rule: if week-2 demo misses agreed slice, we pause and fix before proceeding.",
-  },
-  {
-    icon: Handshake,
-    title: "Outcome-Based Risk-Sharing",
-    scope: "We build your MVP at-risk. If it delivers measurable value, we proceed to full development.",
-    timeline: "Timeline: MVP 2-4 weeks, Full Solution 5-10 weeks",
-    price: "Pricing: Pay when the value is proven",
-    bestFor: "Best For: Startups or teams exploring uncertain requirements",
-    stopRule: "Stop rule: if the pilot KPI isn&apos;t hit, you don&apos;t scale or pay for full build.",
-    example: "Example: We'll build a prototype in 2 weeks, on us. If it works, let's build the full solution.",
-  },
-  {
-    icon: Repeat,
-    title: "Retainer / Ongoing Support",
-    scope: "Maintenance, optimization, and new feature delivery",
-    timeline: "Timeline: Monthly or per-deployment cadence",
-    price: "Pricing: Monthly retainer or per-release",
-    bestFor: "Best For: Long-term partnerships that need velocity",
-    stopRule: "Stop rule: if agreed uptime/latency targets slip twice, we switch to fix-only until back on budget.",
-  },
-];
+    {
+      icon: CalendarClock,
+      title: "Fixed-Price Project",
+      scope: "Defined problem, clear deliverables, KPI locked before kickoff",
+      timeline: "Timeline: 5-10 weeks with weekly demos",
+      price: "Pricing: Fixed fee, typically $5k–$25k per project phase",
+      bestFor: "Best For: Enterprises with a specific automation challenge",
+      stopRule: "Stop rule: if week-2 demo misses agreed slice, we pause and fix before proceeding.",
+    },
+    {
+      icon: Handshake,
+      title: "Outcome-Based Risk-Sharing",
+      scope: "We build your MVP at-risk. If it delivers measurable value, we proceed to full development.",
+      timeline: "Timeline: MVP 2-4 weeks, Full Solution 5-10 weeks",
+      price: "Pricing: Performance-based, starting from $0 upfront",
+      bestFor: "Best For: Startups or teams exploring uncertain requirements",
+      stopRule: "Stop rule: if the pilot KPI isn&apos;t hit, you don&apos;t scale or pay for full build.",
+      example: "Example: We'll build a prototype in 2 weeks, on us. If it works, let's build the full solution.",
+    },
+    {
+      icon: Repeat,
+      title: "Retainer / Ongoing Support",
+      scope: "Maintenance, optimization, and new feature delivery",
+      timeline: "Timeline: Monthly or per-deployment cadence",
+      price: "Pricing: Monthly retainer, starting at $5k/mo",
+      bestFor: "Best For: Long-term partnerships that need velocity",
+      stopRule: "Stop rule: if agreed uptime/latency targets slip twice, we switch to fix-only until back on budget.",
+    },
+  ];
 
 export function EngagementModelsSection() {
   return (

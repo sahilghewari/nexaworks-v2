@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://nexaworks.com'
+import { siteConfig } from '@/lib/constants'
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = siteConfig.url
 
   // Static pages
   const staticPages = [
@@ -22,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts - import dynamically to avoid build issues
   const posts: any[] = []
   try {
-    const { getAllPosts } = require('@/lib/blog')
+    const { getAllPosts } = await import('@/lib/blog')
     const allPosts = getAllPosts()
     allPosts.forEach((post: any) => {
       posts.push({

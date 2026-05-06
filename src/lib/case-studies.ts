@@ -92,8 +92,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     demoLink: { label: "View Live Demo", href: "https://resumind.nexaworks.tech" },
     ctaLabel: "View Full Case Study",
     related: [
-      { label: "Reports Platform", href: "https://reports.nexaworks.tech/" },
-      { label: "Analytics Dashboard", href: "https://analytics.nexaworks.tech/" },
+      { label: "Reports Platform", href: "/projects/reports" },
+      { label: "Analytics Dashboard", href: "/projects/analytics" },
     ],
     coverImage: "/images/case-studies/resumind-cover.png",
     thumbnail: "/images/case-studies/resumind-thumb.png",
@@ -148,8 +148,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     demoLink: { label: "See Platform Walkthrough", href: "https://reports.nexaworks.tech/" },
     ctaLabel: "View Full Case Study",
     related: [
-      { label: "ResuMind AI-Analyzer", href: "https://resumind.nexaworks.tech/" },
-      { label: "Analytics Dashboard", href: "https://analytics.nexaworks.tech/" },
+      { label: "ResuMind AI-Analyzer", href: "/projects/resumind" },
+      { label: "Analytics Dashboard", href: "/projects/analytics" },
     ],
     coverImage: "/images/case-studies/reports-cover.png",
     thumbnail: "/images/case-studies/reports-thumb.png",
@@ -203,8 +203,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     demoLink: { label: "View Dashboard Demo", href: "https://analytics.nexaworks.tech/" },
     ctaLabel: "View Full Case Study",
     related: [
-      { label: "Reports Platform", href: "https://reports.nexaworks.tech/" },
-      { label: "ResuMind AI-Analyzer", href: "https://resumind.nexaworks.tech/" },
+      { label: "Reports Platform", href: "/projects/reports" },
+      { label: "ResuMind AI-Analyzer", href: "/projects/resumind" },
     ],
     coverImage: "/images/case-studies/analytics-cover.png",
     thumbnail: "/images/case-studies/analytics-thumb.png",

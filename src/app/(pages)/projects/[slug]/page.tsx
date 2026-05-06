@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { CaseStudyDetail } from "@/sections/CaseStudyDetail";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/lib/case-studies";
+import { siteConfig } from "@/lib/constants";
 
 interface CaseStudyPageProps {
   params: {
@@ -30,7 +31,7 @@ export function generateMetadata({ params }: CaseStudyPageProps): Metadata {
     openGraph: {
       title: caseStudy.title,
       description: caseStudy.heroDescription,
-      url: `https://nexaworks.tech/projects/${caseStudy.slug}`,
+      url: `${siteConfig.url}/projects/${caseStudy.slug}`,
       siteName: "NexaWorks",
       type: "article",
       images: [

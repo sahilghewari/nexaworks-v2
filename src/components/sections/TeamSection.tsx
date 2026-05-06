@@ -19,7 +19,7 @@ const founders = [
     },
   },
   {
-    name: "Pavan Baber",
+    name: "Pavan Babar",
     role: "Co-founder & CTO",
     avatar: "PB",
     bio:
@@ -58,7 +58,7 @@ export function TeamSection() {
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <p className="text-xs uppercase tracking-[0.35em] text-[#3F3A32]">Team</p>
-          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">Three founders from Mumbai, SG</h2>
+          <h2 className="font-display text-3xl font-semibold text-[#0D1015] sm:text-4xl">Three founders from Mumbai</h2>
           <p className="text-base text-[#3F3A32] sm:text-lg">Hands-on leaders accountable for every sprint, release, and customer outcome.</p>
         </motion.div>
 
