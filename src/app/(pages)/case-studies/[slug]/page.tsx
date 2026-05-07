@@ -5,13 +5,14 @@ import { CASE_STUDIES } from "@/lib/case-studies";
 import { CaseStudyDetail } from "@/sections/CaseStudyDetail";
 
 interface CaseStudyPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
-  const caseStudy = CASE_STUDIES.find((cs) => cs.slug === params.slug);
+  const { slug } = await params;
+  const caseStudy = CASE_STUDIES.find((cs) => cs.slug === slug);
 
   if (!caseStudy) {
     return {
@@ -30,8 +31,9 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   };
 }
 
-export default function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const caseStudy = CASE_STUDIES.find((cs) => cs.slug === params.slug);
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+  const { slug } = await params;
+  const caseStudy = CASE_STUDIES.find((cs) => cs.slug === slug);
 
   if (!caseStudy) {
     notFound();

@@ -11,6 +11,8 @@ import { useModal } from "@/context/ModalContext";
 import { ctaButtonVariants } from "@/ui/CTAButton";
 import { Badge } from "@/ui/Badge";
 
+import { ResumindDemo } from "@/sections/ResumindDemo";
+
 interface CaseStudyDetailProps {
   caseStudy: CaseStudy;
 }
@@ -60,7 +62,7 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
               >
                 Schedule Demo
               </button>
-              {caseStudy.demoLink ? (
+              {caseStudy.demoLink && !caseStudy.demoLink.href.includes(caseStudy.slug) ? (
                 <Link
                   href={caseStudy.demoLink.href}
                   target={caseStudy.demoLink.href.startsWith("http") ? "_blank" : undefined}
@@ -90,6 +92,13 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
           </motion.div>
         </div>
       </section>
+
+      {/* Interactive Demo Section (If available) */}
+      {caseStudy.slug === "resumind" && (
+        <section className="bg-[#0A0A0B] border-t border-[#27272A]">
+          <ResumindDemo />
+        </section>
+      )}
 
       {/* Narrative Section */}
       <section className="bg-[#131316] py-24 sm:py-32 border-y border-[#27272A]">

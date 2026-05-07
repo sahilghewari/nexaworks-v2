@@ -21,7 +21,7 @@ const highlights: CaseStudyHighlight[] = [
     whyOthersFailed: "Off-the-shelf parsers broke on real-world formats; vendors shipped decks, not live scoring; accuracy plateaued sub-80%.",
     whatWeDid: "Built ingestion + NLP scoring pipeline with audit trails, wired into ATS/CRM, and demoed live in week 2.",
     killerResult: "95% parsing accuracy, responses in hours not days.",
-    href: "https://resumind.nexaworks.tech/",
+    href: "/case-studies/resumind",
   },
 ];
 
