@@ -1,8 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Loader2, Check } from "lucide-react";
 
 export function Hero() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email || status === "loading") return;
+
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Direct Pilot Request",
+          email: email,
+          company: "Unknown (Hero Lead)",
+          message: "Lead requested a pilot directly from the hero section email input.",
+          role: "Pilot Prospect",
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="relative isolate overflow-hidden bg-white pt-[120px] pb-24 border-b border-[#E4E4E7]">
       {/* Subtle Geometric Background Grid (Pylon Style) */}
@@ -35,16 +70,39 @@ export function Hero() {
             CompanyBrain connects your scattered docs, past tickets, and chat history into one system. Instantly resolve customer issues with perfect accuracy—no more guessing or digging for context.
           </p>
 
-          <div className="mt-12 flex w-full max-w-lg items-center p-1.5 shadow-2xl border border-[#E4E4E7] rounded-full bg-white">
-            <input 
-              type="email" 
-              placeholder="Enter Work Email" 
-              className="flex-1 px-6 py-3 text-[#09090B] placeholder-[#A1A1AA] outline-none bg-transparent"
-            />
-            <button className="bg-[#09090B] text-white px-8 py-3.5 rounded-full font-medium tracking-wide hover:bg-[#27272A] transition-all shadow-md active:scale-95">
-              Request Pilot
-            </button>
-          </div>
+          <form onSubmit={handleSubmit} className="mt-12 w-full max-w-lg relative">
+            <div className={`flex w-full items-center p-1.5 shadow-2xl border ${status === 'success' ? 'border-green-500 bg-green-50' : 'border-[#E4E4E7] bg-white'} rounded-full transition-all`}>
+              <input 
+                required
+                disabled={status === "loading" || status === "success"}
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={status === "success" ? "Success! We'll reach out." : "Enter Work Email"} 
+                className="flex-1 px-6 py-3 text-[#09090B] placeholder-[#A1A1AA] outline-none bg-transparent disabled:opacity-50"
+              />
+              <button 
+                disabled={status === "loading" || status === "success"}
+                type="submit"
+                className={`flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-medium tracking-wide transition-all shadow-md active:scale-95 min-w-[160px] ${
+                  status === "success" 
+                    ? "bg-green-600 text-white cursor-default" 
+                    : "bg-[#09090B] text-white hover:bg-[#27272A]"
+                }`}
+              >
+                {status === "loading" ? (
+                  <>Sending... <Loader2 className="h-4 w-4 animate-spin" /></>
+                ) : status === "success" ? (
+                  <>Sent! <Check className="h-4 w-4" /></>
+                ) : (
+                  "Request Pilot"
+                )}
+              </button>
+            </div>
+            {status === "error" && (
+              <p className="absolute top-full mt-2 text-xs text-red-600 font-medium">Something went wrong. Please try again.</p>
+            )}
+          </form>
         </motion.div>
       </div>
     </section>
