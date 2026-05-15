@@ -3,8 +3,8 @@ import type { NavItem, SiteConfig } from "./types";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.tech";
 
 export const siteConfig: SiteConfig = {
-  name: "NexaWorks",
-  description: "AI Revenue Systems for B2B SaaS Founders.",
+  name: "Company Brain by NexaWorks",
+  description: "The Operational Memory Layer for Autonomous Support Agents.",
   url: siteUrl,
   ogImage: `${siteUrl.replace(/\/$/, "")}/og.png`,
   links: {
@@ -16,11 +16,9 @@ export const siteConfig: SiteConfig = {
 
 export const navItems: NavItem[] = [
   { title: "Home", href: "/" },
-  { title: "What We Do", href: "/services" },
-  { title: "Projects", href: "/projects" },
-  { title: "How We Work", href: "/process" },
-  { title: "About Us", href: "/about" },
+  { title: "Case Studies", href: "/case-studies" },
   { title: "Blog", href: "/blog" },
+  { title: "Contact", href: "/contact" },
 ];
 
 export const ANIMATION_DURATION = {
@@ -60,7 +58,7 @@ export const COMPANY_INFO = {
   email: PUBLIC_CONTACT_EMAIL,
   phone: PUBLIC_CONTACT_PHONE,
   address: PUBLIC_COMPANY_ADDRESS,
-  tagline: "Strategic product partners for ambitious teams.",
+  tagline: "The Operational Memory Layer for Autonomous Support",
 } as const;
 
 export const SOCIAL_LINKS = {
@@ -71,28 +69,20 @@ export const SOCIAL_LINKS = {
 
 export const FOOTER_LINK_GROUPS = [
   {
-    title: "Product",
-    links: [
-      { label: "What We Do", href: "/services" },
-      { label: "Projects", href: "/projects" },
-      { label: "How We Work", href: "/process" },
-    ],
-  },
-  {
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Team", href: "/team" },
-      { label: "GitHub", href: siteConfig.links.github ?? "https://github.com/orgs/nexaworks-technology" },
+      { label: "Home", href: "/" },
+      { label: "Case Studies", href: "/case-studies" },
       { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Accessibility", href: "/accessibility" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Security", href: "/security" },
     ],
   },
 ] as const;

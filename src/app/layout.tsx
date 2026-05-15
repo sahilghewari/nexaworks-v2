@@ -34,11 +34,15 @@ const VERCEL_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "NexaWorks · AI Revenue Systems for B2B SaaS",
+  title: "CompanyBrain by NexaWorks · Stop Wasting Hours Searching for Support Answers",
   description:
-    "We design and ship autonomous AI engines that book meetings and scale pipeline for high-growth SaaS founders.",
-  keywords: ["AI Outbound", "B2B SaaS Lead Gen", "Pipeline Automation", "AI Revenue Engine", "Sales Automation", "SDR Automation"],
+    "Instantly resolve customer issues with perfect accuracy. CompanyBrain connects your scattered docs, tickets, and chat history into one unified operational memory.",
+  keywords: ["AI Support", "Support Operations", "Knowledge Management", "Customer Success", "Autonomous Support Agents", "Deterministic AI"],
   authors: [{ name: "NexaWorks" }],
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
   alternates: {
     canonical: "https://nexaworks.tech",
     languages: {
@@ -49,24 +53,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: "NexaWorks · AI Revenue Systems for B2B SaaS",
+    siteName: "CompanyBrain",
+    title: "CompanyBrain by NexaWorks",
     description:
-      "We design and ship autonomous AI engines that book meetings and scale pipeline for high-growth SaaS founders.",
+      "Stop wasting hours searching for support answers. Connect your scattered knowledge into one unified system.",
     images: [
       {
-        url: `${siteConfig.url}/og.png`,
+        url: `${siteConfig.url}/nexaworks-logo-dark.svg`,
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: "CompanyBrain by NexaWorks",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NexaWorks · AI Revenue Systems",
-    description: "Autonomous pipeline engines for high-growth SaaS founders.",
-    images: [`${siteConfig.url}/og.png`],
+    title: "CompanyBrain by NexaWorks",
+    description: "Stop wasting hours searching for support answers. Connect your scattered knowledge into one unified system.",
+    images: [`${siteConfig.url}/nexaworks-logo-dark.svg`],
   },
 };
 

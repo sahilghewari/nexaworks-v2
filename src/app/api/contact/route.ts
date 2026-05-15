@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     const adminPromise: Promise<SendEmailResult> = adminRecipients.length
       ? sendEmail({
           to: adminRecipients,
-          subject: `New contact form submission from ${data.name}`,
+          subject: `[Pilot Request] New Lead: ${data.name} via CompanyBrain`,
           react: InternalNotification({
             title: "New contact form submission",
             items: [
