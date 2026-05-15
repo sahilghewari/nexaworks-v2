@@ -71,7 +71,7 @@ export function Hero() {
           </p>
 
           <form onSubmit={handleSubmit} className="mt-12 w-full max-w-lg relative">
-            <div className={`flex w-full items-center p-1.5 shadow-2xl border ${status === 'success' ? 'border-green-500 bg-green-50' : 'border-[#E4E4E7] bg-white'} rounded-full transition-all`}>
+            <div className={`flex flex-col sm:flex-row w-full items-stretch sm:items-center p-1.5 gap-3 sm:gap-0 shadow-2xl border ${status === 'success' ? 'border-green-500 bg-green-50' : 'border-[#E4E4E7] bg-white'} rounded-3xl sm:rounded-full transition-all`}>
               <input 
                 required
                 disabled={status === "loading" || status === "success"}
@@ -79,12 +79,12 @@ export function Hero() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={status === "success" ? "Success! We'll reach out." : "Enter Work Email"} 
-                className="flex-1 px-6 py-3 text-[#09090B] placeholder-[#A1A1AA] outline-none bg-transparent disabled:opacity-50"
+                className="flex-1 px-6 py-4 sm:py-3 text-[#09090B] placeholder-[#A1A1AA] outline-none bg-transparent disabled:opacity-50 text-center sm:text-left"
               />
               <button 
                 disabled={status === "loading" || status === "success"}
                 type="submit"
-                className={`flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-medium tracking-wide transition-all shadow-md active:scale-95 min-w-[160px] ${
+                className={`flex items-center justify-center gap-2 px-8 py-4 sm:py-3.5 rounded-2xl sm:rounded-full font-medium tracking-wide transition-all shadow-md active:scale-95 min-w-full sm:min-w-[160px] ${
                   status === "success" 
                     ? "bg-green-600 text-white cursor-default" 
                     : "bg-[#09090B] text-white hover:bg-[#27272A]"
@@ -100,7 +100,7 @@ export function Hero() {
               </button>
             </div>
             {status === "error" && (
-              <p className="absolute top-full mt-2 text-xs text-red-600 font-medium">Something went wrong. Please try again.</p>
+              <p className="absolute top-full mt-2 left-0 right-0 text-center text-xs text-red-600 font-medium">Something went wrong. Please try again.</p>
             )}
           </form>
         </motion.div>
