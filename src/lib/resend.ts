@@ -23,8 +23,8 @@ type SendEmailResult = {
   errorMessage?: string;
 };
 
-const defaultFrom = process.env.RESEND_FROM_EMAIL ?? "notifications@nexaworks.com";
-const fallbackReplyTo = process.env.CONTACT_INBOX ?? "hello@nexaworks.com";
+const defaultFrom = process.env.RESEND_FROM_EMAIL ?? "notifications@nexaworks.tech";
+const fallbackReplyTo = process.env.CONTACT_INBOX ?? "hello@nexaworks.tech";
 
 export async function sendEmail(options: SendEmailOptions): Promise<SendEmailResult> {
   if (!client) {

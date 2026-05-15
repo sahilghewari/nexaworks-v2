@@ -35,8 +35,8 @@ export const BREAKPOINTS = {
   "2xl": 1536,
 } as const;
 
-const INTERNAL_CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "hello@nexaworks.com";
-const INTERNAL_SUPPORT_EMAIL = process.env.SUPPORT_EMAIL ?? "support@nexaworks.com";
+const INTERNAL_CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "hello@nexaworks.tech";
+const INTERNAL_SUPPORT_EMAIL = process.env.SUPPORT_EMAIL ?? "support@nexaworks.tech";
 const INTERNAL_CONTACT_PHONE = process.env.CONTACT_PHONE ?? "+91 22 1234 5678";
 const INTERNAL_COMPANY_ADDRESS =
   process.env.COMPANY_ADDRESS ?? "Mumbai, Maharashtra, India";
