@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   links: {
     github: "https://github.com/sahilghewari/nexaworks-v2",
     linkedin: "https://www.linkedin.com/company/nexaworks-tech",
-    twitter: "https://x.com/nexaworks",
+    twitter: "https://x.com/NexaWorksAI",
   },
 };
 
