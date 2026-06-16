@@ -5,18 +5,18 @@ import { Brain, Clock, Shield } from "lucide-react";
 
 const valueProps = [
   {
-    title: "Zero Hallucinations",
-    description: "Agents ground every response in your actual internal data, eliminating creative liberties and ensuring factual accuracy on every ticket.",
+    title: "Fewer manager interruptions",
+    description: "Senior people stop being the fallback knowledge base.",
     icon: <Brain className="h-8 w-8 text-[#09090B]" strokeWidth={1.5} />,
   },
   {
-    title: "Routing based on intent",
-    description: "AI reads the issue, identifies the right team, and routes instantly — eliminating manual triage queues.",
+    title: "Faster onboarding",
+    description: "New hires ramp with current context instead of interrupting the team.",
     icon: <Clock className="h-8 w-8 text-[#09090B]" strokeWidth={1.5} />,
   },
   {
-    title: "Knowledge automation",
-    description: "AI finds gaps in your KB, drafts articles, and surfaces the right answer before your team has to search.",
+    title: "Better support consistency",
+    description: "Teams answer customers from the same trusted source.",
     icon: <Shield className="h-8 w-8 text-[#09090B]" strokeWidth={1.5} />,
   },
 ];
@@ -25,10 +25,13 @@ export function ValuePropositionBlocks() {
   return (
     <section className="bg-white py-32 border-b border-[#E4E4E7]">
       <div className="container mx-auto max-w-6xl px-6">
-        <div className="text-center mb-24">
+        <div className="text-center mb-24 max-w-3xl mx-auto">
           <h2 className="text-5xl font-medium tracking-tight text-[#09090B]">
-            Automate resolution
+            The value is simple
           </h2>
+          <p className="mt-6 text-xl text-[#52525B]">
+            In practice, this means less wasted senior time, fewer repeated questions, and more consistent decisions across the team.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

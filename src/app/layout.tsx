@@ -34,10 +34,10 @@ const VERCEL_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "CompanyBrain by NexaWorks · Stop Wasting Hours Searching for Support Answers",
+  title: "NexaWorks | The Company Brain for Modern Teams",
   description:
-    "Instantly resolve customer issues with perfect accuracy. CompanyBrain connects your scattered docs, tickets, and chat history into one unified operational memory.",
-  keywords: ["AI Support", "Support Operations", "Knowledge Management", "Customer Success", "Autonomous Support Agents", "Deterministic AI"],
+    "NexaWorks turns scattered company knowledge across Slack, Notion, SOPs, tickets, and internal tools into one trusted operational layer. Start with support operations.",
+  keywords: ["Company Brain", "Operational Memory", "AI Support", "Support Operations", "Knowledge Management", "Autonomous Agents"],
   authors: [{ name: "NexaWorks" }],
   icons: {
     icon: "/icon.svg",
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteConfig.url,
     siteName: "CompanyBrain",
-    title: "CompanyBrain by NexaWorks",
+    title: "NexaWorks | The Company Brain for Modern Teams",
     description:
-      "Stop wasting hours searching for support answers. Connect your scattered knowledge into one unified system.",
+      "NexaWorks turns scattered company knowledge across Slack, Notion, SOPs, tickets, and internal tools into one trusted operational layer. Start with support operations.",
     images: [
       {
         url: `${siteConfig.url}/nexaworks-logo-dark.svg`,
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CompanyBrain by NexaWorks",
-    description: "Stop wasting hours searching for support answers. Connect your scattered knowledge into one unified system.",
+    title: "NexaWorks | The Company Brain for Modern Teams",
+    description: "NexaWorks turns scattered company knowledge across Slack, Notion, SOPs, tickets, and internal tools into one trusted operational layer. Start with support operations.",
     images: [`${siteConfig.url}/nexaworks-logo-dark.svg`],
   },
 };

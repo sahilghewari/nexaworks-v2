@@ -64,10 +64,13 @@ export function Hero() {
           className="flex flex-col items-center"
         >
           <h1 className="font-sans text-5xl font-medium tracking-tight text-[#09090B] sm:text-6xl md:text-[4.5rem] leading-[1.1]">
-            Your support team is wasting hours <br className="hidden sm:block" /> <span className="text-[#D35A3C]">searching for answers.</span>
+            The operational memory layer <br className="hidden sm:block" /> <span className="text-[#D35A3C]">for modern companies.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-xl text-[#52525B]">
-            CompanyBrain connects your scattered docs, past tickets, and chat history into one system. Instantly resolve customer issues with perfect accuracy—no more guessing or digging for context.
+            NexaWorks turns scattered company knowledge across Slack, Notion, SOPs, tickets, meetings, and internal tools into one trusted, AI-ready source of truth.
+          </p>
+          <p className="mt-4 max-w-2xl text-lg font-medium text-[#09090B]">
+            Start with support operations, where stale answers, conflicting guidance, and repeated interruptions create the most immediate pain.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-12 w-full max-w-lg relative">
@@ -102,6 +105,9 @@ export function Hero() {
             {status === "error" && (
               <p className="absolute top-full mt-2 left-0 right-0 text-center text-xs text-red-600 font-medium">Something went wrong. Please try again.</p>
             )}
+            <p className="absolute top-full mt-6 left-0 right-0 text-center text-sm text-[#52525B] font-medium tracking-wide">
+              Built for growing B2B SaaS and AI teams
+            </p>
           </form>
         </motion.div>
       </div>

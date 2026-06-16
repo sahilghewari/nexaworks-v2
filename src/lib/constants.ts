@@ -4,7 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexaworks.tech";
 
 export const siteConfig: SiteConfig = {
   name: "Company Brain by NexaWorks",
-  description: "The Operational Memory Layer for Autonomous Support Agents.",
+  description: "The operational memory layer that keeps company knowledge structured, current, and trustworthy for both humans and AI systems.",
   url: siteUrl,
   ogImage: `${siteUrl.replace(/\/$/, "")}/og.png`,
   links: {
@@ -58,7 +58,7 @@ export const COMPANY_INFO = {
   email: PUBLIC_CONTACT_EMAIL,
   phone: PUBLIC_CONTACT_PHONE,
   address: PUBLIC_COMPANY_ADDRESS,
-  tagline: "The Operational Memory Layer for Autonomous Support",
+  tagline: "The operational memory layer for modern companies",
 } as const;
 
 export const SOCIAL_LINKS = {

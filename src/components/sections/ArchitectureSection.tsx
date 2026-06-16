@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Database, ArrowRight, BrainCircuit, Bot } from "lucide-react";
+import { BrainCircuit, Database, GitBranch, GitMerge, Network } from "lucide-react";
 
 export function ArchitectureSection() {
   return (
@@ -10,37 +10,75 @@ export function ArchitectureSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           
-          {/* Left Side (Image / UI Block) */}
+          {/* Left Side (Visual Block - Wedge Strategy) */}
           <motion.div
-            className="bg-[#EAEAEA] rounded-none aspect-square relative flex items-center justify-center p-8"
+            className="bg-[#FAFAFA] rounded-xl border border-[#E4E4E7] aspect-square relative flex items-center justify-center p-8 shadow-sm"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-white border border-[#E4E4E7] rounded-md w-full h-[80%] shadow-sm flex flex-col overflow-hidden">
-               <div className="border-b border-[#E4E4E7] px-6 py-4 font-semibold text-[#09090B]">Issues</div>
-               <div className="flex-1 p-6 flex flex-col gap-4">
-                  <div className="bg-white h-auto rounded border border-[#E4E4E7] w-full p-4 flex flex-col gap-1 shadow-sm">
-                    <span className="text-xs font-semibold text-[#09090B]">Slack</span>
-                    <span className="text-sm text-[#52525B]">"Where is the tracking link for order #1234?"</span>
-                    <span className="text-xs font-medium text-[#10B981] mt-1">✓ Resolved instantly</span>
+            <div className="flex flex-col items-center w-full h-full justify-center gap-6">
+              {/* Core Brain */}
+              <div className="bg-[#09090B] text-white px-6 py-4 rounded-xl shadow-lg flex items-center gap-3 z-10">
+                <BrainCircuit className="h-6 w-6 text-[#D35A3C]" />
+                <span className="font-semibold text-lg tracking-wide">Company Brain</span>
+              </div>
+              
+              {/* Connecting Lines */}
+              <div className="flex w-full justify-center -my-2 opacity-30">
+                <svg width="240" height="40" viewBox="0 0 240 40">
+                  <path d="M120,0 L120,20 L20,20 L20,40" fill="none" stroke="#09090B" strokeWidth="2" />
+                  <path d="M120,0 L120,40" fill="none" stroke="#09090B" strokeWidth="2" />
+                  <path d="M120,0 L120,20 L220,20 L220,40" fill="none" stroke="#09090B" strokeWidth="2" />
+                </svg>
+              </div>
+
+              {/* Branches */}
+              <div className="flex w-full justify-between items-start z-10 px-4 gap-2">
+                
+                {/* Branch 1 - Support (Wedge) */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="bg-white border-2 border-[#D35A3C] shadow-md px-4 py-3 rounded-lg flex flex-col items-center">
+                    <span className="text-sm font-bold text-[#D35A3C]">Support</span>
                   </div>
-                  <div className="bg-white h-auto rounded border border-[#E4E4E7] w-full p-4 flex flex-col gap-1 shadow-sm">
-                    <span className="text-xs font-semibold text-[#09090B]">Zendesk</span>
-                    <span className="text-sm text-[#52525B]">"How do I reset my API key?"</span>
-                    <span className="text-xs font-medium text-[#10B981] mt-1">✓ Resolved instantly</span>
+                  <div className="text-[10px] text-center text-[#52525B] font-medium leading-tight mt-1">
+                    Escalations<br/>
+                    Drift Detection
                   </div>
-                  <div className="bg-white h-auto rounded border border-[#E4E4E7] w-full p-4 flex flex-col gap-1 shadow-sm opacity-60">
-                    <span className="text-xs font-semibold text-[#09090B]">Teams</span>
-                    <span className="text-sm text-[#52525B]">"My account is locked out."</span>
-                    <span className="text-xs font-medium text-[#6366F1] mt-1">→ Routed to Security Team</span>
+                </div>
+
+                {/* Branch 2 - Sales */}
+                <div className="flex flex-col items-center gap-2 opacity-50">
+                  <div className="bg-white border border-[#E4E4E7] px-4 py-3 rounded-lg flex flex-col items-center">
+                    <span className="text-sm font-semibold text-[#09090B]">Sales</span>
                   </div>
-               </div>
+                  <div className="text-[10px] text-center text-[#52525B] font-medium leading-tight mt-1">
+                    Playbooks<br/>
+                    CRM
+                  </div>
+                </div>
+
+                {/* Branch 3 - HR/Eng */}
+                <div className="flex flex-col items-center gap-2 opacity-50">
+                  <div className="bg-white border border-[#E4E4E7] px-4 py-3 rounded-lg flex flex-col items-center">
+                    <span className="text-sm font-semibold text-[#09090B]">Ops/HR</span>
+                  </div>
+                  <div className="text-[10px] text-center text-[#52525B] font-medium leading-tight mt-1">
+                    Onboarding<br/>
+                    SOPs
+                  </div>
+                </div>
+
+              </div>
+              
+              <div className="absolute bottom-6 left-0 right-0 text-center text-xs font-semibold uppercase tracking-widest text-[#A1A1AA]">
+                Start here. Expand everywhere.
+              </div>
             </div>
           </motion.div>
 
-          {/* Right Side (Copy & CTA) */}
+          {/* Right Side (Copy) */}
           <motion.div
             className="flex flex-col gap-6"
             initial={{ opacity: 0, x: 20 }}
@@ -49,27 +87,22 @@ export function ArchitectureSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="flex items-center gap-2 text-sm font-semibold text-[#09090B] uppercase tracking-wide">
-              <Database className="h-4 w-4" /> Omnichannel
+              <Network className="h-4 w-4 text-[#D35A3C]" /> Operational Memory
             </div>
             
             <h2 className="text-5xl font-medium tracking-tight text-[#09090B] leading-[1.1]">
-              Support customers <br/> <span className="text-[#A1A1AA]">anywhere.</span>
+              Built for more than <br/> <span className="text-[#A1A1AA]">one workflow.</span>
             </h2>
             
             <p className="text-lg text-[#52525B] max-w-md">
-              Bring every customer conversation — Slack, Teams, Email, Chat, Teams, Discord and more — into a single view.
+              We continuously maintain your company's operational memory so people and AI agents always work from the latest trusted context.
             </p>
 
-            <div className="mt-4">
-              <button className="bg-[#6366F1] text-white px-8 py-4 font-semibold tracking-wide hover:bg-[#4F46E5] transition-colors rounded-none">
-                Learn about Omnichannel Support
-              </button>
-            </div>
-
-            <div className="mt-8 text-sm text-[#52525B] leading-relaxed max-w-sm">
-              Manage <span className="font-semibold underline">Slack Connect and Community</span> channels in Pylon<br/>
-              Support <span className="font-semibold underline">Microsoft Teams</span> users without switching apps<br/>
-              Track all <span className="font-semibold underline">Discord</span> conversations and forums in one place
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-[#09090B] mb-2">Support operations is the first wedge.</h3>
+              <p className="text-[#52525B] leading-relaxed">
+                We start with support because that is where stale knowledge, contradictory guidance, and escalation mistakes become expensive quickly. Solve support first. Expand everywhere else.
+              </p>
             </div>
           </motion.div>
 
