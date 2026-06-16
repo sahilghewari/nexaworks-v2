@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Plus } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Case Studies | Real ROI and Impact",
+  description: "See how forward-thinking teams are using CompanyBrain to turn scattered knowledge into deterministic resolutions and eliminate support hallucinations.",
+};
 
 const caseStudies = [
   {

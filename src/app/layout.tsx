@@ -34,7 +34,10 @@ const VERCEL_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "NexaWorks | The Company Brain for Modern Teams",
+  title: {
+    default: "NexaWorks | The Company Brain for Modern Teams",
+    template: "%s | NexaWorks",
+  },
   description:
     "NexaWorks turns scattered company knowledge across Slack, Notion, SOPs, tickets, and internal tools into one trusted operational layer. Start with support operations.",
   keywords: ["Company Brain", "Operational Memory", "AI Support", "Support Operations", "Knowledge Management", "Autonomous Agents"],
@@ -53,7 +56,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    siteName: "CompanyBrain",
+    siteName: "NexaWorks",
     title: "NexaWorks | The Company Brain for Modern Teams",
     description:
       "NexaWorks turns scattered company knowledge across Slack, Notion, SOPs, tickets, and internal tools into one trusted operational layer. Start with support operations.",
@@ -62,7 +65,7 @@ export const metadata: Metadata = {
         url: `${siteConfig.url}/nexaworks-logo-dark.svg`,
         width: 1200,
         height: 630,
-        alt: "CompanyBrain by NexaWorks",
+        alt: "NexaWorks Company Brain",
       },
     ],
   },

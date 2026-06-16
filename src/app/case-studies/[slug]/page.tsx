@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Clock, Zap, Users } from "lucide-react";
 
-export default function CaseStudyLayout({
+export default async function CaseStudyLayout({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   // This is a template-style layout for individual case studies
   // In a real app, this would fetch data based on the slug
   
@@ -64,7 +65,7 @@ export default function CaseStudyLayout({
     }
   };
 
-  const data = studyData[params.slug] || studyData.sutrahr;
+  const data = studyData[slug] || studyData.sutrahr;
 
   return (
     <main className="bg-white min-h-screen pt-36 pb-24">

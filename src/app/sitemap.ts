@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next'
-
 import { siteConfig } from '@/lib/constants'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -8,11 +7,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   const staticPages = [
     '',
-    '/services',
     '/case-studies',
-    '/pipeline-audit',
-    '/process',
     '/blog',
+    '/contact',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -22,15 +19,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const dynamicRoutes: any[] = []
 
-  // Add Services
+  // Add Solutions
   try {
-    const { SERVICES } = await import('@/lib/services')
-    SERVICES.forEach((service) => {
+    const { SOLUTIONS } = await import('@/lib/solutions')
+    SOLUTIONS.forEach((solution) => {
       dynamicRoutes.push({
-        url: `${baseUrl}/services/${service.slug}`,
+        url: `${baseUrl}/solutions/${solution.slug}`,
         lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+      })
+    })
+  } catch (e) {}
+
+  // Add Comparisons
+  try {
+    const { COMPARISONS } = await import('@/lib/comparisons')
+    COMPARISONS.forEach((comparison) => {
+      dynamicRoutes.push({
+        url: `${baseUrl}/compare/${comparison.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
       })
     })
   } catch (e) {}

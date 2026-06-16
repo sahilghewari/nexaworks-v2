@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { ArrowRight, Clock, Tag, ChevronRight } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Intelligence Hub | Support Ops & AI Engineering",
+  description: "Thoughts on Support Ops, AI engineering, and building the operational memory layer for high-growth teams.",
+};
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();
