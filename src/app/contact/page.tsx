@@ -55,10 +55,10 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-5xl md:text-6xl font-medium tracking-tight text-[#09090B] mb-8 leading-[1.05]">
-                Start your free <br /> <span className="text-[#D35A3C]">Support Ops Pilot.</span>
+                Start a 30-day <br /> <span className="text-[#D35A3C]">Pilot.</span>
               </h1>
               <p className="text-xl text-[#52525B] leading-relaxed max-w-lg mb-12">
-                Join the next generation of support teams using operational memory to deliver perfect, automated resolutions.
+                Join the next generation of teams using operational memory to deliver perfect, automated resolutions.
               </p>
               
               <div className="space-y-10 mt-12">
@@ -103,7 +103,7 @@ export default function ContactPage() {
                     ))}
                   </div>
                   <p className="text-sm font-medium text-[#71717A]">
-                    Trusted by <span className="text-[#09090B] font-bold">50+ enterprise teams</span> <br /> across India and beyond.
+                    Built alongside <span className="text-[#09090B] font-bold">early-stage design partners</span> <br /> to ensure real business impact.
                   </p>
                 </div>
               </div>
@@ -214,7 +214,7 @@ export default function ContactPage() {
                 </button>
                 
                 <p className="text-center text-sm text-[#A1A1AA] mt-2">
-                  No credit card required. 14-day free pilot.
+                  No credit card required. Full onboarding included.
                 </p>
               </form>
             )}

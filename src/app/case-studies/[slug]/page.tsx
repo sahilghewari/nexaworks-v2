@@ -13,53 +13,53 @@ export default function CaseStudyLayout({
     sutrahr: {
       company: "SutraHR",
       title: "Scaling Technical Support for India's Leading HR Tech Firm",
-      metric: "90%",
-      metricLabel: "Reduction in FRT",
+      metric: "Reduced FRT",
+      metricLabel: "Performance Lift",
       challenge: "With thousands of active recruiters using their platform, SutraHR's support team was overwhelmed by repetitive technical queries that required digging through legacy documentation and Slack history.",
       solution: "CompanyBrain indexed their entire knowledge base, internal Slack channels, and past ticket resolutions to provide agents with instant, grounded context for every new inquiry.",
       results: [
-        "First Response Time dropped from 35 minutes to under 4 minutes.",
-        "60% of tier-1 queries are now resolved without human intervention.",
-        "Agent onboarding time reduced by 4 weeks using CompanyBrain as a learning layer."
+        "First Response Time dropped significantly across all technical tiers.",
+        "A large portion of tier-1 queries are now resolved instantly with verified memory.",
+        "Agent onboarding time reduced remarkably using CompanyBrain as a learning layer."
       ]
     },
     epischoler: {
       company: "Epischoler",
       title: "Eliminating Hallucinations in Educational Support",
-      metric: "60%",
-      metricLabel: "Faster Resolution",
+      metric: "Faster Resolution",
+      metricLabel: "Operational Impact",
       challenge: "In the educational sector, accuracy is non-negotiable. Epischoler needed a system that could handle complex student queries about course materials without ever providing false information.",
-      solution: "We implemented CompanyBrain's deterministic retrieval layer, ensuring that AI agents only respond when they have 100% confidence based on verified academic documentation.",
+      solution: "We implemented CompanyBrain's deterministic retrieval layer, ensuring that AI agents only respond when they have absolute confidence based on verified academic documentation.",
       results: [
         "Zero reported hallucinations since implementation.",
-        "40% increase in student satisfaction scores (CSAT).",
-        "Unified support across WhatsApp, Email, and Web Portal."
+        "Noticeable increase in student satisfaction scores (CSAT).",
+        "Unified support context across WhatsApp, Email, and Web Portal."
       ]
     },
     "magic-ai": {
       company: "Magic AI",
-      title: "Handling 8x Support Volume During Viral Growth",
-      metric: "8x",
-      metricLabel: "Capacity Increase",
-      challenge: "As Magic AI's user base exploded, their support volume grew 800% in a single month, threatening to bury their small team in a backlog of tickets.",
-      solution: "CompanyBrain acted as an automated first-responder, handling the initial surge of high-volume, repetitive queries while maintaining a 98% accuracy rate.",
+      title: "Handling Massive Support Volume During Viral Growth",
+      metric: "Scaled Capacity",
+      metricLabel: "Growth Management",
+      challenge: "As Magic AI's user base exploded, their support volume grew exponentially, threatening to bury their small team in a backlog of tickets.",
+      solution: "CompanyBrain acted as an automated first-responder, handling the initial surge of high-volume, repetitive queries while maintaining high accuracy.",
       results: [
-        "Maintained sub-5 minute response times during 8x volume spikes.",
-        "Saved over 400 human-hours per month on repetitive troubleshooting.",
-        "Scaled support capacity without doubling the headcount."
+        "Maintained fast response times during massive volume spikes.",
+        "Saved hundreds of human-hours per month on repetitive troubleshooting.",
+        "Scaled support capacity without needing to double the headcount."
       ]
     },
     zeroday: {
       company: "Zeroday",
       title: "Securing Knowledge for High-Stakes Cybersecurity Support",
-      metric: "Zero",
-      metricLabel: "Security Breaches",
-      challenge: "Zeroday provides high-stakes security services where knowledge is siloed across highly secure databases. Agents spent 40% of their time just trying to find the right security protocol.",
+      metric: "Strict Compliance",
+      metricLabel: "Security Standards",
+      challenge: "Zeroday provides high-stakes security services where knowledge is siloed across highly secure databases. Agents spent excessive time just trying to find the right security protocol.",
       solution: "CompanyBrain's secure indexing allowed Zeroday to create a unified, encrypted memory layer that provided agents with instant access to security protocols while maintaining strict data isolation.",
       results: [
         "Eliminated manual searching across siloed security databases.",
-        "Reduced mean-time-to-resolution (MTTR) by 55%.",
-        "100% compliance with strict enterprise data security standards."
+        "Significantly reduced mean-time-to-resolution (MTTR).",
+        "Total compliance with strict enterprise data security standards."
       ]
     }
   };

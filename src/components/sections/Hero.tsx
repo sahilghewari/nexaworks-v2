@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2, Check } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   const [email, setEmail] = useState("");
@@ -105,10 +106,33 @@ export function Hero() {
             {status === "error" && (
               <p className="absolute top-full mt-2 left-0 right-0 text-center text-xs text-red-600 font-medium">Something went wrong. Please try again.</p>
             )}
-            <p className="absolute top-full mt-6 left-0 right-0 text-center text-sm text-[#52525B] font-medium tracking-wide">
+            <p className="absolute top-full mt-6 left-0 right-0 text-center text-sm text-[#52525B] font-medium tracking-wide mb-16">
               Built for growing B2B SaaS and AI teams
             </p>
           </form>
+
+          {/* Product Proof Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="w-full max-w-5xl mx-auto mt-24 rounded-2xl border border-[#E4E4E7] shadow-2xl overflow-hidden bg-white/50 backdrop-blur-sm"
+          >
+            <div className="flex items-center gap-1.5 px-4 py-3 bg-[#FAFAFA] border-b border-[#E4E4E7]">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#E4E4E7]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#E4E4E7]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#E4E4E7]" />
+            </div>
+            <Image
+              src="/images/hero-dashboard.png"
+              alt="Knowledge Drift Alerts Dashboard"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </motion.div>
+
         </motion.div>
       </div>
     </section>

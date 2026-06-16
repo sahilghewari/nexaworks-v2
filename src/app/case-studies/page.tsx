@@ -6,8 +6,8 @@ const caseStudies = [
   {
     slug: "sutrahr",
     company: "SutraHR",
-    metric: "90%",
-    description: "decrease in First Response Time, from 35 minutes to < 3.5 minutes",
+    metric: "Reduced FRT",
+    description: "by instantly surfacing answers from legacy docs and Slack history.",
     bgColor: "bg-[#F8FAFC]",
     textColor: "text-[#09090B]",
     borderColor: "border-[#E4E4E7]",
@@ -16,8 +16,8 @@ const caseStudies = [
   {
     slug: "epischoler",
     company: "Epischoler",
-    metric: "60%",
-    description: "reduction in ticket resolution time across all support channels",
+    metric: "Faster Resolution",
+    description: "across all support channels using a unified, deterministic memory layer.",
     bgColor: "bg-[#09090B]",
     textColor: "text-white",
     borderColor: "border-transparent",
@@ -26,8 +26,8 @@ const caseStudies = [
   {
     slug: "magic-ai",
     company: "Magic AI",
-    metric: "8x",
-    description: "faster resolution time, despite 76% more ticket volume during peak hours",
+    metric: "Scaled Capacity",
+    description: "handling major volume spikes without needing to double the support headcount.",
     bgColor: "bg-[#F8FAFC]",
     textColor: "text-[#09090B]",
     borderColor: "border-[#E4E4E7]",
@@ -36,8 +36,8 @@ const caseStudies = [
   {
     slug: "zeroday",
     company: "Zeroday",
-    metric: "Zero",
-    description: "hallucinations reported since grounding AI agents in CompanyBrain memory",
+    metric: "Strict Compliance",
+    description: "maintained while securely indexing highly isolated, encrypted data.",
     bgColor: "bg-[#F8FAFC]",
     textColor: "text-[#09090B]",
     borderColor: "border-[#E4E4E7]",
@@ -73,7 +73,7 @@ export default function CaseStudiesIndexPage() {
               </div>
               
               <div className="mt-12">
-                <div className={`text-8xl font-medium tracking-tighter ${study.accentColor} mb-6`}>
+                <div className={`text-4xl md:text-5xl font-medium tracking-tight ${study.accentColor} mb-6`}>
                   {study.metric}
                 </div>
                 <div className={`text-xl font-medium leading-relaxed mb-8 ${study.textColor === 'text-white' ? 'text-white/90' : 'text-[#52525B]'}`}>

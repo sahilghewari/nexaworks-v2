@@ -15,7 +15,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-6 text-sm text-[#A1A1AA] leading-relaxed max-w-xs">
-              Automate your support, resolve issues instantly, and turn scattered knowledge into deterministic resolutions.
+              NexaWorks — the Company Brain for modern teams.
             </p>
           </div>
 

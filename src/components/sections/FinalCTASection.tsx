@@ -11,10 +11,10 @@ export function FinalCTASection() {
     <section className="bg-white py-32 border-t border-[#E4E4E7]">
       <div className="container mx-auto max-w-4xl px-6 text-center">
         <h2 className="text-5xl font-medium tracking-tight text-[#09090B]">
-          Ready to automate your support?
+          Turn scattered knowledge into one current source of truth
         </h2>
         <p className="mt-6 text-xl text-[#52525B] max-w-2xl mx-auto">
-          Stop wasting time on repetitive tickets. Let our AI handle the volume while your team focuses on solving complex customer problems.
+          NexaWorks helps growing teams keep knowledge fresh, trustworthy, and usable across support, operations, and the rest of the company.
         </p>
 
         <div className="mt-10 flex items-center justify-center gap-4">

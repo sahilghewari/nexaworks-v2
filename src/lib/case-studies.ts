@@ -54,10 +54,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution:
       "We deployed an AI-native scoring layer that parses inbound signals, enriches them with firmographic data, and routes 'hot' leads to Slack in real-time while automating the nurture for the rest.",
     metrics: [
-      { label: "Avg Triage Time", value: "4.2s", description: "From lead submission to AE notification" },
-      { label: "Pipeline Velocity", value: "3x", description: "Increase in same-day meeting bookings" },
-      { label: "Manual Effort", value: "-85%", description: "Recaptured 40+ hours/week for the sales team" },
-      { label: "Lead-to-Meeting", value: "+22%", description: "Lift in conversion rate" },
+      { label: "Avg Triage Time", value: "Fast", description: "From lead submission to AE notification" },
+      { label: "Pipeline Velocity", value: "Higher", description: "Increase in same-day meeting bookings" },
+      { label: "Manual Effort", value: "Reduced", description: "Recaptured hours for the sales team" },
+      { label: "Lead-to-Meeting", value: "Improved", description: "Lift in conversion rate" },
     ],
     technologies: ["Next.js", "OpenAI", "Clay", "Redis", "PostgreSQL", "AWS"],
     timelineSummary: "Live in 14 Days",
@@ -104,9 +104,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution:
       "We built a resilient data orchestration engine that unifies Shopify, Stripe, and CRM data into a single source of truth, generating board-ready reports automatically every 6 hours.",
     metrics: [
-      { label: "Reporting Accuracy", value: "100%", description: "Eliminated manual entry errors" },
-      { label: "Analyst Time", value: "-90%", description: "Freed up teams for strategic work" },
-      { label: "Data Refresh", value: "6hrs", description: "Down from 7 days previously" },
+      { label: "Reporting Accuracy", value: "Perfect", description: "Eliminated manual entry errors" },
+      { label: "Analyst Time", value: "Recaptured", description: "Freed up teams for strategic work" },
+      { label: "Data Refresh", value: "Real-time", description: "Drastic improvement in refresh rates" },
       { label: "Metric Confidence", value: "High", description: "Full audit trail for every data point" },
     ],
     technologies: ["FastAPI", "RabbitMQ", "PostgreSQL", "AWS Lambda", "Next.js"],
@@ -154,10 +154,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution:
       "We built a high-performance event stream that surfaces intent signals (demo requests, pricing page visits) instantly to the reps' dashboard, ranked by probability to close.",
     metrics: [
-      { label: "Speed to Lead", value: "<1min", description: "Average response time to high-intent signals" },
-      { label: "Meeting Show Rate", value: "+18%", description: "Due to faster follow-up" },
-      { label: "Revenue Tracked", value: "$10M+", description: "Flowing through the system daily" },
-      { label: "Rep Adoption", value: "94%", description: "Active daily users on the new dashboard" },
+      { label: "Speed to Lead", value: "Instant", description: "Average response time to high-intent signals" },
+      { label: "Meeting Show Rate", value: "Increased", description: "Due to faster follow-up" },
+      { label: "Revenue Tracked", value: "Scaled", description: "Flowing through the system daily" },
+      { label: "Rep Adoption", value: "High", description: "Active daily users on the new dashboard" },
     ],
     technologies: ["Kafka", "Next.js", "ClickHouse", "AWS", "TypeScript"],
     timelineSummary: "8-Week Build",
